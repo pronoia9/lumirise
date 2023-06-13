@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/GlobalStyles';
 import { getSystemTheme, getTheme, systemThemeChangeHandler } from './utils/utils';
 
-const App = () => {
+export default function App() {
   const [theme, setTheme] = useState(getSystemTheme());
 
   // EVENT LISTENER FOR SYSTEM THEME CHANGE
@@ -20,5 +20,3 @@ const App = () => {
     </ThemeProvider>
   );
 };
-
-export default App;
