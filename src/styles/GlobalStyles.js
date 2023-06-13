@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: ${(props) => props.theme.background};
     color: ${(props) => props.theme.font};
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
   }
 `;
 

@@ -5,8 +5,8 @@ const darkTheme = {
 };
 
 const lightTheme = {
-  background: '#000000',
-  font: '#ffffff',
+  background: '#eaeaea',
+  font: '#222831',
   accent: '#29a587',
 };
 
