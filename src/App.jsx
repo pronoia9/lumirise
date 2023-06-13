@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, styled } from 'styled-components';
 
+import { Header } from './components';
 import GlobalStyles from './styles/GlobalStyles';
 import { getSystemTheme, getTheme, systemThemeChangeHandler } from './utils/utils';
 
@@ -17,6 +18,15 @@ export default function App() {
   return (
     <ThemeProvider theme={getTheme(theme)}>
       <GlobalStyles />
+      <Container>
+        <Header />
+      </Container>
     </ThemeProvider>
   );
 };
+
+const Container = styled.div`
+  position: relative;
+  overflow: hidden;
+  min-height: 50vh;
+`;
