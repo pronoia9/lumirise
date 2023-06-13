@@ -1,5 +1,5 @@
-import Header from './Header';
 import Footer from './Footer';
+import Navbar from './Navbar';
 import Preloader from './Preloader';
 
-export { Footer, Header, Preloader };
+export { Footer, Navbar, Preloader };

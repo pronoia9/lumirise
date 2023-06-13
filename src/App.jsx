@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider, styled } from 'styled-components';
 
-import { Header } from './components';
+import { Navbar } from './components';
 import GlobalStyles from './styles/GlobalStyles';
 import { getSystemTheme, getTheme, systemThemeChangeHandler } from './utils/utils';
 
@@ -19,7 +19,7 @@ export default function App() {
     <ThemeProvider theme={getTheme(theme)}>
       <GlobalStyles />
       <Container>
-        <Header />
+        <Navbar />
       </Container>
     </ThemeProvider>
   );
