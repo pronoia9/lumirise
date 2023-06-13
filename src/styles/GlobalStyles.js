@@ -3,6 +3,21 @@ import { createGlobalStyle } from 'styled-components';
 import { reset } from './Reset';
 
 const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: 'Caveat';
+    src: url('/public/fonts/Caveat/Caveat-VariableFont_wght.ttf');
+  }
+
+  @font-face {
+    font-family: 'Caveat Brush';
+    src: url('/public/fonts/Caveat_Brush/CaveatBrush-Regular.ttf');
+  }
+
+  @font-face {
+    font-family: 'Jost';
+    src: url('/public/fonts/Jost/Jost-VariableFont_wght.ttf');
+  }
+
   ${reset}
 
   * {
