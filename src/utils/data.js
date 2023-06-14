@@ -7,8 +7,9 @@ export const sidebarData = {
     { title: 'Contact', link: '/contact' },
   ],
   socials: [
-    { title: 'GitHub', link: 'https://github.com/pronoia9', icon: '' },
-    { title: 'Facebook', link: 'https://www.facebook.com/victoriouswaffles', icon: '' },
-    { title: 'Twitter', link: null, icon: '', tooltip: 'pronoia9' },
+    { title: 'GitHub', link: 'https://github.com/pronoia9' },
+    { title: 'Facebook', link: 'https://www.facebook.com/victoriouswaffles' },
+    { title: 'LinkedIn', link: 'https://www.linkedin.com/in/jayansin/' },
+    // { title: 'Discord', link: null, tooltip: 'pronoia9' },
   ],
 };
