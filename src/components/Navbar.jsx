@@ -45,9 +45,9 @@ export default function Navbar({ theme, setTheme }) {
           {/* Links */}
           <Links variants={sidebarLinksMotion}>
             {sidebarData.links.map(({ title, link }) => (
-              <LinksItem key={`link-${title}`} variants={sidebarLinkItemMotion} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+              <motion.li key={`link-${title}`} variants={sidebarLinkItemMotion} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                 <Link to='/'>{title}</Link>
-              </LinksItem>
+              </motion.li>
             ))}
           </Links>
 
@@ -192,17 +192,24 @@ const Links = styled(motion.ul)`
   flex-direction: column;
   list-style: none;
   gap: 1.5rem;
-`;
 
-const LinksItem = styled(motion.li)`
-  a {
-    font-family: 'Jost';
-    font-weight: 700;
-    font-size: 1.4rem;
-    line-height: 1;
-    color: ${({ theme }) => theme.font};
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+  li {
+    align-self: flex-start;
+
+    a {
+      font-family: 'Jost';
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: ${({ theme }) => theme.font};
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      
+      &:hover {
+        color: ${({ theme }) => theme.accent};
+      }
+    }
   }
 `;
 
