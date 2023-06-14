@@ -57,7 +57,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.background};
+    min-width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(0deg, ${({ theme }) => theme.background2} 0%, ${({ theme }) => theme.background} 100%);
     color: ${({ theme }) => theme.font};
     transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
   }

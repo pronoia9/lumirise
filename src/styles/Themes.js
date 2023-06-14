@@ -3,7 +3,7 @@ const darkTheme = {
   background2: '#31363c',
   font: '#eaeaea',
   accent: '#29a587',
-
+  // Line
   lineBackground: '#1d222a',
   lineBorder: '#a3a5a7',
   lineShadow: '5px 5px rgb(255 255 255 / 10%)',
@@ -11,11 +11,11 @@ const darkTheme = {
 };
 
 const lightTheme = {
-  background: '#eaeaea',
+  background: '#F0EBE3',
   background2: '#ffffff',
   font: '#222831',
   accent: '#29a587',
-
+  // Line
   lineBackground: '#ffffff',
   lineBorder: '#000000',
   lineShadow: '5px 5px rgb(0 0 0 / 20%)',
@@ -23,10 +23,6 @@ const lightTheme = {
 
 export { darkTheme, lightTheme };
 
-`
-#ffffff
-#a3a5a7
-#1d222a
-#777777
-#31363c
-`;
+// #ffffff
+// #1d222a
+// #777777
