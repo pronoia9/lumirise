@@ -53,3 +53,20 @@ export const sidebarLinkItemMotion = {
     },
   },
 };
+
+export const sidebarSocialItemMotion = {
+  open: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      scale: { stiffness: 1000, velocity: -100 },
+    },
+  },
+  closed: {
+    scale: 0,
+    opacity: 0,
+    transition: {
+      scale: { stiffness: 1000 },
+    },
+  },
+};
