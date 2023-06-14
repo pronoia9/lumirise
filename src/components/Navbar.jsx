@@ -1,20 +1,19 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { keyframes, styled } from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { logo } from '../assets';
 import { CloseSVG, HamburgerSVG, MoonSVG, SunSVG } from './SVGs';
-import { Link } from 'react-router-dom';
+import { sideMenuData } from '../utils/data';
+import { sideMenuMotion } from '../utils/motion';
 import { isDarkTheme, toggleTheme } from '../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleThemeClick = () => {
-    toggleTheme(setTheme);
-  };
-  const handleMenuClick = () => {
-    setMenuOpen((prev) => !prev);
-  };
+  const handleThemeClick = () => { toggleTheme(setTheme); };
+  const handleMenuClick = () => { setMenuOpen((prev) => !prev); };
 
   return (
     <>
@@ -36,7 +35,7 @@ export default function Navbar({ theme, setTheme }) {
       </Container>
 
       {/* Menu */}
-      {menuOpen && <Menu key={`menu-${menuOpen}`} open={menuOpen}></Menu>}
+      {menuOpen && <Menu key={`menu-${menuOpen}`} {...sideMenuMotion(menuOpen)} open={menuOpen}></Menu>}
     </>
   );
 }
@@ -100,14 +99,14 @@ const Icons = styled.div`
   }
 `;
 
-const Menu = styled.div`
+const Menu = styled(motion.div)`
   position: fixed;
   /* right: -612px; */
   top: 0;
   right: 0;
   width: 512px;
   height: 100%;
-  transition: all 1s cubic-bezier(0.3, 0, 0.3, 1);
-  z-index: 2;
   background: ${({ theme }) => theme.background2};
+  z-index: 2;
+  /* transition: all 1s cubic-bezier(0.3, 0, 0.3, 1); */
 `;
