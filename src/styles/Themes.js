@@ -3,6 +3,11 @@ const darkTheme = {
   background2: '#31363c',
   font: '#eaeaea',
   accent: '#29a587',
+
+  lineBackground: '#1d222a',
+  lineBorder: '#a3a5a7',
+  lineShadow: '5px 5px rgb(255 255 255 / 10%)',
+  dotsInvert: '1',
 };
 
 const lightTheme = {
@@ -10,6 +15,11 @@ const lightTheme = {
   background2: '',
   font: '#222831',
   accent: '#29a587',
+
+  lineBackground: '#ffffff',
+  lineBorder: '#000000',
+  lineShadow: '5px 5px rgb(0 0 0 / 20%)',
+  dotsInvert: '0',
 };
 
 export { darkTheme, lightTheme };
