@@ -13,12 +13,8 @@ export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
 
-  const handleThemeClick = () => {
-    toggleTheme(setTheme);
-  };
-  const handleMenuClick = () => {
-    toggleOpen();
-  };
+  const handleThemeClick = () => { toggleTheme(setTheme); };
+  const handleMenuClick = () => { toggleOpen(); };
 
   return (
     <>
@@ -30,11 +26,10 @@ export default function Navbar({ theme, setTheme }) {
           </Link>
         </Logo>
 
-        {/* Right Side */}
         <Icons>
           {/* Theme Button */}
           {!isOpen && <div onClick={handleThemeClick}>{isDarkTheme(theme) ? <MoonSVG /> : <SunSVG />}</div>}
-          {/* Menu Open Button */}
+          {/* Menu Open/Close Button */}
           <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
             <SidebarButton />
           </motion.div>
@@ -44,7 +39,7 @@ export default function Navbar({ theme, setTheme }) {
       {/* Sidebar Menu */}
       <SidebarMenu initial={false} animate={isOpen ? 'open' : 'closed'}>
         <SidebarContainer>
-          {/* Line */}
+          {/* Line + Dots */}
           <SidebarLine>
             <SidebarDots />
           </SidebarLine>
@@ -67,14 +62,6 @@ export default function Navbar({ theme, setTheme }) {
           </SidebarWrapper>
         </SidebarContainer>
         <SidebarBackground variants={sidebarBackgroundMotion} />
-        {/* <PREVSidebarMenu variants={sidebarMenuMotion}>
-          {[0, 1, 2, 3, 4].map((i) => (
-            <motion.p variants={sidebarMenuItemMotion} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <div style={{ border: `2px solid ${['#FF008C', '#D309E1', '#9C1AFF', '#7700FF', '#4400FF'][i]}` }} />
-              <div style={{ border: `2px solid ${['#FF008C', '#D309E1', '#9C1AFF', '#7700FF', '#4400FF'][i]}` }} />
-            </motion.p>
-          ))}
-        </PREVSidebarMenu> */}
       </SidebarMenu>
     </>
   );
@@ -194,8 +181,7 @@ const SidebarLine = styled.div`
   isolation: isolate;
   z-index: 2;
 
-  &::before,
-  &::after {
+  &::before, &::after {
     content: '';
     position: absolute;
     left: -1rem;
@@ -206,12 +192,8 @@ const SidebarLine = styled.div`
     border: 2px solid ${({ theme }) => theme.lineBorder};
     box-shadow: ${({ theme }) => theme.lineShadow};
   }
-  &:before {
-    top: -1rem;
-  }
-  &:after {
-    bottom: -1rem;
-  }
+  &:before { top: -1rem; }
+  &:after { bottom: -1rem; }
 `;
 
 const SidebarDots = styled.div`
