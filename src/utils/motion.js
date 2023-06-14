@@ -28,7 +28,7 @@ export const sidebarBackgroundMotion = {
   },
 };
 
-export const sidebarMenuMotion = {
+export const sidebarLinksMotion = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
   },
@@ -37,7 +37,7 @@ export const sidebarMenuMotion = {
   },
 };
 
-export const sidebarMenuItemMotion = {
+export const sidebarLinkItemMotion = {
   open: {
     y: 0,
     opacity: 1,

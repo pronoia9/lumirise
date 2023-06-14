@@ -5,7 +5,7 @@ import { motion, useCycle } from 'framer-motion';
 import { logo } from '../assets';
 import { MoonSVG, SunSVG, SidebarButton } from './SVGs';
 import { sidebarData } from '../utils/data';
-import { sidebarBackgroundMotion, sidebarMenuItemMotion, sidebarMenuMotion } from '../utils/motion';
+import { sidebarBackgroundMotion, sidebarLinksMotion, sidebarLinkItemMotion } from '../utils/motion';
 import { isDarkTheme, toggleTheme } from '../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
@@ -43,18 +43,16 @@ export default function Navbar({ theme, setTheme }) {
           </SidebarLine>
 
           {/* Links */}
-          <Links>
+          <Links variants={sidebarLinksMotion}>
             {sidebarData.links.map((link, index) => (
-              <>
+              <LinksItem variants={sidebarLinkItemMotion} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                 <Link to='/'>{link.title}</Link>
-              </>
+              </LinksItem>
             ))}
           </Links>
           {/* Socials */}
           <Socials>
-            {sidebarData.socials.map((social, index) => (
-              <>O</>
-            ))}
+            {sidebarData.socials.map((social, index) => ('O'))}
           </Socials>
         </SidebarContainer>
         <SidebarBackground variants={sidebarBackgroundMotion} />
@@ -184,15 +182,19 @@ const SidebarDots = styled.div`
   z-index: -1;
 `;
 
-const Links = styled.div`
+const Links = styled(motion.ul)`
   display: flex;
   flex-direction: column;
 `;
 
-const Socials = styled.div`
+const LinksItem = styled(motion.li)``;
+
+const Socials = styled(motion.ul)`
   display: flex;
   flex-direction: row;
-`;
+  `;
+
+const SocialsItem = styled(motion.li)``;
 
 const SidebarBackground = styled(motion.div)`
   position: absolute;
