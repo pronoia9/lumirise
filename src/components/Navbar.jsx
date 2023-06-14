@@ -1,4 +1,3 @@
-import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { keyframes, styled } from 'styled-components';
 import { motion, useCycle } from 'framer-motion';
@@ -11,7 +10,6 @@ import { isDarkTheme, toggleTheme } from '../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const containerRef = useRef(null);
 
   const handleThemeClick = () => { toggleTheme(setTheme); };
   const handleMenuClick = () => { toggleOpen(); };
@@ -44,22 +42,20 @@ export default function Navbar({ theme, setTheme }) {
             <SidebarDots />
           </SidebarLine>
 
-          <SidebarWrapper>
-            {/* Links */}
-            <Links>
-              {sidebarData.links.map((link, index) => (
-                <>
-                  <Link to='/'>{link.title}</Link>
-                </>
-              ))}
-            </Links>
-            {/* Socials */}
-            <Socials>
-              {sidebarData.socials.map((social, index) => (
-                <>O</>
-              ))}
-            </Socials>
-          </SidebarWrapper>
+          {/* Links */}
+          <Links>
+            {sidebarData.links.map((link, index) => (
+              <>
+                <Link to='/'>{link.title}</Link>
+              </>
+            ))}
+          </Links>
+          {/* Socials */}
+          <Socials>
+            {sidebarData.socials.map((social, index) => (
+              <>O</>
+            ))}
+          </Socials>
         </SidebarContainer>
         <SidebarBackground variants={sidebarBackgroundMotion} />
       </SidebarMenu>
@@ -139,43 +135,21 @@ const SidebarMenu = styled(motion.nav)`
 `;
 
 const SidebarContainer = styled(motion.div)`
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  -webkit-overflow-scrolling: touch;
-  overflow: auto; */
   position: relative;
   width: 100%;
   margin: auto;
   padding: 0 1.5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  padding-left: 25%;
   z-index: 1;
 
-  background-color: green;
-`;
-
-const SidebarWrapper = styled(motion.div)``;
-
-const Links = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Socials = styled.div`
-  display: flex;
-  flex-direction: row;
+  background-color: navy;
 `;
 
 const SidebarLine = styled.div`
-  position: relative;
-  left: 7.5%;
+  position: absolute;
+  left: 10%;
   width: 2px;
+  height: 100%;
   background: ${({ theme }) => theme.lineBorder};
   pointer-events: none;
   isolation: isolate;
@@ -208,6 +182,16 @@ const SidebarDots = styled.div`
   filter: invert(${({ theme }) => theme.imageInvert});
   opacity: 0.6;
   z-index: -1;
+`;
+
+const Links = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Socials = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 const SidebarBackground = styled(motion.div)`
