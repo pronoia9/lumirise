@@ -11,23 +11,33 @@ import { toggleTheme } from '../utils/utils';
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
 
-  const handleThemeClick = () => { toggleTheme(setTheme); };
-  const handleMenuClick = () => { toggleOpen(); };
+  const handleThemeClick = () => {
+    toggleTheme(setTheme);
+  };
+  const handleMenuClick = () => {
+    toggleOpen();
+  };
 
   return (
     <>
       <Container>
         {/* Logo */}
         <Logo open={isOpen}>
-          <Link to='/'><img src={logo} /></Link>
+          <Link to='/'>
+            <img src={logo} />
+          </Link>
         </Logo>
 
         <Icons>
           {/* Theme Button */}
-          {!isOpen && (<div onClick={handleThemeClick}><ThemeSVGs theme={theme} /></div>)}
+          {!isOpen && (
+            <div onClick={handleThemeClick}>
+              <ThemeSVGs theme={theme} />
+            </div>
+          )}
           {/* Menu Open/Close Button */}
           <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
-            <SidebarButton />
+            <SidebarButton variants={sidebarMotion.menu} />
           </motion.div>
         </Icons>
       </Container>
@@ -159,7 +169,8 @@ const SidebarLine = styled(motion.div)`
   isolation: isolate;
   z-index: 2;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     left: -1rem;
@@ -170,8 +181,12 @@ const SidebarLine = styled(motion.div)`
     border: 2px solid ${({ theme }) => theme.lineBorder};
     box-shadow: ${({ theme }) => theme.lineShadow};
   }
-  &:before { top: -1rem; }
-  &:after { bottom: -1rem; }
+  &:before {
+    top: -1rem;
+  }
+  &:after {
+    bottom: -1rem;
+  }
 `;
 
 const SidebarDots = styled(motion.div)`
@@ -219,16 +234,21 @@ const Socials = styled(motion.div)`
   flex-direction: row;
   gap: 1.5rem;
 
-  svg {
-    fill: ${({ theme }) => theme.font};
-    stroke: ${({ theme }) => theme.font};
+  p {
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
-  }
 
-  svg:hover {
-    fill: ${({ theme }) => theme.accent};
+    svg {
+      width: 100%;
+      height: auto;
+      fill: ${({ theme }) => theme.font};
+      stroke: ${({ theme }) => theme.font};
+    }
+
+    :hover {
+      fill: ${({ theme }) => theme.accent};
+    }
   }
 `;
 
