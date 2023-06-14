@@ -55,8 +55,7 @@ const Container = styled.header`
 `;
 
 const Logo = styled.div`
-  margin-right: 30px;
-  width: 121px;
+  max-width: 121px;
 
   a {
     display: flex;
