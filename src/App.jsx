@@ -20,7 +20,7 @@ export default function App() {
     <ThemeProvider theme={getTheme(theme)}>
       <GlobalStyles />
       <Container>
-        <Navbar />
+        <Navbar theme={theme} />
         <Hero />
         <Skills />
         <Works />
