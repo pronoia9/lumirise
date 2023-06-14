@@ -6,7 +6,7 @@ export const sidebarData = {
     { title: 'Resume', link: '/resume' },
     { title: 'Contact', link: '/contact' },
   ],
-  social: [
+  socials: [
     { title: 'GitHub', link: 'https://github.com/pronoia9', icon: '' },
     { title: 'Facebook', link: 'https://www.facebook.com/victoriouswaffles', icon: '' },
     { title: 'Twitter', link: null, icon: '', tooltip: 'pronoia9' },
