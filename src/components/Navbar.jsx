@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { keyframes, styled } from 'styled-components';
 
 import { logo } from '../assets';
-import { HamburgerSVG, MoonSVG, SunSVG } from './SVGs';
+import { CloseSVG, HamburgerSVG, MoonSVG, SunSVG } from './SVGs';
 import { Link } from 'react-router-dom';
 import { isDarkTheme, toggleTheme } from '../utils/utils';
 
@@ -29,16 +29,14 @@ export default function Navbar({ theme, setTheme }) {
         {/* Right Side */}
         <Icons>
           {/* Theme Button */}
-          <div onClick={handleThemeClick}>{isDarkTheme(theme) ? <MoonSVG /> : <SunSVG />}</div>
+          {!menuOpen && <div onClick={handleThemeClick}>{isDarkTheme(theme) ? <MoonSVG /> : <SunSVG />}</div>}
           {/* Menu Open Button */}
-          <div onClick={handleMenuClick}>
-            <HamburgerSVG />
-          </div>
+          <div onClick={handleMenuClick}>{!menuOpen ? <HamburgerSVG /> : <CloseSVG />}</div>
         </Icons>
       </Container>
 
       {/* Menu */}
-      {menuOpen && <Menu></Menu>}
+      {menuOpen && <Menu key={`menu-${menuOpen}`} open={menuOpen}></Menu>}
     </>
   );
 }
@@ -102,4 +100,14 @@ const Icons = styled.div`
   }
 `;
 
-const Menu = styled.div``;
+const Menu = styled.div`
+  position: fixed;
+  /* right: -612px; */
+  top: 0;
+  right: 0;
+  width: 512px;
+  height: 100%;
+  transition: all 1s cubic-bezier(0.3, 0, 0.3, 1);
+  z-index: 2;
+  background: ${({ theme }) => theme.background2};
+`;
