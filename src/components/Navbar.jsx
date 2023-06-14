@@ -102,7 +102,7 @@ const Logo = styled.div`
     transition: animation 0.3s cubic-bezier(0.3, 0, 0.3, 1);
     &:hover { animation: ${logoAnimation} 0.9s both ease-in-out; }
   }
-  
+
   img {
     height: auto;
     max-width: 100%; 
@@ -144,15 +144,13 @@ const SidebarContainer = styled(motion.div)`
   width: 100%;
   margin: auto;
   padding: 0 1.5rem;
-  padding-left: 33%;
+  padding-left: 40%;
   z-index: 1;
-
-  background-color: navy;
 `;
 
 const SidebarLine = styled(motion.div)`
   position: absolute;
-  left: 15%;
+  left: 20%;
   width: 2px;
   height: 100%;
   background: ${({ theme }) => theme.lineBorder};
@@ -192,9 +190,21 @@ const SidebarDots = styled(motion.div)`
 const Links = styled(motion.ul)`
   display: flex;
   flex-direction: column;
+  list-style: none;
+  gap: 1.5rem;
 `;
 
-const LinksItem = styled(motion.li)``;
+const LinksItem = styled(motion.li)`
+  a {
+    font-family: 'Jost';
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: ${({ theme }) => theme.font};
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+`;
 
 const Socials = styled(motion.div)`
   display: flex;
