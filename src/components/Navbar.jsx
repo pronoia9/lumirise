@@ -5,8 +5,8 @@ import { motion, useCycle } from 'framer-motion';
 import { logo } from '../assets';
 import { ThemeSVGs, SidebarButton, SocialSVGs } from './SVGs';
 import { sidebarData } from '../utils/data';
-import { sidebarBackgroundMotion, sidebarLinksMotion, sidebarLinkItemMotion, sidebarSocialItemMotion, sidebarSocialsMotion } from '../utils/motion';
-import { isDarkTheme, toggleTheme } from '../utils/utils';
+import { sidebarMotion } from '../utils/motion';
+import { toggleTheme } from '../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
@@ -19,14 +19,12 @@ export default function Navbar({ theme, setTheme }) {
       <Container>
         {/* Logo */}
         <Logo open={isOpen}>
-          <Link to='/'>
-            <img src={logo} />
-          </Link>
+          <Link to='/'><img src={logo} /></Link>
         </Logo>
 
         <Icons>
           {/* Theme Button */}
-          {!isOpen && <div onClick={handleThemeClick}><ThemeSVGs theme={theme} /></div>}
+          {!isOpen && (<div onClick={handleThemeClick}><ThemeSVGs theme={theme} /></div>)}
           {/* Menu Open/Close Button */}
           <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
             <SidebarButton />
@@ -43,26 +41,26 @@ export default function Navbar({ theme, setTheme }) {
           </SidebarLine>
 
           {/* Links */}
-          <Links variants={sidebarLinksMotion}>
+          <Links variants={sidebarMotion.links}>
             {sidebarData.links.map(({ title, link }) => (
-              <motion.li key={`link-${title}`} variants={sidebarLinkItemMotion} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+              <motion.li key={`link-${title}`} variants={sidebarMotion.linkItem} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                 <Link to='/'>{title}</Link>
               </motion.li>
             ))}
           </Links>
 
           {/* Socials */}
-          <Socials variants={sidebarSocialsMotion}>
+          <Socials variants={sidebarMotion.socials}>
             {sidebarData.socials.map(({ title, link }) => (
-              <SocialsItem key={`social-${title}`} variants={sidebarSocialItemMotion}>
+              <motion.p key={`social-${title}`} variants={sidebarMotion.socialItem}>
                 <Link to={link}>
                   <SocialSVGs social={title} />
                 </Link>
-              </SocialsItem>
+              </motion.p>
             ))}
           </Socials>
         </SidebarContainer>
-        <SidebarBackground variants={sidebarBackgroundMotion} />
+        <SidebarBackground variants={sidebarMotion.background} />
       </SidebarMenu>
     </>
   );
@@ -100,16 +98,20 @@ const Logo = styled.div`
     width: 100%;
     height: 50px;
     transition: animation 0.3s cubic-bezier(0.3, 0, 0.3, 1);
-    &:hover { animation: ${logoAnimation} 0.9s both ease-in-out; }
+    &:hover {
+      animation: ${logoAnimation} 0.9s both ease-in-out;
+    }
   }
 
   img {
     height: auto;
-    max-width: 100%; 
+    max-width: 100%;
     /* width: auto; */ /* height: 50px; */
   }
 
-  @media (max-width: 720px) { display: ${({open}) => open && 'none'} }
+  @media (max-width: 720px) {
+    display: ${({ open }) => open && 'none'};
+  }
 `;
 
 const Icons = styled.div`
@@ -136,7 +138,6 @@ const SidebarMenu = styled(motion.nav)`
   display: flex;
   overflow: hidden;
   pointer-events: ${({ open }) => (open ? 'all' : 'none')};
-  display: ${({ open }) => (open ? '' : 'none')};
 `;
 
 const SidebarContainer = styled(motion.div)`
@@ -205,7 +206,7 @@ const Links = styled(motion.ul)`
       letter-spacing: 0.05em;
       text-transform: uppercase;
       text-decoration: none;
-      
+
       &:hover {
         color: ${({ theme }) => theme.accent};
       }
@@ -217,15 +218,17 @@ const Socials = styled(motion.div)`
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
-`;
 
-const SocialsItem = styled(motion.p)`
   svg {
     fill: ${({ theme }) => theme.font};
     stroke: ${({ theme }) => theme.font};
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
+  }
+
+  svg:hover {
+    fill: ${({ theme }) => theme.accent};
   }
 `;
 
