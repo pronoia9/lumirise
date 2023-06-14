@@ -3,9 +3,9 @@ import { keyframes, styled } from 'styled-components';
 import { motion, useCycle } from 'framer-motion';
 
 import { logo } from '../assets';
-import { MoonSVG, SunSVG, SidebarButton } from './SVGs';
+import { ThemeSVGs, SidebarButton, SocialSVGs } from './SVGs';
 import { sidebarData } from '../utils/data';
-import { sidebarBackgroundMotion, sidebarLinksMotion, sidebarLinkItemMotion, sidebarSocialItemMotion } from '../utils/motion';
+import { sidebarBackgroundMotion, sidebarLinksMotion, sidebarLinkItemMotion, sidebarSocialItemMotion, sidebarSocialsMotion } from '../utils/motion';
 import { isDarkTheme, toggleTheme } from '../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
@@ -26,7 +26,7 @@ export default function Navbar({ theme, setTheme }) {
 
         <Icons>
           {/* Theme Button */}
-          {!isOpen && <div onClick={handleThemeClick}>{isDarkTheme(theme) ? <MoonSVG /> : <SunSVG />}</div>}
+          {!isOpen && <div onClick={handleThemeClick}><ThemeSVGs theme={theme} /></div>}
           {/* Menu Open/Close Button */}
           <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
             <SidebarButton />
@@ -44,17 +44,21 @@ export default function Navbar({ theme, setTheme }) {
 
           {/* Links */}
           <Links variants={sidebarLinksMotion}>
-            {sidebarData.links.map((link, index) => (
-              <LinksItem key={`link-${link.title}`} variants={sidebarLinkItemMotion} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                <Link to='/'>{link.title}</Link>
+            {sidebarData.links.map(({ title, link }) => (
+              <LinksItem key={`link-${title}`} variants={sidebarLinkItemMotion} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                <Link to='/'>{title}</Link>
               </LinksItem>
             ))}
           </Links>
 
           {/* Socials */}
-          <Socials variants={sidebarLinksMotion}>
-            {sidebarData.socials.map((social, index) => (
-              <SocialsItem key={`social-${social.title}`} variants={sidebarSocialItemMotion}>0</SocialsItem>
+          <Socials variants={sidebarSocialsMotion}>
+            {sidebarData.socials.map(({ title, link }) => (
+              <SocialsItem key={`social-${title}`} variants={sidebarSocialItemMotion}>
+                <Link to={link}>
+                  <SocialSVGs social={title} />
+                </Link>
+              </SocialsItem>
             ))}
           </Socials>
         </SidebarContainer>
@@ -150,7 +154,7 @@ const SidebarContainer = styled(motion.div)`
 
 const SidebarLine = styled(motion.div)`
   position: absolute;
-  left: 10%;
+  left: 15%;
   width: 2px;
   height: 100%;
   background: ${({ theme }) => theme.lineBorder};
@@ -158,8 +162,7 @@ const SidebarLine = styled(motion.div)`
   isolation: isolate;
   z-index: 2;
 
-  &::before,
-  &::after {
+  &::before, &::after {
     content: '';
     position: absolute;
     left: -1rem;
@@ -170,12 +173,8 @@ const SidebarLine = styled(motion.div)`
     border: 2px solid ${({ theme }) => theme.lineBorder};
     box-shadow: ${({ theme }) => theme.lineShadow};
   }
-  &:before {
-    top: -1rem;
-  }
-  &:after {
-    bottom: -1rem;
-  }
+  &:before { top: -1rem; }
+  &:after { bottom: -1rem; }
 `;
 
 const SidebarDots = styled(motion.div)`
@@ -202,9 +201,18 @@ const LinksItem = styled(motion.li)``;
 const Socials = styled(motion.div)`
   display: flex;
   flex-direction: row;
+  gap: 1.5rem;
 `;
 
-const SocialsItem = styled(motion.p)``;
+const SocialsItem = styled(motion.p)`
+  svg {
+    fill: ${({ theme }) => theme.font};
+    stroke: ${({ theme }) => theme.font};
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+  }
+`;
 
 const SidebarBackground = styled(motion.div)`
   position: absolute;
