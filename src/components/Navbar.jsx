@@ -18,7 +18,7 @@ export default function Navbar({ theme, setTheme }) {
     <>
       <Container>
         {/* Logo */}
-        <Logo>
+        <Logo open={isOpen}>
           <Link to='/'>
             <img src={logo} />
           </Link>
@@ -100,18 +100,16 @@ const Logo = styled.div`
     width: 100%;
     height: 50px;
     transition: animation 0.3s cubic-bezier(0.3, 0, 0.3, 1);
-
-    &:hover {
-      animation: ${logoAnimation} 0.9s both ease-in-out;
-    }
+    &:hover { animation: ${logoAnimation} 0.9s both ease-in-out; }
   }
-
+  
   img {
     height: auto;
-    max-width: 100%;
-    /* width: auto; */
-    /* height: 50px; */
+    max-width: 100%; 
+    /* width: auto; */ /* height: 50px; */
   }
+
+  @media (max-width: 720px) { display: ${({open}) => open && 'none'} }
 `;
 
 const Icons = styled.div`
@@ -146,7 +144,7 @@ const SidebarContainer = styled(motion.div)`
   width: 100%;
   margin: auto;
   padding: 0 1.5rem;
-  padding-left: 25%;
+  padding-left: 33%;
   z-index: 1;
 
   background-color: navy;
