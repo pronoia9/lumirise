@@ -2,35 +2,42 @@ import { useState } from 'react';
 import { styled } from 'styled-components';
 
 import { logo } from '../assets';
-import { MoonSVG, SunSVG } from './SVGs';
+import { HamburgerSVG, MoonSVG, SunSVG } from './SVGs';
 import { Link } from 'react-router-dom';
+import { isDarkTheme, toggleTheme } from '../utils/utils';
 
-export default function Navbar() {
+export default function Navbar({ theme, setTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  return (
-    <Container>
-      {/* Logo */}
-      <Logo>
-        <Link to='/'>
-          <img src={logo} />
-        </Link>
-      </Logo>
+  const handleThemeClick = () => { toggleTheme(setTheme); };
+  const handleMenuClick = () => { setMenuOpen((prev) => !prev); };
 
-      {/* Right Side */}
-      <div className='col-xs-8 col-sm-8 col-md-8 col-lg-8 align-right'>
-        {/* Theme Switcher */}
-        <a href='#' class='switcher-btn active'>
-          <span class='sw-before'>
-            <MoonSVG />
-          </span>
-          <span class='sw-after'>
-            <SunSVG />
-          </span>
-        </a>
-        {/* Menu */}
-      </div>
-    </Container>
+  return (
+    <>
+      <Container>
+        {/* Logo */}
+        <Logo>
+          <Link to='/'>
+            <img src={logo} />
+          </Link>
+        </Logo>
+
+        {/* Right Side */}
+        <Icons>
+          {/* Theme Button */}
+          <div onClick={handleThemeClick}>
+            {isDarkTheme(theme) ? <MoonSVG /> : <SunSVG />}
+          </div>
+          {/* Menu Open Button */}
+          <div onClick={handleMenuClick}>
+            <HamburgerSVG />
+          </div>
+        </Icons>
+      </Container>
+
+      {/* Menu */}
+      {menuOpen && <Menu></Menu>}
+    </>
   );
 }
 
@@ -67,3 +74,18 @@ const Logo = styled.div`
     transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
   }
 `;
+
+const Icons = styled.div`
+  height: 30px;
+  display: flex;
+  gap: 40px;
+
+  svg {
+    fill: ${({ theme }) => theme.font} !important;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+  }
+`;
+
+const Menu = styled.div``;
