@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { styled } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
 
 import { logo } from '../assets';
 import { HamburgerSVG, MoonSVG, SunSVG } from './SVGs';
@@ -43,6 +43,16 @@ export default function Navbar({ theme, setTheme }) {
   );
 }
 
+const logoAnimation = keyframes`
+  0%   { transform: scale3d(1, 1, 1); }
+  30%  { transform: scale3d(1.25, 0.75, 1); }
+  40%  { transform: scale3d(0.75, 1.25, 1); }
+  50%  { transform: scale3d(1.15, 0.85, 1); }
+  65%  { transform: scale3d(0.95, 1.05, 1); }
+  75%  { transform: scale3d(1.05, 0.95, 1); }
+  100% { transform: scale3d(1, 1, 1); }
+`;
+
 const Container = styled.header`
   position: absolute;
   top: 0;
@@ -65,6 +75,10 @@ const Logo = styled.div`
     align-items: center;
     width: 100%;
     height: 50px;
+
+    &:hover {
+      animation: ${logoAnimation} 0.9s both;
+    }
   }
 
   img {
