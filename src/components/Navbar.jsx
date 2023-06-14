@@ -9,8 +9,12 @@ import { isDarkTheme, toggleTheme } from '../utils/utils';
 export default function Navbar({ theme, setTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleThemeClick = () => { toggleTheme(setTheme); };
-  const handleMenuClick = () => { setMenuOpen((prev) => !prev); };
+  const handleThemeClick = () => {
+    toggleTheme(setTheme);
+  };
+  const handleMenuClick = () => {
+    setMenuOpen((prev) => !prev);
+  };
 
   return (
     <>
@@ -25,9 +29,7 @@ export default function Navbar({ theme, setTheme }) {
         {/* Right Side */}
         <Icons>
           {/* Theme Button */}
-          <div onClick={handleThemeClick}>
-            {isDarkTheme(theme) ? <MoonSVG /> : <SunSVG />}
-          </div>
+          <div onClick={handleThemeClick}>{isDarkTheme(theme) ? <MoonSVG /> : <SunSVG />}</div>
           {/* Menu Open Button */}
           <div onClick={handleMenuClick}>
             <HamburgerSVG />
@@ -70,7 +72,6 @@ const Logo = styled.div`
     max-width: 100%;
     /* width: auto; */
     /* height: 50px; */
-    transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
   }
 `;
 
