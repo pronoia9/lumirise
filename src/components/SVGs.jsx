@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 export const MoonSVG = () => (
   <svg width='384' height='448' viewBox='0 0 384 448' fill='none' xmlns='http://www.w3.org/2000/svg'>
     <path d='M190.6 34.8C151.8 72.6 127.7 125.5 127.7 184C127.7 292.9 211.2 382.3 317.6 391.3C289.8 407 257.7 416 223.5 416C117.7 416 32 330.1 32 224C32 129.2 100.5 50.5 190.6 34.8ZM256.7 13.3C255.2 6.4 249.4 1.4 242.4 0.799999C236.1 0.299999 229.8 0 223.4 0C100 0 0 100.3 0 224C0 347.7 100 448 223.5 448C284.1 448 339 423.8 379.3 384.6C384.3 379.7 385.6 372.1 382.4 365.9C379.2 359.7 372.3 356.2 365.4 357.4C355.6 359.1 345.6 360 335.3 360C238.4 360 159.8 281.2 159.8 184C159.8 118.2 195.8 60.9 249.1 30.7C255.2 27.2 258.3 20.2 256.8 13.4L256.7 13.3Z' />
@@ -27,4 +29,33 @@ export const CloseSVG = () => (
   <svg width='322' height='322' viewBox='0 0 322 322' fill='none' xmlns='http://www.w3.org/2000/svg'>
     <path d='M311.6 55.6C324.1 43.1 324.1 22.8 311.6 10.3C299.1 -2.2 278.8 -2.2 266.3 10.3L161 115.7L55.6 10.4C43.1 -2.1 22.8 -2.1 10.3 10.4C-2.19995 22.9 -2.19995 43.2 10.3 55.7L115.7 161L10.4001 266.4C-2.09995 278.9 -2.09995 299.2 10.4001 311.7C22.9001 324.2 43.2 324.2 55.7 311.7L161 206.3L266.4 311.6C278.9 324.1 299.2 324.1 311.7 311.6C324.2 299.1 324.2 278.8 311.7 266.3L206.3 161L311.6 55.6Z' />
   </svg>
+);
+
+const Path = (props) => <motion.path fill='transparent' strokeWidth='3' strokeLinecap='round' {...props} />;
+
+export const SidebarButton = ({ isOpen, handleClick }) => (
+  <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleClick}>
+    <svg width='23' height='23' viewBox='0 0 23 23'>
+      <Path
+        variants={{
+          closed: { d: 'M 2 2.5 L 20 2.5' },
+          open: { d: 'M 3 16.5 L 17 2.5' },
+        }}
+      />
+      <Path
+        d='M 2 9.423 L 20 9.423'
+        variants={{
+          closed: { opacity: 1 },
+          open: { opacity: 0 },
+        }}
+        transition={{ duration: 0.1 }}
+      />
+      <Path
+        variants={{
+          closed: { d: 'M 2 16.346 L 20 16.346' },
+          open: { d: 'M 3 2.5 L 17 16.346' },
+        }}
+      />
+    </svg>
+  </motion.div>
 );
