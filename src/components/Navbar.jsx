@@ -11,12 +11,8 @@ import { toggleTheme } from '../utils/utils';
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
 
-  const handleThemeClick = () => {
-    toggleTheme(setTheme);
-  };
-  const handleMenuClick = () => {
-    toggleOpen();
-  };
+  const handleThemeClick = () => { toggleTheme(setTheme); };
+  const handleMenuClick = () => { toggleOpen(); };
 
   return (
     <>
@@ -169,8 +165,7 @@ const SidebarLine = styled(motion.div)`
   isolation: isolate;
   z-index: 2;
 
-  &::before,
-  &::after {
+  &::before, &::after {
     content: '';
     position: absolute;
     left: -1rem;
@@ -181,12 +176,8 @@ const SidebarLine = styled(motion.div)`
     border: 2px solid ${({ theme }) => theme.lineBorder};
     box-shadow: ${({ theme }) => theme.lineShadow};
   }
-  &:before {
-    top: -1rem;
-  }
-  &:after {
-    bottom: -1rem;
-  }
+  &:before { top: -1rem; }
+  &:after { bottom: -1rem; }
 `;
 
 const SidebarDots = styled(motion.div)`
