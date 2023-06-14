@@ -55,15 +55,15 @@ const Logo = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 100%; */
+    width: 100%;
     height: 50px;
   }
 
   img {
+    height: auto;
+    max-width: 100%;
     /* width: auto; */
     /* height: 50px; */
-    max-width: 100%;
-    height: auto;
     transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
   }
 `;
