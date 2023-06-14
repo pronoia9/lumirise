@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ThemeProvider, styled } from 'styled-components';
 
 import { Navbar } from './components';
+import { Contact, Experience, Hero, Skills, Works } from './sections';
 import GlobalStyles from './styles/GlobalStyles';
 import { getSystemTheme, getTheme, systemThemeChangeHandler } from './utils/utils';
 
@@ -20,6 +21,11 @@ export default function App() {
       <GlobalStyles />
       <Container>
         <Navbar />
+        <Hero />
+        <Skills />
+        <Works />
+        <Experience />
+        <Contact />
       </Container>
     </ThemeProvider>
   );
@@ -27,6 +33,6 @@ export default function App() {
 
 const Container = styled.div`
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   min-height: 50vh;
 `;
