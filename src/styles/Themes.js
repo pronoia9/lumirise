@@ -12,14 +12,13 @@ const darkTheme = {
 
 const lightTheme = {
   background: '#eaeaea',
-  background2: '',
+  background2: '#ffffff',
   font: '#222831',
   accent: '#29a587',
 
   lineBackground: '#ffffff',
   lineBorder: '#000000',
   lineShadow: '5px 5px rgb(0 0 0 / 20%)',
-  dotsInvert: '0',
 };
 
 export { darkTheme, lightTheme };
