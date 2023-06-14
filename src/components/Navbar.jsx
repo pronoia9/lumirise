@@ -1,19 +1,20 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { keyframes, styled } from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, useCycle } from 'framer-motion';
 
 import { logo } from '../assets';
-import { CloseSVG, HamburgerSVG, MoonSVG, SunSVG } from './SVGs';
+import { MoonSVG, SunSVG, SidebarButton } from './SVGs';
 import { sideMenuData } from '../utils/data';
-import { sideMenuMotion } from '../utils/motion';
+import { sidebarBackgroundMotion } from '../utils/motion';
 import { isDarkTheme, toggleTheme } from '../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, toggleOpen] = useCycle(false, true);
+  const containerRef = useRef(null);
 
   const handleThemeClick = () => { toggleTheme(setTheme); };
-  const handleMenuClick = () => { setMenuOpen((prev) => !prev); };
+  const handleMenuClick = () => { toggleOpen(); };
 
   return (
     <>
@@ -28,14 +29,27 @@ export default function Navbar({ theme, setTheme }) {
         {/* Right Side */}
         <Icons>
           {/* Theme Button */}
-          {!menuOpen && <div onClick={handleThemeClick}>{isDarkTheme(theme) ? <MoonSVG /> : <SunSVG />}</div>}
+          {!isOpen && <div onClick={handleThemeClick}>{isDarkTheme(theme) ? <MoonSVG /> : <SunSVG />}</div>}
           {/* Menu Open Button */}
-          <div onClick={handleMenuClick}>{!menuOpen ? <HamburgerSVG /> : <CloseSVG />}</div>
+          <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
+            <SidebarButton />
+          </motion.div>
         </Icons>
       </Container>
 
+      {/* TEST */}
+      <SidebarWrapper ref={containerRef} initial={false} animate={isOpen ? 'open' : 'closed'} custom={containerRef?.current?.offsetHeight}>
+        <SidebarBackground variants={sidebarBackgroundMotion} />
+        <SidebarMenu>
+          <li>asdasd</li>
+          <li>asdasd</li>
+          <li>asdasd</li>
+          <li>asdasd</li>
+        </SidebarMenu>
+      </SidebarWrapper>
+
       {/* Menu */}
-      {menuOpen && <Menu key={`menu-${menuOpen}`} {...sideMenuMotion(menuOpen)} open={menuOpen}></Menu>}
+      {/* <Menu key={`menu-${isOpen}`} {...sideMenuMotion(isOpen)} open={isOpen}></Menu> */}
     </>
   );
 }
@@ -60,7 +74,6 @@ const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   z-index: 90;
-  transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
 `;
 
 const Logo = styled.div`
@@ -72,6 +85,7 @@ const Logo = styled.div`
     align-items: center;
     width: 100%;
     height: 50px;
+    transition: animation 0.3s cubic-bezier(0.3, 0, 0.3, 1);
 
     &:hover {
       animation: ${logoAnimation} 0.9s both ease-in-out;
@@ -92,14 +106,15 @@ const Icons = styled.div`
   gap: 40px;
 
   svg {
-    fill: ${({ theme }) => theme.font} !important;
+    fill: ${({ theme }) => theme.font};
+    stroke: ${({ theme }) => theme.font};
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
   }
 `;
 
-const Menu = styled(motion.div)`
+const MenuPREV = styled(motion.div)`
   position: fixed;
   /* right: -612px; */
   top: 0;
@@ -109,4 +124,25 @@ const Menu = styled(motion.div)`
   background: ${({ theme }) => theme.background2};
   z-index: 2;
   /* transition: all 1s cubic-bezier(0.3, 0, 0.3, 1); */
+`;
+
+const SidebarWrapper = styled(motion.nav)`
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 512px;
+  height: 100%;
+`;
+
+const SidebarBackground = styled(motion.div)`
+  background: ${({ theme }) => theme.background2};
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+`;
+
+const SidebarMenu = styled(motion.ul)`
+  width: 100%;
+  height: 100%;
 `;
