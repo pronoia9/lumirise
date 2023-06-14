@@ -54,6 +54,15 @@ export const sidebarLinkItemMotion = {
   },
 };
 
+export const sidebarSocialsMotion = {
+  open: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.33 },
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+};
+
 export const sidebarSocialItemMotion = {
   open: {
     scale: 1,
