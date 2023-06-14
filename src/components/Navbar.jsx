@@ -77,7 +77,7 @@ const Logo = styled.div`
     height: 50px;
 
     &:hover {
-      animation: ${logoAnimation} 0.9s both;
+      animation: ${logoAnimation} 0.9s both ease-in-out;
     }
   }
 
