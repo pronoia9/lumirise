@@ -73,7 +73,7 @@ const SidebarLine = styled(motion.div)`
     border-radius: 50%;
     background: var(--c-lineBackground);
     border: 2px solid var(--c-lineBorder);
-    box-shadow: var(--c-lineShadow);
+    box-shadow: 5px 5px var(--c-lineShadow);
   }
   &:before {
     top: -1rem;

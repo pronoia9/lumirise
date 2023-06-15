@@ -6,7 +6,7 @@ const darkTheme = {
 
   lineBackground: '#1d222a',
   lineBorder: '#a3a5a7',
-  lineShadow: '5px 5px rgb(255 255 255 / 10%)',
+  lineShadow: 'rgb(255 255 255 / 10%)',
   dotsInvert: '1',
 
   backgroundTitle: 'rgba(255, 255, 255, 0.02)',
@@ -21,7 +21,7 @@ const lightTheme = {
 
   lineBackground: '#ffffff',
   lineBorder: '#000000',
-  lineShadow: '5px 5px rgb(0 0 0 / 20%)',
+  lineShadow: 'rgb(0 0 0 / 20%)',
 
   backgroundTitle: 'rgba(0, 0, 0, 0.02)',
   inputPlaceholder: 'rgba(0, 0, 0, 0.5)',
