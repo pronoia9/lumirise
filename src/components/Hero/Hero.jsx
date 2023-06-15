@@ -6,9 +6,9 @@ import { heroData } from '../../utils/data';
 
 const Hero = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Content>
+    <Container className='container'>
+      <Wrapper className='lui-started v-line v-line-left'>
+        <Content className='section hero-started'>
           <HeroIntro />
           <HeroImage />
         </Content>

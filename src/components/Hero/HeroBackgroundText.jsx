@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export default function HeroBackgroundText({ text }) {
   return (
-    <Container>
+    <Container className='lui-bgtitle'>
       <span>{text}</span>
     </Container>
   );

@@ -4,12 +4,12 @@ import { heroData } from '../../utils/data';
 
 export default function HeroImage() {
   return (
-    <Container>
+    <Container className='slide scrolla-element-anim-1 scroll-animate animate__active animate__animated'>
       <Image src={heroData.image} />
-      <Circle />
-      <Pattern1 />
-      <Pattern2 />
-      <Pattern3 />
+      <Circle className='circle circle-1' />
+      <Pattern1 className='circle img-1' />
+      <Pattern2 className='circle img-2' />
+      <Pattern3 className='circle img-3' />
     </Container>
   );
 }
@@ -26,6 +26,16 @@ const Container = styled.div`
   @media screen and (min-width: 1700px) {
     margin-top: -400px;
     right: -50px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin-left: -340px;
+    bottom: auto;
+    top: 740px;
+    right: auto;
+    left: 50%;
+    transform: scale(0.9);
+    transform-origin: top center;
   }
 `;
 

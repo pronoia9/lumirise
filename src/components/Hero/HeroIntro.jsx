@@ -1,28 +1,29 @@
 import { styled } from 'styled-components';
+
+import { Socials } from '..';
 import { heroData } from '../../utils/data';
-import Socials from '../Socials';
 import { Description, SubtitleWithAccent, SubtitleWithHandwriting, Title } from '../../styles/TextStyles';
 
 export default function HeroTitle() {
   const { name, occupation, intro } = heroData;
 
   return (
-    <Container className='CONTAINER'>
+    <Container className='content scrolla-element-anim-1 scroll-animate animate__active animate__animated'>
       {/* Title */}
-      <Titles>
+      <Titles className='titles'>
         <SubtiteTop><p>Hello, <span>my name is</span></p></SubtiteTop>
         <TitleContainer><span>{name.split(' ')[0]}</span> {name.split(' ')[1]}</TitleContainer>
         <SubtiteBottom>I am a <span>{occupation}</span></SubtiteBottom>
       </Titles>
 
       {/* Description */}
-      <DescriptionContainer><p>{intro}</p></DescriptionContainer>
+      <DescriptionContainer className='description'><p>{intro}</p></DescriptionContainer>
 
       {/* Socials */}
       <Socials />
 
       {/* Download Button */}
-      <div></div>
+      <Download className='bts'></Download>
     </Container>
   );
 }
