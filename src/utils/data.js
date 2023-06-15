@@ -16,3 +16,12 @@ export const sidebarData = {
     { title: 'Discord', link: null, tooltip: 'pronoia9' },
   ],
 };
+
+export const heroData = {
+  name: 'Jay Ansin',
+  occupation: 'Web Developer',
+  intro: 'Passionate web developer with diverse frontend and backend skills, dedicated to crafting captivating user experiences and pursuing continuous learning.',
+  backgroundTitle: 'Web Developer',
+  badgeLeft: { total: 3, title: 'Years of', context: 'Experience' },
+  badgeRight: { total: 85, title: 'Completed', context: 'Projects' },
+}
