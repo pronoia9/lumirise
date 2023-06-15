@@ -1,13 +1,12 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { keyframes, styled } from 'styled-components';
 import { motion, useCycle } from 'framer-motion';
 
-import { Sidebar } from '.';
-import { ThemeSVGs, SidebarButton } from '../SVGs';
+import { ThemeSVGs, SidebarButton, Sidebar } from '..';
 import { sidebarData } from '../../utils/data';
 import { sidebarMotion } from '../../utils/motion';
 import { toggleTheme } from '../../utils/utils';
-import { useEffect, useRef } from 'react';
 
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
