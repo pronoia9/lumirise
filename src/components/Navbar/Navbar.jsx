@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import { keyframes, styled } from 'styled-components';
 import { motion, useCycle } from 'framer-motion';
 
+import { Sidebar } from '.';
 import { ThemeSVGs, SidebarButton } from '../SVGs';
 import { sidebarData } from '../../utils/data';
 import { sidebarMotion } from '../../utils/motion';
 import { toggleTheme } from '../../utils/utils';
-import Sidebar from './Sidebar';
 import { useEffect, useRef } from 'react';
 
 export default function Navbar({ theme, setTheme }) {
