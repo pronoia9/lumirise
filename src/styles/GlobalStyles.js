@@ -51,14 +51,20 @@ const GlobalStyles = createGlobalStyle`
 
   body, #root {
     width: 100%;
-    min-width: 100%;
+    min-width: 100vw;
     height: 100%;
     min-height: 100vh;
     color: var(--c-font);
     background: var(--c-background);
-    /* overflow: hidden; */
+    overflow-x: hidden;
     transition: background 0.5s ease-in-out, 
                 color 0.5s ease-in-out;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 
   a {
