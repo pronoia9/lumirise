@@ -56,7 +56,7 @@ const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     color: var(--c-font);
     background: var(--c-background);
-    overflow: hidden;
+    /* overflow: hidden; */
     transition: background 0.5s ease-in-out, 
                 color 0.5s ease-in-out;
   }
