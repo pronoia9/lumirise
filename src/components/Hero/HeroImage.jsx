@@ -40,6 +40,7 @@ const Container = styled.div`
   width: 680px;
   height: 800px;
   z-index: 2;
+  isolation: isolate;
 
   @media screen and (min-width: 1700px) {
     margin-top: -400px;
@@ -72,13 +73,12 @@ const List = styled.div`
       margin: 0;
       display: flex;
       align-items: center;
-      color: #000;
-      border: 2px solid #000;
-      background-color: #fff;
-      box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+      color: var(--c-font);
+      border: 2px solid var(--c-lineBorder);
+      background-color: var(--c-lineBackground);
+      box-shadow: 5px 5px var(--c-lineShadow);
       height: 82px;
       border-radius: 82px;
-      -webkit-border-radius: 82px;
       width: 250px;
       padding: 0 20px;
 
@@ -88,6 +88,34 @@ const List = styled.div`
 
       &:nth-child(2) {
         margin: -30px 0 0 520px;
+      }
+
+      .num, .value {
+        width: 50%;
+        display: block;
+        text-transform: uppercase;
+        line-height: 1.25rem;
+        font-weight: 700;
+
+         strong {
+          color: var(--c-accent);
+        }
+      }
+
+      .num {
+        font-size: 2.31rem;
+        text-align: center;
+
+        strong {
+          position: relative;
+          top: -4px;
+        }
+      }
+
+      .value {
+        font-size: 0.8rem;
+        letter-spacing: 0.05rem;
+        text-align: left;
       }
     }
   }
