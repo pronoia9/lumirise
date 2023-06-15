@@ -1,4 +1,4 @@
-import { logo } from "../assets";
+import { hi, logo } from "../assets";
 
 export const sidebarData = {
   logo: logo,
@@ -22,6 +22,7 @@ export const heroData = {
   occupation: 'Web Developer',
   intro: 'Passionate web developer with diverse frontend and backend skills, dedicated to crafting captivating user experiences and pursuing continuous learning.',
   backgroundTitle: 'Web Developer',
+  image: hi,
   badgeLeft: { total: 3, title: 'Years of', context: 'Experience' },
   badgeRight: { total: 85, title: 'Completed', context: 'Projects' },
 }
