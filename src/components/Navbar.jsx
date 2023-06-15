@@ -234,7 +234,7 @@ const SidebarBackground = styled(motion.div)`
   position: absolute;
   top: 0;
   right: 0;
-  background: ${({ theme }) => theme.background2};
+  background: var(--c-background2);
   width: 100%;
   height: 100%;
   transform: scaleX(-1);
