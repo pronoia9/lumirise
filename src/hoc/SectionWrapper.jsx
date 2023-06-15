@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
 const SectionWrapper = (Component, idName) =>
-  function HOC() {
+  function HOC(props) {
     return (
       <Container
         id={idName}
@@ -11,7 +11,7 @@ const SectionWrapper = (Component, idName) =>
         whileInView='show'
         viewport={{ once: true, amount: 0.25 }}
       >
-        <Component />
+        <Component {...props} />
       </Container>
     );
   };
