@@ -23,6 +23,7 @@ export const heroData = {
   occupation: 'Web Developer',
   intro: 'Passionate web developer with diverse frontend and backend skills, dedicated to crafting captivating user experiences and pursuing continuous learning.',
   backgroundTitle: 'Web Developer',
+  resumeLink: 'https://www.dropbox.com/s/wkpywyn442sbbze/2021.04.16--03.32.57AM.pdf?dl=0',
   image: hi,
   badges: [{ total: 3, plus: true, title: 'Years of', context: 'Experience' }, { total: 85, title: 'Completed', context: 'Projects' }]
 }
