@@ -61,6 +61,10 @@ const TitleContainer = styled(Title)``;
 const DescriptionContainer = styled(Description)`
   padding: 40px 0 40px 0;
   max-width: 520px;
+
+  p {
+    margin: 0;
+  }
 `;
 
 const Download = styled.div``;
