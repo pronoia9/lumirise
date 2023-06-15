@@ -7,9 +7,9 @@ import { heroData } from '../../utils/data';
 const Hero = () => {
   return <Container>
     <Wrapper>
-      {/*  */}
+      {/* <HeroContainer></HeroContainer> */}
 
-      {/* Title */}
+      {/* Background Title */}
       <BackgroundTitle><span>{ heroData.backgroundTitle }</span></BackgroundTitle>
     </Wrapper>
   </Container>;
@@ -24,7 +24,6 @@ const Container = styled.div`
   padding: 0 0.75rem;
   display: flex;
   align-items: center;
-  background: var(--c-gradient1);
 `;
 
 const Wrapper = styled.div``;
