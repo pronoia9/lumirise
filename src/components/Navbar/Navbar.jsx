@@ -10,41 +10,40 @@ import { toggleTheme } from '../../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const sidebarRef = useRef();
+  const antiSidebarRef = useRef();
 
   const handleThemeClick = () => { toggleTheme(setTheme); };
 
   const handleMenuClick = () => { toggleOpen(); };
 
-  useEffect(() => {
-    const clickElsewhere = (e) => { if (isOpen && e.target === sidebarRef.current) toggleOpen(); }
-    window.addEventListener('mousedown', clickElsewhere);
-    return () => { window.removeEventListener('mousedown', clickElsewhere); };
-  }, [isOpen]);
+  // useEffect(() => {
+  //   const clickElsewhere = (e) => { if (isOpen && e.target !== antiSidebarRef?.current) toggleOpen(); }
+  //   window.addEventListener('mousedown', clickElsewhere);
+  //   return () => { window.removeEventListener('mousedown', clickElsewhere); };
+  // }, [isOpen]);
 
   return (
-    <>
-      <Container>
-        {/* Left Side - Logo */}
-        <Logo open={isOpen}>
-          <Link to='/'>
-            <img src={sidebarData.logo} />
-          </Link>
-        </Logo>
-        {/* Right Side - Icons */}
-        <Icons>
-          {/* Theme Button */}
-          {!isOpen && <ThemeSVGs theme={theme} handleClick={handleThemeClick} />}
-          {/* Menu Open/Close Button */}
-          <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
-            <SidebarButton variants={sidebarMotion.menu} />
-          </motion.div>
-        </Icons>
-      </Container>
+    <Container>
+      {/* Left Side - Logo */}
+      <Logo open={isOpen}>
+        <Link to='/'>
+          <img src={sidebarData.logo} />
+        </Link>
+      </Logo>
+
+      {/* Right Side - Icons */}
+      <Icons>
+        {/* Theme Button */}
+        {!isOpen && <ThemeSVGs theme={theme} handleClick={handleThemeClick} />}
+        {/* Menu Open/Close Button */}
+        <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
+          <SidebarButton variants={sidebarMotion.menu} />
+        </motion.div>
+      </Icons>
 
       {/* Sidebar */}
-      <Sidebar sidebarRef={sidebarRef} isOpen={isOpen} />
-    </>
+      <Sidebar antiSidebarRef={antiSidebarRef} isOpen={isOpen} />
+    </Container>
   );
 }
 
@@ -67,7 +66,8 @@ const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 90;
+  z-index: 900;
+  isolation: isolate;
 
   svg {
     stroke: var(--c-font);
@@ -106,4 +106,5 @@ const Icons = styled.div`
   height: 30px;
   display: flex;
   gap: 40px;
+  z-index: 999;
 `;

@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { SocialSVGs } from '../SVGs';
-import { sidebarData } from "../../utils/data";
-import { sidebarMotion } from "../../utils/motion";
+import { sidebarData } from '../../utils/data';
+import { sidebarMotion } from '../../utils/motion';
 
-export default function Sidebar({ isOpen, sidebarRef }) {
+export default function Sidebar({ isOpen, antiSidebarRef }) {
   return (
-    <Container>
-      <SidebarClickArea ref={sidebarRef} />
+    <>
+      {/* <SidebarClickArea ref={antiSidebarRef} open={isOpen} /> */}
       <SidebarMenu initial={false} animate={isOpen ? 'open' : 'closed'} open={isOpen}>
         <SidebarContainer>
           {/* Line + Dots */}
@@ -39,35 +39,34 @@ export default function Sidebar({ isOpen, sidebarRef }) {
         </SidebarContainer>
         <SidebarBackground variants={sidebarMotion.background} />
       </SidebarMenu>
-    </Container>
+    </>
   );
 }
 
-const Container = styled.div`
+const SidebarClickArea = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-`;
-
-const SidebarClickArea = styled.div`
-  width: 100%;
+  max-width: 512px;
   height: 100%;
   background: none;
+  display: ${({ open }) => (!open && 'none')};
+  pointer-events: none;
+  z-index: 10;
 `;
 
 const SidebarMenu = styled(motion.nav)`
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 100%;
   max-width: 512px;
   height: 100%;
   display: flex;
   overflow: hidden;
   pointer-events: ${({ open }) => (open ? 'all' : 'none')};
+  isolation: isolate;
 `;
 
 const SidebarContainer = styled(motion.div)`
