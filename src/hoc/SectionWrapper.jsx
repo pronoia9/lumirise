@@ -20,6 +20,7 @@ const SectionWrapper = (Component, idName) =>
 export default SectionWrapper;
 
 const Container = styled(motion.section)`
+  position: relative;
   min-width: 100%;
   min-height: 100vh;
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
