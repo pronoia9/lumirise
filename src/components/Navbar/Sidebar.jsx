@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { SocialSVGs } from '../SVGs';
+import { Socials } from '../';
 import { sidebarData } from '../../utils/data';
 import { sidebarMotion } from '../../utils/motion';
 
@@ -25,33 +25,12 @@ export default function Sidebar({ isOpen }) {
         </Links>
 
         {/* Socials */}
-        <Socials variants={sidebarMotion.socials}>
-          {sidebarData.socials.map(({ title, link }) => (
-            <motion.p key={`social-${title}`} variants={sidebarMotion.socialItem}>
-              <Link to={link}>
-                <SocialSVGs social={title} />
-              </Link>
-            </motion.p>
-          ))}
-        </Socials>
+        <Socials />
       </SidebarContainer>
       <SidebarBackground variants={sidebarMotion.background} />
     </SidebarMenu>
   );
 }
-
-const SidebarClickArea = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: 512px;
-  height: 100%;
-  background: none;
-  display: ${({ open }) => !open && 'none'};
-  pointer-events: none;
-  z-index: 10;
-`;
 
 const SidebarMenu = styled(motion.nav)`
   position: fixed;
@@ -139,27 +118,6 @@ const Links = styled(motion.ul)`
 
       &:hover {
         color: var(--c-accent);
-      }
-    }
-  }
-`;
-
-const Socials = styled(motion.div)`
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-
-  p {
-    height: 1.5rem;
-    cursor: pointer;
-
-    svg {
-      fill: var(--c-font);
-      width: auto;
-      height: 100%;
-
-      &:hover {
-        fill: var(--c-accent);
       }
     }
   }
