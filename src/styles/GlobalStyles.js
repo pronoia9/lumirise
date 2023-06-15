@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
     --c-background2: ${({ theme }) => theme.background2};
     --c-gradient1: linear-gradient(0deg, ${({ theme }) => theme.background2} 0%, ${({ theme }) => theme.background} 100%);
     --c-gradient2: linear-gradient(0deg, ${({ theme }) => theme.background} 0%, ${({ theme }) => theme.background2} 100%);
+    --c-gradient3: linear-gradient(180deg, ${({ theme }) => theme.background2} 0%, ${({ theme }) => theme.background2} 100%);
     --c-font: ${({ theme }) => theme.font};
     --c-accent: ${({ theme }) => theme.accent};
     --c-lineBackground: ${({ theme }) => theme.lineBackground};
@@ -54,6 +55,7 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     min-height: 100vh;
     color: var(--c-font);
+    background: var(--c-background);
     overflow: hidden;
     transition: background 0.5s ease-in-out, 
                 color 0.5s ease-in-out;
