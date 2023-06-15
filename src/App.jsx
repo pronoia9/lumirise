@@ -34,7 +34,7 @@ export default function App() {
 };
 
 const Container = styled.div`
+  min-height: 50vh;
   position: relative;
   /* overflow: hidden; */
-  min-height: 50vh;
 `;
