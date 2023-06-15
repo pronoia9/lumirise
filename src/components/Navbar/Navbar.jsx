@@ -10,40 +10,43 @@ import { toggleTheme } from '../../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const antiSidebarRef = useRef();
+  const overlayRef = useRef();
 
   const handleThemeClick = () => { toggleTheme(setTheme); };
 
   const handleMenuClick = () => { toggleOpen(); };
 
-  // useEffect(() => {
-  //   const clickElsewhere = (e) => { if (isOpen && e.target !== antiSidebarRef?.current) toggleOpen(); }
-  //   window.addEventListener('mousedown', clickElsewhere);
-  //   return () => { window.removeEventListener('mousedown', clickElsewhere); };
-  // }, [isOpen]);
+  useEffect(() => {
+    const clickElsewhere = (e) => { if (isOpen && e.target === overlayRef?.current) toggleOpen(); }
+    window.addEventListener('mousedown', clickElsewhere);
+    return () => { window.removeEventListener('mousedown', clickElsewhere); };
+  }, [isOpen]);
 
   return (
-    <Container>
-      {/* Left Side - Logo */}
-      <Logo open={isOpen}>
-        <Link to='/'>
-          <img src={sidebarData.logo} />
-        </Link>
-      </Logo>
+    <>
+      <Overlay ref={overlayRef} open={isOpen} />
+      <Container>
+        {/* Left Side - Logo */}
+        <Logo open={isOpen}>
+          <Link to='/'>
+            <img src={sidebarData.logo} />
+          </Link>
+        </Logo>
 
-      {/* Right Side - Icons */}
-      <Icons>
-        {/* Theme Button */}
-        {!isOpen && <ThemeSVGs theme={theme} handleClick={handleThemeClick} />}
-        {/* Menu Open/Close Button */}
-        <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
-          <SidebarButton variants={sidebarMotion.menu} />
-        </motion.div>
-      </Icons>
+        {/* Right Side - Icons */}
+        <Icons>
+          {/* Theme Button */}
+          {!isOpen && <ThemeSVGs theme={theme} handleClick={handleThemeClick} />}
+          {/* Menu Open/Close Button */}
+          <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
+            <SidebarButton variants={sidebarMotion.menu} />
+          </motion.div>
+        </Icons>
 
-      {/* Sidebar */}
-      <Sidebar antiSidebarRef={antiSidebarRef} isOpen={isOpen} />
-    </Container>
+        {/* Sidebar */}
+        <Sidebar isOpen={isOpen} />
+      </Container>
+    </>
   );
 }
 
@@ -55,6 +58,17 @@ const logoAnimation = keyframes`
   65%  { transform: scale3d(0.95, 1.05, 1); }
   75%  { transform: scale3d(1.05, 0.95, 1); }
   100% { transform: scale3d(1, 1, 1); }
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  /* pointer-events: none; */
+  display: ${({open}) => !open && 'none'};
 `;
 
 const Container = styled.header`
