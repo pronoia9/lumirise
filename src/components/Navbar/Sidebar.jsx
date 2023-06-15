@@ -6,44 +6,62 @@ import { SocialSVGs } from '../SVGs';
 import { sidebarData } from "../../utils/data";
 import { sidebarMotion } from "../../utils/motion";
 
-export default function Sidebar({ isOpen }) {
+export default function Sidebar({ isOpen, sidebarRef }) {
   return (
-    <SidebarMenu initial={false} animate={isOpen ? 'open' : 'closed'} open={isOpen}>
-      <SidebarContainer>
-        {/* Line + Dots */}
-        <SidebarLine animate={{ opacity: isOpen ? 1 : 0 }}>
-          <SidebarDots />
-        </SidebarLine>
+    <Container>
+      <SidebarClickArea ref={sidebarRef} />
+      <SidebarMenu initial={false} animate={isOpen ? 'open' : 'closed'} open={isOpen}>
+        <SidebarContainer>
+          {/* Line + Dots */}
+          <SidebarLine animate={{ opacity: isOpen ? 1 : 0 }}>
+            <SidebarDots />
+          </SidebarLine>
 
-        {/* Links */}
-        <Links variants={sidebarMotion.links}>
-          {sidebarData.links.map(({ title, link }) => (
-            <motion.li key={`link-${title}`} variants={sidebarMotion.linkItem} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Link to={link}>{title}</Link>
-            </motion.li>
-          ))}
-        </Links>
+          {/* Links */}
+          <Links variants={sidebarMotion.links}>
+            {sidebarData.links.map(({ title, link }) => (
+              <motion.li key={`link-${title}`} variants={sidebarMotion.linkItem} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                <Link to={link}>{title}</Link>
+              </motion.li>
+            ))}
+          </Links>
 
-        {/* Socials */}
-        <Socials variants={sidebarMotion.socials}>
-          {sidebarData.socials.map(({ title, link }) => (
-            <motion.p key={`social-${title}`} variants={sidebarMotion.socialItem}>
-              <Link to={link}>
-                <SocialSVGs social={title} />
-              </Link>
-            </motion.p>
-          ))}
-        </Socials>
-      </SidebarContainer>
-      <SidebarBackground variants={sidebarMotion.background} />
-    </SidebarMenu>
+          {/* Socials */}
+          <Socials variants={sidebarMotion.socials}>
+            {sidebarData.socials.map(({ title, link }) => (
+              <motion.p key={`social-${title}`} variants={sidebarMotion.socialItem}>
+                <Link to={link}>
+                  <SocialSVGs social={title} />
+                </Link>
+              </motion.p>
+            ))}
+          </Socials>
+        </SidebarContainer>
+        <SidebarBackground variants={sidebarMotion.background} />
+      </SidebarMenu>
+    </Container>
   );
 }
 
-const SidebarMenu = styled(motion.nav)`
+const Container = styled.div`
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+`;
+
+const SidebarClickArea = styled.div`
+  width: 100%;
+  height: 100%;
+  background: none;
+`;
+
+const SidebarMenu = styled(motion.nav)`
+  position: relative;
   width: 100%;
   max-width: 512px;
   height: 100%;

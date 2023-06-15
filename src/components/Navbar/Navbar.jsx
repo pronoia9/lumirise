@@ -7,12 +7,21 @@ import { sidebarData } from '../../utils/data';
 import { sidebarMotion } from '../../utils/motion';
 import { toggleTheme } from '../../utils/utils';
 import Sidebar from './Sidebar';
+import { useEffect, useRef } from 'react';
 
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
+  const sidebarRef = useRef();
 
   const handleThemeClick = () => { toggleTheme(setTheme); };
+
   const handleMenuClick = () => { toggleOpen(); };
+
+  useEffect(() => {
+    const clickElsewhere = (e) => { if (isOpen && e.target === sidebarRef.current) toggleOpen(); }
+    window.addEventListener('mousedown', clickElsewhere);
+    return () => { window.removeEventListener('mousedown', clickElsewhere); };
+  }, [isOpen]);
 
   return (
     <>
@@ -33,9 +42,9 @@ export default function Navbar({ theme, setTheme }) {
           </motion.div>
         </Icons>
       </Container>
-      
+
       {/* Sidebar */}
-      <Sidebar isOpen={isOpen} />
+      <Sidebar sidebarRef={sidebarRef} isOpen={isOpen} />
     </>
   );
 }
