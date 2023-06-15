@@ -10,6 +10,7 @@ const SectionWrapper = (Component, idName) =>
         initial='hidden'
         whileInView='show'
         viewport={{ once: true, amount: 0.25 }}
+        gradient={props?.gradient}
       >
         <Component {...props} />
       </Container>
@@ -18,4 +19,8 @@ const SectionWrapper = (Component, idName) =>
 
 export default SectionWrapper;
 
-const Container = styled(motion.section)``;
+const Container = styled(motion.section)`
+  min-width: 100%;
+  min-height: 100vh;
+  background: ${({ gradient }) => `var(--c-gradient${gradient})`};
+`;
