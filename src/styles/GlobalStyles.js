@@ -48,8 +48,10 @@ const GlobalStyles = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
   }
 
-  body {
+  body, #root {
+    width: 100%;
     min-width: 100%;
+    height: 100%;
     min-height: 100vh;
     color: var(--c-font);
     overflow: hidden;
