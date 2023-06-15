@@ -5,9 +5,9 @@ import { reset } from './Reset';
 const GlobalStyles = createGlobalStyle`
   ${reset}
   
-  @font-face { font-family: 'Caveat'; src: url('/public/fonts/Caveat/Caveat-VariableFont_wght.ttf'); }
-  @font-face { font-family: 'Caveat Brush'; src: url('/public/fonts/Caveat_Brush/CaveatBrush-Regular.ttf'); }
-  @font-face { font-family: 'Jost'; src: url('/public/fonts/Jost/Jost-VariableFont_wght.ttf'); }
+  @font-face { font-family: 'Caveat'; src: url('/fonts/Caveat/Caveat-VariableFont_wght.ttf'); }
+  @font-face { font-family: 'Caveat Brush'; src: url('/fonts/Caveat_Brush/CaveatBrush-Regular.ttf'); }
+  @font-face { font-family: 'Jost'; src: url('/fonts/Jost/Jost-VariableFont_wght.ttf'); }
 
   :root {
     --c-background: ${({ theme }) => theme.background};
