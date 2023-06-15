@@ -92,6 +92,14 @@ const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   z-index: 90;
+
+  svg {
+    stroke: ${({ theme }) => theme.font};
+    fill: ${({ theme }) => theme.font};
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+  }
 `;
 
 const Logo = styled.div`
@@ -124,14 +132,6 @@ const Icons = styled.div`
   height: 30px;
   display: flex;
   gap: 40px;
-
-  svg {
-    fill: ${({ theme }) => theme.font};
-    stroke: ${({ theme }) => theme.font};
-    width: 1.5rem;
-    height: 1.5rem;
-    cursor: pointer;
-  }
 `;
 
 const SidebarMenu = styled(motion.nav)`
@@ -162,7 +162,6 @@ const SidebarLine = styled(motion.div)`
   height: 100%;
   background: ${({ theme }) => theme.lineBorder};
   pointer-events: none;
-  isolation: isolate;
   z-index: 2;
 
   &::before, &::after {
@@ -189,7 +188,7 @@ const SidebarDots = styled(motion.div)`
   background-image: url('images/pat-1.png');
   background-repeat: no-repeat;
   background-size: contain;
-  filter: invert(${({ theme }) => theme.imageInvert ?? 0});
+  filter: invert(${({ theme }) => theme.imageInvert});
   opacity: 0.6;
   z-index: -1;
 `;
@@ -231,13 +230,12 @@ const Socials = styled(motion.div)`
     cursor: pointer;
 
     svg {
+      fill: ${({ theme }) => theme.font};
       width: 100%;
       height: auto;
-      fill: ${({ theme }) => theme.font};
-      stroke: ${({ theme }) => theme.font};
     }
 
-    :hover {
+    &:hover {
       fill: ${({ theme }) => theme.accent};
     }
   }
