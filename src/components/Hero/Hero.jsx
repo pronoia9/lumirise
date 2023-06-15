@@ -7,13 +7,13 @@ import { heroData } from '../../utils/data';
 const Hero = () => {
   return (
     <Container>
-      <div>
-        <div>
+      <Wrapper>
+        <Content>
           <HeroIntro />
           <HeroImage />
-        </div>
+        </Content>
         <HeroBackgroundText text={heroData.backgroundTitle} />
-      </div>
+      </Wrapper>
     </Container>
   );
 };
@@ -22,9 +22,16 @@ export default SectionWrapper(Hero, 'hero');
 
 const Container = styled.div`
   max-width: 1300px;
-  height: 100%;
   min-height: 100vh;
   padding: 0 0.75rem;
   display: flex;
   align-items: center;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+`;
+
+const Content = styled.div`
+  position: relative;
 `;
