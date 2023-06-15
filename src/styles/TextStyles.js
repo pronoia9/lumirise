@@ -48,7 +48,7 @@ export const Title = styled(motion.h1)`
 `;
 
 export const Description = styled(motion.div)`
-  font-size: 1.125rem;
   margin: 0;
-  opacity: 0.8;
+  font-size: 1.125rem;
+  > p:first-of-type { opacity: 0.8; }
 `;
