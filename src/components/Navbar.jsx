@@ -25,11 +25,7 @@ export default function Navbar({ theme, setTheme }) {
 
         <Icons>
           {/* Theme Button */}
-          {!isOpen && (
-            <div onClick={handleThemeClick}>
-              <ThemeSVGs theme={theme} />
-            </div>
-          )}
+          {!isOpen && (<ThemeSVGs theme={theme} handleClick={handleThemeClick} />)}
           {/* Menu Open/Close Button */}
           <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
             <SidebarButton variants={sidebarMotion.menu} />
@@ -86,15 +82,15 @@ const Container = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  padding: 30px;
+  padding: 1.85rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 90;
 
   svg {
-    stroke: ${({ theme }) => theme.font};
-    fill: ${({ theme }) => theme.font};
+    stroke: var(--c-font);
+    fill: var(--c-font);
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
@@ -111,9 +107,7 @@ const Logo = styled.div`
     width: 100%;
     height: 50px;
     transition: animation 0.3s cubic-bezier(0.3, 0, 0.3, 1);
-    &:hover {
-      animation: ${logoAnimation} 0.9s both ease-in-out;
-    }
+    &:hover { animation: ${logoAnimation} 0.9s both ease-in-out; }
   }
 
   img {
@@ -159,7 +153,7 @@ const SidebarLine = styled(motion.div)`
   left: 20%;
   width: 2px;
   height: 100%;
-  background: ${({ theme }) => theme.lineBorder};
+  background: var(--c-lineBorder);
   pointer-events: none;
   z-index: 2;
 
@@ -170,9 +164,9 @@ const SidebarLine = styled(motion.div)`
     width: 1.75rem;
     height: 1.75rem;
     border-radius: 50%;
-    background: ${({ theme }) => theme.lineBackground};
-    border: 2px solid ${({ theme }) => theme.lineBorder};
-    box-shadow: ${({ theme }) => theme.lineShadow};
+    background: var(--c-lineBackground);
+    border: 2px solid var(--c-lineBorder);
+    box-shadow: var(--c-lineShadow);
   }
   &:before { top: -1rem; }
   &:after { bottom: -1rem; }
@@ -206,14 +200,12 @@ const Links = styled(motion.ul)`
       font-weight: 700;
       font-size: 1.4rem;
       line-height: 1;
-      color: ${({ theme }) => theme.font};
+      color: var(--c-font);
       letter-spacing: 0.05em;
       text-transform: uppercase;
       text-decoration: none;
 
-      &:hover {
-        color: ${({ theme }) => theme.accent};
-      }
+      &:hover { color: var(--c-accent) }
     }
   }
 `;
@@ -224,19 +216,17 @@ const Socials = styled(motion.div)`
   gap: 1.5rem;
 
   p {
-    width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
 
     svg {
-      fill: ${({ theme }) => theme.font};
-      width: 100%;
-      height: auto;
+      fill: var(--c-font);
+      width: auto;
+      height: 100%;
+
+      &:hover { fill: var(--c-accent); }
     }
 
-    &:hover {
-      fill: ${({ theme }) => theme.accent};
-    }
   }
 `;
 
