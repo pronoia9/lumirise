@@ -75,10 +75,6 @@ const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
-  input, textarea, button {
-    font-family: "Jost";
-  }
-
   label {
     cursor: pointer;
   }
@@ -93,7 +89,6 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
-    font-family: "Jost";
     margin: 0;
     margin-bottom: 15px;
     color: #000;
@@ -126,7 +121,6 @@ const GlobalStyles = createGlobalStyle`
     display: block;
     width: 100%;
     height: 60px;
-    font-family: "Jost";
     font-size: 16px;
     color: #000;
     resize: none;
@@ -149,7 +143,6 @@ const GlobalStyles = createGlobalStyle`
   legend {
     display: block;
     padding-bottom: 20px;
-    font-family: "Jost";
     font-size: 20px;
   }
   fieldset {
@@ -161,7 +154,6 @@ const GlobalStyles = createGlobalStyle`
   }
   label.error {
     padding-top: 5px;
-    font-family: "Jost";
     font-size: 14px;
     color: red;
     display: none;
