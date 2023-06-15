@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider, styled } from 'styled-components';
 
-import { Navbar } from './components';
-import { Contact, Experience, Hero, Skills, Works } from './sections';
+import { Navbar, Contact, Experience, Hero, Skills, Works } from './components';
 import GlobalStyles from './styles/GlobalStyles';
 import { getSystemTheme, getTheme, systemThemeChangeHandler } from './utils/utils';
 
