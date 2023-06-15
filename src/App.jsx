@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider, styled } from 'styled-components';
 
-import { Navbar, Contact, Experience, Hero, Skills, Works } from './components';
+import { Navbar, Contact, Experience, Hero, Skills, Works, Footer } from './components';
 import GlobalStyles from './styles/GlobalStyles';
 import { getSystemTheme, getTheme, systemThemeChangeHandler } from './utils/utils';
 
@@ -20,11 +20,14 @@ export default function App() {
       <GlobalStyles />
       <Container>
         <Navbar theme={theme} setTheme={setTheme} />
+
         <Hero />
         <Skills />
         <Works />
         <Experience />
         <Contact />
+        
+        <Footer />
       </Container>
     </ThemeProvider>
   );
