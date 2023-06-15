@@ -22,3 +22,19 @@ export const SubtitleWithHandwriting = styled(Subtitle)`
     text-transform: capitalize;
   }
 `;
+
+export const Title = styled(motion.h1)`
+  font-family: 'Jost';
+  font-size: 5.5rem;
+  line-height: 1.2;
+  color: #fff;
+  font-weight: 700;
+  margin: 1rem 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000, 5px 5px 0px rgba(0, 0, 0, 0.2);
+
+  span {
+    color: #29a587;
+  }
+`;

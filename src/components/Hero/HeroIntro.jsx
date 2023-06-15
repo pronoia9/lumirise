@@ -1,5 +1,7 @@
+import { styled } from 'styled-components';
 import { heroData } from '../../utils/data';
 import Socials from '../Socials';
+import { SubtitleWithAccent, SubtitleWithHandwriting, Title } from '../../styles/TextStyles';
 
 export default function HeroTitle() {
   const { name, occupation, intro } = heroData;
@@ -9,14 +11,11 @@ export default function HeroTitle() {
       {/* Title */}
       <div>
         {/* Subtitle Top */}
-        <div><p>Hello, <span>my name is</span></p></div>
+        <SubtitleWithAccent><p>Hello, <span>my name is</span></p></SubtitleWithAccent>
         {/* Title */}
-        <h1>
-          <span>{name.split(' ')[0]}</span>
-          {name.split(' ')[1]}
-        </h1>
+        <Title><span>{name.split(' ')[0]}</span> {name.split(' ')[1]}</Title>
         {/* Subtitle Bottom */}
-        <div>I am a <span>{ occupation }</span></div>
+        <SubtitleWithHandwriting>I am a <span>{ occupation }</span></SubtitleWithHandwriting>
       </div>
 
       {/* Description */}
@@ -34,3 +33,7 @@ export default function HeroTitle() {
     </div>
   );
 }
+
+const Description = styled.div``;
+
+const Download = styled.div``;
