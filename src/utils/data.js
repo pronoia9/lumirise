@@ -1,4 +1,7 @@
+import { logo } from "../assets";
+
 export const sidebarData = {
+  logo: logo,
   links: [
     { title: 'Home', link: '/' },
     { title: 'Skills', link: '/skills' },

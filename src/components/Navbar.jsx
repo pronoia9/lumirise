@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { keyframes, styled } from 'styled-components';
 import { motion, useCycle } from 'framer-motion';
 
-import { logo } from '../assets';
 import { ThemeSVGs, SidebarButton, SocialSVGs } from './SVGs';
 import { sidebarData } from '../utils/data';
 import { sidebarMotion } from '../utils/motion';
@@ -20,7 +19,7 @@ export default function Navbar({ theme, setTheme }) {
         {/* Logo */}
         <Logo open={isOpen}>
           <Link to='/'>
-            <img src={logo} />
+            <img src={sidebarData.logo} />
           </Link>
         </Logo>
 
