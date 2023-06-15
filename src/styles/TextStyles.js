@@ -18,5 +18,7 @@ export const SubtitleWithAccent = styled(Subtitle)`
 export const SubtitleWithHandwriting = styled(Subtitle)`
   span {
     font-family: var(--f-secondary);
+    font-size: 2rem;
+    text-transform: capitalize;
   }
 `;
