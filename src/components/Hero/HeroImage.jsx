@@ -57,33 +57,35 @@ const Circle = styled.span`
 `;
 
 const Pattern1 = styled.span`
+  position: absolute;
   top: 75px;
   right: 40px;
   left: auto;
   width: 226px;
   height: 226px;
   background-image: url('images/pat-1.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.6;
   filter: invert(${({ theme }) => theme.imageInvert});
 `;
 
-const Pattern2 = styled.span`
+const Pattern2 = styled(Pattern1)`
+  background-image: url('images/pat-2.png');
   bottom: 50px;
   right: auto;
   top: auto;
   left: -110px;
   width: 141px;
   height: 141px;
-  background-image: url('images/pat-2.png');
-  filter: invert(${({ theme }) => theme.imageInvert});
 `;
 
-const Pattern3 = styled.span`
+const Pattern3 = styled(Pattern2)`
   bottom: 10px;
   right: -14px;
   top: auto;
   left: auto;
   width: 141px;
   height: 141px;
-  background-image: url('images/pat-2.png');
-  filter: invert(${({ theme }) => theme.imageInvert});
 `;
