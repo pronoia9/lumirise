@@ -1,5 +1,10 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
+import { motion } from 'framer-motion';
 
-export default function Contact() {
+import { SectionWrapper } from '../../hoc';
+
+const Contact = () => {
   return <div>Contact</div>;
-}
+};
+
+export default SectionWrapper(Contact, 'contact');
