@@ -15,7 +15,7 @@ export const Subtitle = styled(motion.div)`
 
 export const SubtitleWithAccent = styled(Subtitle)`
   span {
-    color: #29a587;
+    color: var(--c-accent);
   }
 `;
 
@@ -39,11 +39,15 @@ export const Title = styled(motion.h1)`
   text-shadow: 2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000, 5px 5px 0px rgba(0, 0, 0, 0.2);
 
   span {
-    color: #29a587;
+    color: var(--c-accent);
   }
 
   @media screen and (max-width: 1024px) {
     font-size: 4rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 2.5rem;
   }
 `;
 

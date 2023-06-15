@@ -56,6 +56,11 @@ const Container = styled.div`
     transform: scale(0.9);
     transform-origin: top center;
   }
+
+  @media screen and (max-width: 767px) {
+    top: 680px;
+    transform: scale(0.5);
+  }
 `;
 
 const List = styled.div`

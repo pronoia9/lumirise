@@ -40,6 +40,10 @@ const Container = styled.div`
     padding-top: 140px;
     text-align: center;
   }
+
+  @media screen and (max-width: 767px) {
+		padding-top: 120px;
+  }
 `;
 
 const Titles = styled.div`
