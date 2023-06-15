@@ -33,7 +33,7 @@ export const Title = styled(motion.h1)`
   line-height: 1.2;
   color: #fff;
   font-weight: 700;
-  margin: 1rem 0 0 0;
+  margin: 1rem 0 0 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   text-shadow: 2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000, 5px 5px 0px rgba(0, 0, 0, 0.2);
@@ -45,4 +45,10 @@ export const Title = styled(motion.h1)`
   @media screen and (max-width: 767px) {
     font-size: 2.5rem;
   }
+`;
+
+export const Description = styled(motion.div)`
+  font-size: 1.125rem;
+  margin: 0;
+  opacity: 0.8;
 `;
