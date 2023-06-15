@@ -37,6 +37,7 @@ const Container = styled.div`
   position: absolute;
   top: 50%;
   right: -20px;
+  /* right: -180px; */
   width: 680px;
   height: 800px;
   z-index: 2;
