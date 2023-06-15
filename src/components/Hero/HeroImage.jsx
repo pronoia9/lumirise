@@ -2,9 +2,27 @@ import { styled } from 'styled-components';
 
 import { heroData } from '../../utils/data';
 
+const HeroBadge = ({ total, plus, title, context }) => (
+  <li>
+    <span className='num'>
+      {total}
+      <strong>{plus ? ' +' : ''}</strong>
+    </span>
+    <span className='value'>{title} <strong>{ context }</strong></span>
+  </li>
+);
+
 export default function HeroImage() {
   return (
     <Container className='slide scrolla-element-anim-1 scroll-animate animate__active animate__animated'>
+      <List>
+        <ul>
+          {heroData.badges.map((badge, index) => (
+            <HeroBadge key={`hero-badge-${index}`} {...badge} />
+          ))}
+        </ul>
+      </List>
+
       <Image src={heroData.image} />
       <Circle className='circle circle-1' />
       <Pattern1 className='circle img-1' />
@@ -36,6 +54,42 @@ const Container = styled.div`
     left: 50%;
     transform: scale(0.9);
     transform-origin: top center;
+  }
+`;
+
+const List = styled.div`
+  position: absolute;
+  top: 420px;
+  left: -125px;
+  z-index: 12;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      color: #000;
+      border: 2px solid #000;
+      background-color: #fff;
+      box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+      height: 82px;
+      border-radius: 82px;
+      -webkit-border-radius: 82px;
+      width: 250px;
+      padding: 0 20px;
+
+      &:nth-child(1) {
+        margin: 160px 0 0 100px;
+      }
+
+      &:nth-child(2) {
+        margin: -30px 0 0 520px;
+      }
+    }
   }
 `;
 

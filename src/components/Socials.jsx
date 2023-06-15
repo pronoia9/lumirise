@@ -3,13 +3,13 @@ import { styled } from "styled-components";
 import { motion } from "framer-motion";
 
 import { SocialSVGs } from ".";
-import { sidebarData } from "../utils/data";
+import { socialsData } from "../utils/data";
 import { sidebarMotion } from "../utils/motion";
 
 export default function Socials() {
   return (
     <Container variants={sidebarMotion.socials}>
-      {sidebarData.socials.map(({ title, link }) => (
+      {socialsData.map(({ title, link }) => (
         <motion.p key={`social-${title}`} variants={sidebarMotion.socialItem}>
           <Link to={link}>
             <SocialSVGs social={title} />
