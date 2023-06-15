@@ -10,6 +10,7 @@ const darkTheme = {
   dotsInvert: '1',
 
   backgroundTitle: 'rgba(255, 255, 255, 0.02)',
+  inputPlaceholder: 'rgba(255, 255, 255, 0.5)',
 };
 
 const lightTheme = {
@@ -17,12 +18,13 @@ const lightTheme = {
   background2: '#ffffff',
   font: '#222831',
   accent: '#29a587',
-  
+
   lineBackground: '#ffffff',
   lineBorder: '#000000',
   lineShadow: '5px 5px rgb(0 0 0 / 20%)',
-  
+
   backgroundTitle: 'rgba(0, 0, 0, 0.02)',
+  inputPlaceholder: 'rgba(0, 0, 0, 0.5)',
 };
 
 export { darkTheme, lightTheme };

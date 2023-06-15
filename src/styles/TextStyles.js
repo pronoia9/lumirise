@@ -42,8 +42,8 @@ export const Title = styled(motion.h1)`
     color: #29a587;
   }
 
-  @media screen and (max-width: 767px) {
-    font-size: 2.5rem;
+  @media screen and (max-width: 1024px) {
+    font-size: 4rem;
   }
 `;
 
@@ -51,4 +51,8 @@ export const Description = styled(motion.div)`
   margin: 0;
   font-size: 1.125rem;
   > p:first-of-type { opacity: 0.8; }
+
+  @media screen and (max-width: 1024px) {
+		margin: 0 auto;
+  }
 `;

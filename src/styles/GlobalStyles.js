@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
     --c-lineBorder: ${({ theme }) => theme.lineBorder};
     --c-lineShadow: ${({ theme }) => theme.lineShadow};
     --c-dotsInvert: ${({ theme }) => theme.dotsInvert};
+    --c-inputPlaceholder: ${({ theme }) => theme.inputPlaceholder};
     --f-primary: 'Jost';
     --f-secondary: 'Caveat';
     --f-tertiary: 'Caveat Brush';
@@ -33,7 +34,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-input-placeholder, ::-moz-placeholder, :-moz-placeholder, :-ms-input-placeholder {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--c-inputPlaceholder);
   }
 
   html,

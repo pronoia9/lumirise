@@ -35,6 +35,11 @@ const Container = styled.div`
   @media screen and (min-width: 1700px) {
     padding-top: 20px;
   }
+
+  @media screen and (max-width: 1024px) {
+    padding-top: 140px;
+    text-align: center;
+  }
 `;
 
 const Titles = styled.div`
