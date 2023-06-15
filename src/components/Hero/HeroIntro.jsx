@@ -17,10 +17,10 @@ export default function HeroTitle() {
       </Titles>
 
       {/* Description */}
-      <DescriptionContainer className='description'><p>{intro}</p></DescriptionContainer>
-
-      {/* Socials */}
-      <Socials />
+      <DescriptionContainer className='description'>
+        <p>{intro}</p>
+        <Socials />
+      </DescriptionContainer>
 
       {/* Download Button */}
       <Download className='bts'></Download>
@@ -63,7 +63,7 @@ const DescriptionContainer = styled(Description)`
   max-width: 520px;
 
   p {
-    margin: 0;
+    margin-top: 0;
   }
 `;
 
