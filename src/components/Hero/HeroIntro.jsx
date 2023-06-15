@@ -74,6 +74,12 @@ const DescriptionContainer = styled(Description)`
   p {
     margin-top: 0;
   }
+
+   @media screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
 `;
 
 const Download = styled.div``;
