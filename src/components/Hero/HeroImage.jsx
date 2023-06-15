@@ -61,7 +61,7 @@ const Circle = styled.span`
   width: 680px;
   height: 680px;
   z-index: 2;
-  background: #29a587;
+  background: var(--c-accent);
   border-radius: 100%;
   -webkit-border-radius: 100%;
 `;
