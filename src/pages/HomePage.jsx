@@ -1,3 +1,13 @@
+import { Hero, Skills, Works, Experience, Contact } from '../components';
+
 export default function HomePage() {
-  return <div>HomePage</div>;
-};
+  return (
+    <>
+      <Hero />
+      <Skills />
+      <Works />
+      <Experience />
+      <Contact />
+    </>
+  );
+}
