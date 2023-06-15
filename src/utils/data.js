@@ -11,7 +11,7 @@ export const sidebarData = {
   ],
   socials: [
     { title: 'GitHub', link: 'https://github.com/pronoia9' },
-    { title: 'Facebook', link: 'https://www.facebook.com/victoriouswaffles' },
+    // { title: 'Facebook', link: 'https://www.facebook.com/victoriouswaffles' },
     { title: 'LinkedIn', link: 'https://www.linkedin.com/in/jayansin/' },
     { title: 'Discord', link: null, tooltip: 'pronoia9' },
   ],
