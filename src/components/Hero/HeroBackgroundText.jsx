@@ -11,6 +11,7 @@ export default function HeroBackgroundText({ text }) {
 const Container = styled.div`
   position: relative;
   top: -50px;
+  top: 50px;
   left: -50%;
   width: 200%;
   font-size: 22rem;
