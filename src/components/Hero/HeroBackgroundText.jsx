@@ -22,4 +22,5 @@ const Container = styled.div`
   text-align: center;
   white-space: nowrap;
   pointer-events: none;
+  z-index: 1;
 `;
