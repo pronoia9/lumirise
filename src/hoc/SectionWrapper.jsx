@@ -49,6 +49,7 @@ const Section = styled(motion.section)`
   min-width: 100%;
   min-height: 100vh;
   /* padding-bottom: ${({ idname }) => (idname === 'hero' ? '180px' : '220px')}; */
+  padding-bottom: 200px;
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
 `;
 
@@ -72,14 +73,14 @@ const Container = styled.div`
   `;
 
 const Wrapper = styled.div`
+  position: relative;
   width: 100%;
   max-width: 1300px;
 `;
 
 const BackgroundText = styled.div`
   position: relative;
-  top: -50px;
-  top: 50px;
+  top: 0;
   left: -50%;
   width: 200%;
   font-size: 22rem;
