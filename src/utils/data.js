@@ -73,8 +73,8 @@ export const skillsData = [
     level: 60,
   },
   {
-    title: 'Databases (MongoDB, PostgreSQL)',
-    description: `Keepers of digital knowledge, guardians of data's secrets, with MongoDB and PostgreSQL as their sacred vessels, enabling the storage, retrieval, and manipulation of information that shapes the destiny of web applications.`,
+    title: 'MongoDB, PostgreSQL',
+    description: `Keepers of digital knowledge, guardians of data's secrets, enabling the storage, retrieval, and manipulation of information that shapes the destiny of web applications.`,
     level: 60,
   },
   {
@@ -89,7 +89,7 @@ export const skillsData = [
   },
   {
     title: 'Git',
-    description: `A sage of version control, a custodian of code's history, guarding against chaos and confusion, allowing teams to collaborate in a synchronized dance, preserving the integrity of projects with each graceful commit.`,
+    description: `A sage of version control, guarding against chaos and confusion, allowing teams to collaborate in a synchronized dance, preserving the integrity of projects with each graceful commit.`,
     level: 60,
   },
 ];
