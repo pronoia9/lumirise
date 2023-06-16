@@ -16,4 +16,5 @@ export default SectionWrapper(Hero, 'hero');
 
 const Content = styled.div`
   position: relative;
+  padding-bottom: 100px;
 `;

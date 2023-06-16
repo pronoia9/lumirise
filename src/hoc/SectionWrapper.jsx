@@ -80,7 +80,7 @@ const Wrapper = styled.div`
 
 const BackgroundText = styled.div`
   position: relative;
-  top: 0;
+  top: -50px;
   left: -50%;
   width: 200%;
   font-size: 22rem;
