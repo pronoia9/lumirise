@@ -29,6 +29,7 @@ export const heroData = {
 }
 
 export const sectionsHeadings = {
+  hero: { title: null, subtitle: null },
   skills: { title: 'Professional Skills', subtitle: 'My Talent' },
   works: { title: 'Portfolio', subtitle: 'My Cases' },
   experience: { title: 'Resume', subtitle: 'My Story' },
