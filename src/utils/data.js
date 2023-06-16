@@ -20,6 +20,7 @@ export const socialsData = [
 
 export const sectionsData = {
   hero: { title: null, subtitle: null, background: 'Web Developer' },
+  services: { title: 'What I Do', subtitle: 'My Services', background: 'Services' },
   skills: { title: 'Professional Skills', subtitle: 'My Talent', background: 'Skills' },
   works: { title: 'Portfolio', subtitle: 'My Cases', background: 'Portfolio' },
   experience: { title: 'Resume', subtitle: 'My Story', background: 'History' },
@@ -35,6 +36,37 @@ export const heroData = {
   image: hi,
   badges: [{ total: 3, plus: true, title: 'Years of', context: 'Experience' }, { total: 85, title: 'Completed', context: 'Projects' }]
 }
+
+export const servicesData = [
+  {
+    title: 'Captivating Web Design',
+    category: 'Web Development',
+    description: 'Crafting visually stunning and user-friendly web designs that capture attention and deliver exceptional user experiences.',
+  },
+  {
+    title: 'Interactive 3D Web Experiences',
+    category: 'Web Development',
+    description: 'Creating immersive and interactive 3D web applications that engage users with captivating visuals and seamless interactions.',
+  },
+  {
+    title: 'Backend Development Solutions',
+    category: 'Web Development',
+    description:
+      'Building robust and scalable backend solutions that power web applications, ensuring efficient data handling and seamless functionality.',
+  },
+  {
+    title: 'Database Management',
+    category: 'Web Development',
+    description:
+      'Expertise in working with databases like MongoDB and PostgreSQL, enabling efficient storage, retrieval, and manipulation of data in web applications.',
+  },
+  {
+    title: 'Blender 3D Modeling',
+    category: 'Digital Artistry',
+    description: 'Utilizing Blender to create intricate and visually stunning 3D models, bringing imagination to life with precision and artistry.',
+  },
+];
+
 
 export const skillsData = [
   {
