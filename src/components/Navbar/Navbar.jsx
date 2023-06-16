@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { keyframes, styled } from 'styled-components';
+import { css, keyframes, styled } from 'styled-components';
 import { motion, useCycle } from 'framer-motion';
 
 import { ThemeSVGs, SidebarButton, Sidebar } from '..';
@@ -34,7 +34,7 @@ export default function Navbar({ theme, setTheme }) {
   return (
     <>
       <Overlay ref={overlayRef} open={isOpen} className='overlayref' />
-      <Container scrolly={parseInt(scrollY)}>
+      <Container scrolly={parseInt(scrollY)} open={isOpen}>
         {/* Left Side - Logo */}
         <Logo open={isOpen} scrolly={parseInt(scrollY)}>
           <Link to='/'>
@@ -92,7 +92,7 @@ const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
+  z-index: 951;
   isolation: isolate;
 
   svg {
@@ -104,11 +104,11 @@ const Container = styled.header`
   }
 
   @media (max-width: 1200px) {
-    /* background-color: ${({ scrolly }) => scrolly && 'var(--c-background)'}; */
-    /* background-color: var(--c-background); */
-    background: ${({ theme }) => theme.navbarBackground};
-    backdrop-filter: blur(5px);
-    transition: background-color 0.3s cubic-bezier(0.3, 0, 0.3, 1);
+    ${({ scrolly, open }) => (!open && scrolly > 100) && css`
+      background: var(--c-navbarBackground);
+      backdrop-filter: blur(5px);
+      transition: all 1s ease-in-out;
+    `}
   }
 `;
 
@@ -139,7 +139,7 @@ const Logo = styled.div`
   }
 
   @media (max-width: 720px) {
-    display: ${({ open }) => open && 'none'};
+    visibility: ${({ open }) => open && 'hidden'};
   }
 `;
 
