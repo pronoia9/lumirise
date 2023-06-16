@@ -51,10 +51,10 @@ export default function Navbar({ theme, setTheme }) {
             <SidebarButton variants={sidebarMotion.menu} />
           </motion.div>
         </Icons>
-
-        {/* Sidebar */}
-        <Sidebar isOpen={isOpen} />
       </Container>
+
+      {/* Sidebar */}
+      <Sidebar isOpen={isOpen} />
     </>
   );
 }
@@ -77,7 +77,7 @@ const Overlay = styled.div`
   height: 100%;
   background-color: ${({ open }) => open ? 'rgba(0, 0, 0, 0.5)' : 'none'};
   transition: all 0.5s ease-in;
-  /* pointer-events: none; */
+  pointer-events: ${({ open }) => open ? 'auto' : 'none'};
   /* display: ${({ open }) => !open && 'none'}; */
   z-index: 900;
 `;
@@ -92,7 +92,7 @@ const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 901;
+  z-index: 999;
   isolation: isolate;
 
   svg {
@@ -105,7 +105,9 @@ const Container = styled.header`
 
   @media (max-width: 1200px) {
     /* background-color: ${({ scrolly }) => scrolly && 'var(--c-background)'}; */
-    background-color: var(--c-background);
+    /* background-color: var(--c-background); */
+    background: ${({ theme }) => theme.navbarBackground};
+    backdrop-filter: blur(5px);
     transition: background-color 0.3s cubic-bezier(0.3, 0, 0.3, 1);
   }
 `;
@@ -145,5 +147,4 @@ const Icons = styled.div`
   height: 30px;
   display: flex;
   gap: 40px;
-  z-index: 999;
 `;

@@ -41,6 +41,7 @@ const SidebarMenu = styled(motion.nav)`
   display: flex;
   overflow: hidden;
   pointer-events: ${({ open }) => (open ? 'all' : 'none')};
+  z-index: 950;
   isolation: isolate;
 `;
 
