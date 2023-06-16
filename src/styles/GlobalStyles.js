@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --c-background: ${({ theme }) => theme.background};
     --c-background2: ${({ theme }) => theme.background2};
+    --c-background3: ${({ theme }) => theme.background3};
     --c-navbarBackground: ${({ theme }) => theme.navbarBackground};
     --c-gradient1: linear-gradient(0deg, ${({ theme }) => theme.background2} 0%, ${({ theme }) => theme.background} 100%);
     --c-gradient2: linear-gradient(0deg, ${({ theme }) => theme.background} 0%, ${({ theme }) => theme.background2} 100%);
