@@ -1,4 +1,4 @@
-import logo from './axolotl-ride-hearts.png';
-import hi from './hi.png';
+import logo from './bitmojis/riding mr.unicorn.png';
+import hi from './bitmojis/hi.png';
 
 export { logo, hi };
