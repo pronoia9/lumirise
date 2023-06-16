@@ -102,14 +102,12 @@ const Container = styled.header`
     height: 1.5rem;
     cursor: pointer;
   }
-
-  @media (max-width: 1200px) {
-    ${({ scrolly, open }) => (!open && scrolly > 100) && css`
-      background: var(--c-navbarBackground);
-      backdrop-filter: blur(5px);
-      transition: all 1s ease-in-out;
-    `}
-  }
+  
+  ${({ scrolly, open }) => (!open && scrolly > 100) && css`
+    background: var(--c-navbarBackground);
+    backdrop-filter: blur(5px);
+    transition: all 1s ease-in-out;
+  `}
 `;
 
 const Logo = styled.div`
