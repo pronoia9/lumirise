@@ -34,9 +34,9 @@ export default function Navbar({ theme, setTheme }) {
   return (
     <>
       <Overlay ref={overlayRef} open={isOpen} className='overlayref' />
-      <Container scrolly={scrollY}>
+      <Container scrolly={scrollY > 100}>
         {/* Left Side - Logo */}
-        <Logo open={isOpen}>
+        <Logo open={isOpen} scrolly={scrollY > 100}>
           <Link to='/'>
             <img src={sidebarData.logo} />
           </Link>
@@ -88,7 +88,7 @@ const Container = styled.header`
   left: 0;
   width: 100%;
   padding: 1.85rem;
-  background-color: ${({ scrolly }) => (parseInt(scrolly) > 100 ? 'var(--c-background)' : 'none')};
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -101,6 +101,12 @@ const Container = styled.header`
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
+  }
+
+  @media (max-width: 1200px) {
+    /* background-color: ${({ scrolly }) => scrolly && 'var(--c-background)'}; */
+    background-color: var(--c-background);
+    transition: background-color 0.3s cubic-bezier(0.3, 0, 0.3, 1);
   }
 `;
 
@@ -121,6 +127,13 @@ const Logo = styled.div`
     max-width: 100%;
     height: auto;
     max-height: calc(100% + (1.85rem * 1));
+  }
+
+  @media (min-width: 1200px) {
+    img {
+      transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
+      max-height: ${({ scrolly }) => scrolly && '100%'};
+    }
   }
 
   @media (max-width: 720px) {

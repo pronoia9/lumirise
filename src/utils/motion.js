@@ -1,4 +1,8 @@
 export const navbarMotion = {
+  header: {
+    initial: { background: 'none' },
+    animate: { background: 'var(--c-background)' }
+  },
   logo: {
     whileHover: {
       scaleX: [1, 1.25, 0.75, 1.15, 0.95, 1.05, 1],
