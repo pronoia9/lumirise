@@ -70,13 +70,14 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     color: var(--c-accent);
-    text-decoration: none;
+    text-decoration: none !important;
     cursor: pointer;
     outline: none;
     transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
     -webkit-transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
     
-    &:link, &:active, &:visited { color: var(--c-accent); }
+    &:link, &:active { color: var(--c-accent); }
+    /* &:visited { color: var(--c-accent); } */
     &:hover { text-decoration: underline; }
     
     img { border: none; }
