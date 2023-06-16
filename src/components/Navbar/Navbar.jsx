@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { keyframes, styled } from 'styled-components';
 import { motion, useCycle } from 'framer-motion';
@@ -10,22 +10,31 @@ import { toggleTheme } from '../../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
+  const [scrollY, setScrollY] = useState(window.scrollY);
   const overlayRef = useRef();
 
   const handleThemeClick = () => { toggleTheme(setTheme); };
 
   const handleMenuClick = () => { toggleOpen(); };
 
+  // Event listener to close the sidebar when clicking elsewhere
   useEffect(() => {
     const clickElsewhere = (e) => { if (isOpen && e.target === overlayRef?.current) toggleOpen(); }
     window.addEventListener('mousedown', clickElsewhere);
     return () => { window.removeEventListener('mousedown', clickElsewhere); };
   }, [isOpen]);
 
+  // Event listener to set scrollY to scrollY
+  useEffect(() => {
+    const setScroll = () => { setScrollY(window.scrollY); }
+    window.addEventListener('scroll', setScroll);
+    return () => { window.removeEventListener('scroll', setScroll); };
+  }, []);
+
   return (
     <>
       <Overlay ref={overlayRef} open={isOpen} className='overlayref' />
-      <Container>
+      <Container scrolly={scrollY}>
         {/* Left Side - Logo */}
         <Logo open={isOpen}>
           <Link to='/'>
@@ -79,6 +88,7 @@ const Container = styled.header`
   left: 0;
   width: 100%;
   padding: 1.85rem;
+  background-color: ${({ scrolly }) => (parseInt(scrolly) > 100 ? 'var(--c-background)' : 'none')};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,9 +118,9 @@ const Logo = styled.div`
   }
 
   img {
-    height: auto;
     max-width: 100%;
-    /* width: auto; */ /* height: 50px; */
+    height: auto;
+    max-height: calc(100% + (1.85rem * 1));
   }
 
   @media (max-width: 720px) {
