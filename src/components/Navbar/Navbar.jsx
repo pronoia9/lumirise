@@ -34,9 +34,9 @@ export default function Navbar({ theme, setTheme }) {
   return (
     <>
       <Overlay ref={overlayRef} open={isOpen} className='overlayref' />
-      <Container scrolly={scrollY > 100}>
+      <Container scrolly={parseInt(scrollY)}>
         {/* Left Side - Logo */}
-        <Logo open={isOpen} scrolly={scrollY > 100}>
+        <Logo open={isOpen} scrolly={parseInt(scrollY)}>
           <Link to='/'>
             <img src={sidebarData.logo} />
           </Link>
@@ -132,7 +132,7 @@ const Logo = styled.div`
   @media (min-width: 1200px) {
     img {
       transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
-      max-height: ${({ scrolly }) => scrolly && '100%'};
+      max-height: ${({ scrolly }) => scrolly > 100 && '100%'};
     }
   }
 
