@@ -4,6 +4,9 @@ const darkTheme = {
   font: '#eaeaea',
   accent: '#FE69AA',
 
+  rgb: '0, 0, 0',
+  navbarBackground: 'rgba(0, 0, 0, 0.4)',
+
   lineBackground: '#1d222a',
   lineBorder: '#a3a5a7',
   lineShadow: 'rgb(255 255 255 / 10%)',
@@ -18,6 +21,9 @@ const lightTheme = {
   background2: '#ffffff',
   font: '#222831',
   accent: '#FEA2C9',
+
+  rgb: '255, 255, 255',
+  navbarBackground: 'rgba(255, 255, 255, 0.4)',
 
   lineBackground: '#ffffff',
   lineBorder: '#000000',
