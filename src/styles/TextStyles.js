@@ -28,7 +28,7 @@ export const SubtitleWithHandwriting = styled(Subtitle)`
 `;
 
 export const HeroTitle = styled(motion.h1)`
-  font-family: 'Jost';
+  font-family: var(--f-primary);
   font-size: 5.5rem;
   line-height: 1.2;
   color: #fff;
@@ -54,9 +54,45 @@ export const HeroTitle = styled(motion.h1)`
 export const Description = styled(motion.div)`
   margin: 0;
   font-size: 1.125rem;
-  > p:first-of-type { opacity: 0.8; }
+  > p:first-of-type {
+    opacity: 0.8;
+  }
 
   @media screen and (max-width: 1024px) {
-		margin: 0 auto;
+    margin: 0 auto;
+  }
+`;
+
+export const SectionTitle = styled.h2`
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--c-font);
+  font-family: var(--f-primary);
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+`;
+
+export const SectionSubtitle = styled.div`
+  span {
+    position: relative;
+    color: var(--c-accent);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    z-index: 2;
+
+    strong, b, span {
+      font-family: var(--f-secondary);
+      color: var(--c-font);
+      font-size: 1.875rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-left: 10px;
+    }
   }
 `;
