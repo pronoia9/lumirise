@@ -19,26 +19,23 @@ const SectionWrapper = (Component, idName) =>
         gradient={props?.gradient}
         idname={idName}
       >
-        {/* Section Title */}
-        {title && subtitle && (
-          <SectionHeading className='lui-heading'>
-            <SectionTitle>{title}</SectionTitle>
-            <SectionSubtitle>
-              <span>
-                {subtitle.split(' ')[0]} <span>{subtitle.split(' ')[1]}</span>
-              </span>
-            </SectionSubtitle>
-          </SectionHeading>
-        )}
-
         <Container className='container'>
+          {/* Section Title */}
+          {title && subtitle && (
+            <SectionHeading className='lui-heading'>
+              <SectionTitle>{title}</SectionTitle>
+              <SectionSubtitle>
+                <span>
+                  {subtitle.split(' ')[0]} <span>{subtitle.split(' ')[1]}</span>
+                </span>
+              </SectionSubtitle>
+            </SectionHeading>
+          )}
           <Wrapper className='lui-started v-line v-line-left'>
             <Component {...props} />
 
             {/* Background Text */}
-            <BackgroundText className='lui-bgtitle'>
-              {background}
-            </BackgroundText>
+            <BackgroundText className='lui-bgtitle'>{background}</BackgroundText>
           </Wrapper>
         </Container>
       </Section>
@@ -51,7 +48,7 @@ const Section = styled(motion.section)`
   position: relative;
   min-width: 100%;
   min-height: 100vh;
-  padding-bottom: ${({ idname }) => (idname === 'hero' ? '180px' : '220px')};
+  /* padding-bottom: ${({ idname }) => (idname === 'hero' ? '180px' : '220px')}; */
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
 `;
 
@@ -64,15 +61,19 @@ const SectionHeading = styled.div`
 `;
 
 const Container = styled.div`
-  max-width: 1300px;
+  width: 100%;
+  height: 100%;
   min-height: 100vh;
   padding: 0 0.75rem;
   display: flex;
   align-items: center; /* ${({ idname }) => idname === 'hero' && 'center'}; */
-`;
+  justify-content: center;
+  flex-direction: column;
+  `;
 
 const Wrapper = styled.div`
   width: 100%;
+  max-width: 1300px;
 `;
 
 const BackgroundText = styled.div`
