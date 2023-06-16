@@ -18,6 +18,14 @@ export const socialsData = [
   { title: 'Discord', link: null, tooltip: 'pronoia9' },
 ];
 
+export const sectionsData = {
+  hero: { title: null, subtitle: null, background: 'Web Developer' },
+  skills: { title: 'Professional Skills', subtitle: 'My Talent', background: 'Skills' },
+  works: { title: 'Portfolio', subtitle: 'My Cases', background: 'Portfolio' },
+  experience: { title: 'Resume', subtitle: 'My Story', background: 'History' },
+  contact: { title: 'Contact Me', subtitle: `Let's Talk About Ideas`, background: 'Contact Me' },
+};
+
 export const heroData = {
   name: 'Jay Ansin',
   occupation: 'Web Developer',
@@ -27,14 +35,6 @@ export const heroData = {
   image: hi,
   badges: [{ total: 3, plus: true, title: 'Years of', context: 'Experience' }, { total: 85, title: 'Completed', context: 'Projects' }]
 }
-
-export const sectionsHeadings = {
-  hero: { title: null, subtitle: null },
-  skills: { title: 'Professional Skills', subtitle: 'My Talent' },
-  works: { title: 'Portfolio', subtitle: 'My Cases' },
-  experience: { title: 'Resume', subtitle: 'My Story' },
-  contact: { title: 'Contact Me', subtitle: `Let's Talk About Ideas` },
-};
 
 export const skillsData = [
   {
