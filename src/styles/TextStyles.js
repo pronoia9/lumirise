@@ -27,7 +27,7 @@ export const SubtitleWithHandwriting = styled(Subtitle)`
   }
 `;
 
-export const Title = styled(motion.h1)`
+export const HeroTitle = styled(motion.h1)`
   font-family: 'Jost';
   font-size: 5.5rem;
   line-height: 1.2;

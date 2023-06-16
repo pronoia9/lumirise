@@ -2,10 +2,10 @@ import { styled } from 'styled-components';
 
 import { Socials } from '..';
 import { heroData } from '../../utils/data';
-import { Description, SubtitleWithAccent, SubtitleWithHandwriting, Title } from '../../styles/TextStyles';
+import { Description, SubtitleWithAccent, SubtitleWithHandwriting, HeroTitle } from '../../styles/TextStyles';
 import { UnfilledButton } from '../../styles/ButtonStyles';
 
-export default function HeroTitle() {
+export default function HeroIntro() {
   const { name, occupation, intro } = heroData;
 
   return (
@@ -13,7 +13,7 @@ export default function HeroTitle() {
       {/* Title */}
       <Titles className='titles'>
         <SubtitleWithAccent><p>Hello, <span>my name is</span></p></SubtitleWithAccent>
-        <Title><span>{name.split(' ')[0]}</span> {name.split(' ')[1]}</Title>
+        <HeroTitle><span>{name.split(' ')[0]}</span> {name.split(' ')[1]}</HeroTitle>
         <SubtitleWithHandwriting>I am a <span>{occupation}</span></SubtitleWithHandwriting>
       </Titles>
 
