@@ -2,7 +2,7 @@ const darkTheme = {
   background: '#222831',
   background2: '#31363c',
   font: '#eaeaea',
-  accent: '#29a587',
+  accent: '#FE69AA',
 
   lineBackground: '#1d222a',
   lineBorder: '#a3a5a7',
@@ -17,7 +17,7 @@ const lightTheme = {
   background: '#F0EBE3',
   background2: '#ffffff',
   font: '#222831',
-  accent: '#29a587',
+  accent: '#FEA2C9',
 
   lineBackground: '#ffffff',
   lineBorder: '#000000',
