@@ -24,7 +24,7 @@ export default function Navbar({ theme, setTheme }) {
 
   return (
     <>
-      <Overlay ref={overlayRef} open={isOpen} />
+      <Overlay ref={overlayRef} open={isOpen} className='overlayref' />
       <Container>
         {/* Left Side - Logo */}
         <Logo open={isOpen}>
@@ -66,9 +66,11 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: none;
+  background-color: ${({ open }) => open ? 'rgba(0, 0, 0, 0.5)' : 'none'};
+  transition: all 0.5s ease-in;
   /* pointer-events: none; */
-  display: ${({open}) => !open && 'none'};
+  /* display: ${({ open }) => !open && 'none'}; */
+  z-index: 900;
 `;
 
 const Container = styled.header`
@@ -80,7 +82,7 @@ const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 900;
+  z-index: 901;
   isolation: isolate;
 
   svg {
