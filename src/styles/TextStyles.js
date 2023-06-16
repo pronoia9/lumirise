@@ -73,6 +73,15 @@ export const SectionTitle = styled.h2`
   line-height: 1.3;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+
+  @media screen and (max-width: 1024px) {
+    margin-bottom: 10px;
+    font-size: 34px;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 26px;
+  }
 `;
 
 export const SectionSubtitle = styled.div`
@@ -94,5 +103,16 @@ export const SectionSubtitle = styled.div`
       text-transform: none;
       margin-left: 10px;
     }
+  }
+
+  @media screen and (max-width: 1024px) {
+    span {
+      span, b, strong {
+        font-size: 24px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
   }
 `;
