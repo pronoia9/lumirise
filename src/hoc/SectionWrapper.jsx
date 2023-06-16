@@ -16,7 +16,7 @@ const SectionWrapper = (Component, idName) =>
         whileInView='show'
         viewport={{ once: true, amount: 0.25 }}
         gradient={props?.gradient}
-        isTop={idName === 'hero'}
+        idname={idName}
       >
         {title && subtitle && (
           <SectionHeading className='lui-heading'>
@@ -29,7 +29,7 @@ const SectionWrapper = (Component, idName) =>
           </SectionHeading>
         )}
 
-        <Wrapper isTop={idName === 'hero'}>
+        <Wrapper>
           <Component {...props} />
         </Wrapper>
       </Container>
@@ -42,7 +42,7 @@ const Container = styled(motion.section)`
   position: relative;
   min-width: 100%;
   min-height: 100vh;
-  padding-bottom: ${({ isTop }) => (isTop ? '180px' : '220px')};
+  padding-bottom: ${({ idname }) => (idname === 'hero' ? '180px' : '220px')};
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
 `;
 
@@ -59,5 +59,6 @@ const Wrapper = styled.div`
   min-height: 100vh;
   padding: 0 0.75rem;
   display: flex;
-  align-items: ${({ isTop }) => !isTop && 'center'};
+  /* align-items: ${({ idname }) => idname === 'hero' && 'center'}; */
+  align-items: center;
 `;
