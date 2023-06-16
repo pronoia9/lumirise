@@ -7,8 +7,7 @@ import { Skills } from './Skills';
 import { Works } from './Works';
 import Footer from './Footer';
 import Preloader from './Preloader';
-import SectionHeading from './SectionHeading';
 import Socials from './Socials';
 import { SidebarButton, ThemeSVGs, SocialSVGs } from './SVGs';
 
-export { Contact, Experience, Hero, Navbar, Sidebar, Skills, Works, Footer, Preloader, SectionHeading, Socials, SidebarButton, ThemeSVGs, SocialSVGs };
+export { Contact, Experience, Hero, Navbar, Sidebar, Skills, Works, Footer, Preloader, Socials, SidebarButton, ThemeSVGs, SocialSVGs };

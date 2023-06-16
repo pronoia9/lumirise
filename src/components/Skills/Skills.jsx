@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { SectionWrapper } from '../../hoc';
 
 const Skills = () => {
-  return <div>Skills</div>;
+  return <div></div>;
 };
 
 export default SectionWrapper(Skills, 'skills');
