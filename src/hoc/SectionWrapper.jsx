@@ -2,13 +2,14 @@ import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { SectionTitle, SectionSubtitle } from '../styles/TextStyles';
-import { sectionsHeadings } from '../utils/data';
+import { sectionsData } from '../utils/data';
 
 const SectionWrapper = (Component, idName) =>
   function HOC(props) {
-    const { title, subtitle } = sectionsHeadings[idName];
+    const { title, subtitle, background } = sectionsData[idName];
+
     return (
-      <Container
+      <Section
         id={idName}
         className='lui-section lui-gradient-center'
         variants={{ hidden: {}, show: { transition: { staggerChildren: 0.5, delayChildren: 0.5 } } }}
@@ -18,6 +19,7 @@ const SectionWrapper = (Component, idName) =>
         gradient={props?.gradient}
         idname={idName}
       >
+        {/* Section Title */}
         {title && subtitle && (
           <SectionHeading className='lui-heading'>
             <SectionTitle>{title}</SectionTitle>
@@ -29,16 +31,23 @@ const SectionWrapper = (Component, idName) =>
           </SectionHeading>
         )}
 
-        <Wrapper>
-          <Component {...props} />
-        </Wrapper>
-      </Container>
+        <Container className='container'>
+          <Wrapper className='lui-started v-line v-line-left'>
+            <Component {...props} />
+
+            {/* Background Text */}
+            <BackgroundText className='lui-bgtitle'>
+              {background}
+            </BackgroundText>
+          </Wrapper>
+        </Container>
+      </Section>
     );
   };
 
 export default SectionWrapper;
 
-const Container = styled(motion.section)`
+const Section = styled(motion.section)`
   position: relative;
   min-width: 100%;
   min-height: 100vh;
@@ -54,11 +63,31 @@ const SectionHeading = styled.div`
   text-align: center;
 `;
 
-const Wrapper = styled.div`
+const Container = styled.div`
   max-width: 1300px;
   min-height: 100vh;
   padding: 0 0.75rem;
   display: flex;
-  /* align-items: ${({ idname }) => idname === 'hero' && 'center'}; */
-  align-items: center;
+  align-items: center; /* ${({ idname }) => idname === 'hero' && 'center'}; */
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+`;
+
+const BackgroundText = styled.div`
+  position: relative;
+  top: -50px;
+  top: 50px;
+  left: -50%;
+  width: 200%;
+  font-size: 22rem;
+  font-family: var(--f-secondary);
+  color: ${({ theme }) => theme.backgroundTitle};
+  font-weight: bold;
+  line-height: 1px;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
 `;
