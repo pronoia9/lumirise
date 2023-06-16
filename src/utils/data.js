@@ -3,11 +3,11 @@ import { hi, logo } from "../assets";
 export const sidebarData = {
   logo: logo,
   links: [
-    { title: 'Home', link: '/' },
-    { title: 'Skills', link: '/skills' },
-    { title: 'Works', link: '/works' },
-    { title: 'Resume', link: '/resume' },
-    { title: 'Contact', link: '/contact' },
+    { title: 'Home', link: '#' },
+    { title: 'Skills', link: '#skills' },
+    { title: 'Works', link: '#works' },
+    { title: 'Resume', link: '#resume' },
+    { title: 'Contact', link: '#contact' },
   ],
 };
 

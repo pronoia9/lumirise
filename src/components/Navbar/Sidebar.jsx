@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -19,7 +18,7 @@ export default function Sidebar({ isOpen }) {
         <Links variants={sidebarMotion.links}>
           {sidebarData.links.map(({ title, link }) => (
             <motion.li key={`link-${title}`} variants={sidebarMotion.linkItem} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Link to={link}>{title}</Link>
+              <a href={link}>{title}</a>
             </motion.li>
           ))}
         </Links>
