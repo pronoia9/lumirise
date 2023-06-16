@@ -28,6 +28,13 @@ export const heroData = {
   badges: [{ total: 3, plus: true, title: 'Years of', context: 'Experience' }, { total: 85, title: 'Completed', context: 'Projects' }]
 }
 
+export const sectionsHeadings = {
+  skills: { title: 'Professional Skills', subtitle: 'My Talent' },
+  works: { title: 'Portfolio', subtitle: 'My Cases' },
+  experience: { title: 'Resume', subtitle: 'My Story' },
+  contact: { title: 'Contact Me', subtitle: `Let's Talk About Ideas` },
+};
+
 export const skillsData = [
   {
     title: 'HTML',
