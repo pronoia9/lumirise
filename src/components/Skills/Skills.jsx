@@ -55,7 +55,7 @@ const SkillCardContainer = styled.div`
 
 const SkillTitle = styled.h6`
   margin: 0 30px 20px 30px;
-  line-height: 20px;
+  line-height: 1.25rem;
 
   @media screen and (max-width: 767px) {
     max-width: 75%;
@@ -64,6 +64,7 @@ const SkillTitle = styled.h6`
 
 const SkillDescription = styled.div`
   margin-bottom: 30px;
+  opacity: 0.8;
 `;
 
 const SkillLevel = styled.div`
@@ -73,34 +74,34 @@ const SkillLevel = styled.div`
 
   div {
     position: relative;
-    display: block;
     width: ${({ level }) => `${level}%`};
     height: 2px;
+    display: block;
     background: var(--c-accent);
     transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 
     span {
-      border: 2px solid var(--c-lineBorder);
-      border-radius: 50%;
-      background-color: var(--c-lineBackground);
-      box-shadow: 5px 5px var(--c-lineShadow);
       position: absolute;
-      right: 0;
       top: -12px;
+      right: 0;
       width: 25px;
       height: 25px;
+      background-color: var(--c-lineBackground);
+      border-radius: 50%;
+      border: 2px solid var(--c-lineBorder);
+      box-shadow: 5px 5px var(--c-lineShadow);
 
       &:before {
-        margin-top: -5px;
-        margin-left: -5px;
-        border: 2px solid #000;
-        border-radius: 50%;
-        background-color: #fff;
         position: absolute;
-        left: 50%;
         top: 50%;
+        left: 50%;
         width: 10px;
         height: 10px;
+        margin-top: -5px;
+        margin-left: -5px;
+        background-color: #fff;
+        border: 2px solid #000;
+        border-radius: 50%;
       }
     }
   }
@@ -109,11 +110,11 @@ const SkillLevel = styled.div`
 const SkillPercentage = styled.div`
   position: absolute;
   top: 0;
-  right: 30px;
-  height: 20px;
-  vertical-align: top;
+  right: 1.875rem;
+  height: 1.25rem;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 1.25rem;
+  vertical-align: top;
 
   span {
     color: var(--c-accent);
