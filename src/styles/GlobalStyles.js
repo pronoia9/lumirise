@@ -1,9 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { reset } from './Reset';
+import { resetCSS } from './ResetCSS';
+import { swiperCSS } from './SwiperCSS';
 
 const GlobalStyles = createGlobalStyle`
-  ${reset}
+  ${resetCSS}
+  ${swiperCSS}
   
   @font-face { font-family: 'Caveat'; src: url('/fonts/Caveat/Caveat-VariableFont_wght.ttf'); }
   @font-face { font-family: 'Caveat Brush'; src: url('/fonts/Caveat_Brush/CaveatBrush-Regular.ttf'); }
