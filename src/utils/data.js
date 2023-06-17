@@ -143,7 +143,13 @@ export const skillsData = [
 ];
 
 export const projectsData = {
-  filters: ['all', 'react', '3d', 'frontend', 'fullstack'],
+  filters: [
+    { title: 'all', filter: '' },
+    { title: 'react', filter: 'react' },
+    { title: '3d', filter: '3d' },
+    { title: 'frontend', filter: 'frontend' },
+    { title: 'fullstack', filter: 'fullstack' },
+  ],
   projects: [
     {
       id: 'ugAU0ari79',
