@@ -1,27 +1,18 @@
 import { styled } from 'styled-components';
 
+import HeroBadge from './HeroBadge';
 import { heroData } from '../../utils/data';
-
-const HeroBadge = ({ total, plus, title, context }) => (
-  <li>
-    <span className='num'>
-      {total}
-      <strong>{plus ? ' +' : ''}</strong>
-    </span>
-    <span className='value'>{title} <strong>{ context }</strong></span>
-  </li>
-);
 
 export default function HeroImage() {
   return (
     <Container className='slide scrolla-element-anim-1 scroll-animate animate__active animate__animated'>
-      <List>
+      <HeroBadgeList>
         <ul>
           {heroData.badges.map((badge, index) => (
             <HeroBadge key={`hero-badge-${index}`} {...badge} />
           ))}
         </ul>
-      </List>
+      </HeroBadgeList>
 
       <Image src={heroData.image} />
       <Circle className='circle circle-1' />
@@ -64,67 +55,14 @@ const Container = styled.div`
   }
 `;
 
-const List = styled.div`
+const HeroBadgeList = styled.ul`
   position: absolute;
   top: 420px;
   left: -125px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   z-index: 12;
-
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    li {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      color: var(--c-font);
-      border: 2px solid var(--c-lineBorder);
-      background-color: var(--c-lineBackground);
-      box-shadow: 5px 5px var(--c-lineShadow);
-      height: 82px;
-      border-radius: 82px;
-      width: 250px;
-      padding: 0 20px;
-
-      &:nth-child(1) {
-        margin: 160px 0 0 100px;
-      }
-
-      &:nth-child(2) {
-        margin: -30px 0 0 520px;
-      }
-
-      .num, .value {
-        width: 50%;
-        display: block;
-        text-transform: uppercase;
-        line-height: 1.25rem;
-        font-weight: 700;
-
-         strong {
-          color: var(--c-accent);
-        }
-      }
-
-      .num {
-        font-size: 2.31rem;
-        text-align: center;
-
-        strong {
-          position: relative;
-          top: -4px;
-        }
-      }
-
-      .value {
-        font-size: 0.8rem;
-        letter-spacing: 0.05rem;
-        text-align: left;
-      }
-    }
-  }
 `;
 
 const Image = styled.img`
