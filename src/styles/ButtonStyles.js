@@ -13,7 +13,7 @@ export const UnfilledButton = styled.div`
     text-decoration: none;
     transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
 
-    &:first-child {
+    &:nth-child(1) {
       padding: 0 40px;
       line-height: 52px;
       text-align: center;
@@ -53,7 +53,7 @@ export const UnfilledButton = styled.div`
       }
     }
 
-    &:last-child {
+    &:nth-child(2) {
       padding-left: 70px;
       line-height: 56px;
       vertical-align: top;
