@@ -4,7 +4,7 @@ import { Card } from '..';
 
 export default function ServicesCard({ title, category, description }) {
   return (
-    <Card description={description} section='Works' link='#works'>
+    <Card description={description} descriptionHeight={175} section='Works' link='#works'>
       <ServiceCardSubtitle className='lui-subtitle'>
         <span>{category}</span>
       </ServiceCardSubtitle>
