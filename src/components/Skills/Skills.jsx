@@ -56,10 +56,7 @@ const SkillCardContainer = styled.div`
 const SkillTitle = styled.h6`
   margin: 0 30px 20px 30px;
   line-height: 1.25rem;
-
-  @media screen and (max-width: 767px) {
-    max-width: 75%;
-  }
+  max-width: 70%;
 `;
 
 const SkillDescription = styled.div`
