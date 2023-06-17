@@ -10,7 +10,7 @@ const SectionWrapper = (Component, idName) =>
     const { title, subtitle, background } = sectionsData[idName];
 
     return (
-      <Container id={idName} className='lui-section lui-gradient-center' gradient={props?.gradient}>
+      <Container id={idName} className='lui-section lui-gradient-center' gradient={props?.gradient} idname={idName}>
         <Wrapper key={`sectionwrapper-wrapper-${idName}`} className='container' {...sectionWrapperMotion}>
           {/* Section Title */}
           {title && subtitle && (
@@ -44,7 +44,7 @@ const Container = styled.section`
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
 
   display: flex;
-  align-items: center;
+  align-items: ${({ idname }) => (idname === 'hero' ? 'center' : 'flex-start')};
   justify-content: center;
 `;
 
