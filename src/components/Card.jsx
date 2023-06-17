@@ -9,7 +9,7 @@ export default function Card(props) {
   const { descheight, children } = props; // Other
 
   return (
-    <CardContainer className='services-item'>
+    <CardContainer className={`${tags?.join(' ').toLocaleLowerCase() ?? ''}`}>
       {/* Image/Etc */}
       {children}
 
