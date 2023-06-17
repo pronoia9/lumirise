@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 
 import { Socials } from '../';
 import { sidebarData } from '../../utils/data';
-import { sidebarMotion } from '../../utils/motion';
+import { navbarMotion } from '../../utils/motion';
 
 export default function Sidebar({ isOpen }) {
   return (
-    <SidebarMenu initial={false} animate={isOpen ? 'open' : 'closed'} open={isOpen}>
+    <SidebarMenu {...navbarMotion.sidebarMenu(isOpen)} open={isOpen}>
       <SidebarContainer>
         {/* Line + Dots */}
         <SidebarLine animate={{ opacity: isOpen ? 1 : 0 }}>
@@ -15,9 +15,9 @@ export default function Sidebar({ isOpen }) {
         </SidebarLine>
 
         {/* Links */}
-        <Links variants={sidebarMotion.links}>
+        <Links {...navbarMotion.sidebarLinks}>
           {sidebarData.links.map(({ title, link }) => (
-            <motion.li key={`link-${title}`} variants={sidebarMotion.linkItem} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <motion.li key={`link-${title}`} {...navbarMotion.sidebarLinkItem}>
               <a href={link}>{title}</a>
             </motion.li>
           ))}
@@ -26,7 +26,8 @@ export default function Sidebar({ isOpen }) {
         {/* Socials */}
         <Socials />
       </SidebarContainer>
-      <SidebarBackground variants={sidebarMotion.background} />
+
+      <SidebarBackground {...navbarMotion.sidebarBackground} />
     </SidebarMenu>
   );
 }

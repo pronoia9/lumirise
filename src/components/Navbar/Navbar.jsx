@@ -5,7 +5,7 @@ import { motion, useCycle } from 'framer-motion';
 
 import { ThemeSVGs, SidebarButton, Sidebar } from '..';
 import { sidebarData } from '../../utils/data';
-import { navbarMotion, sidebarMotion } from '../../utils/motion';
+import { navbarMotion } from '../../utils/motion';
 import { toggleTheme } from '../../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
@@ -48,8 +48,8 @@ export default function Navbar({ theme, setTheme }) {
           {/* Theme Button */}
           {!isOpen && <ThemeSVGs theme={theme} handleClick={handleThemeClick} />}
           {/* Menu Open/Close Button */}
-          <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} onClick={handleMenuClick}>
-            <SidebarButton variants={sidebarMotion.menu} />
+          <motion.div {...navbarMotion.sidebarButton(isOpen)} onClick={handleMenuClick}>
+            <SidebarButton variants={navbarMotion.sidebarButtonSVG} />
           </motion.div>
         </Icons>
       </Container>
