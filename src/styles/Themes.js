@@ -20,7 +20,7 @@ const darkTheme = {
 const lightTheme = {
   background: '#F0EBE3',
   background2: '#ffffff',
-  background3: '#ffffff',
+  background3: '#f0ebe3',
   font: '#222831',
   accent: '#FEA2C9',
 
