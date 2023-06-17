@@ -73,5 +73,5 @@ const BackgroundText = styled.div`
   text-align: center;
   white-space: nowrap;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 `;
