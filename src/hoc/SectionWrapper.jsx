@@ -41,17 +41,16 @@ const Container = styled.section`
   width: 100%;
   min-width: 100vw;
   min-height: 100vh;
-  /* padding-bottom: ${({ idname }) => (idname === 'hero' ? '180px' : '220px')}; */
-  padding-bottom: 200px;
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Wrapper = styled(motion.div)`
-  width: 100%;
   max-width: 1300px;
-  height: 100%;
-  padding: 0 0.75rem;
-  margin: 0 auto;
+  padding: 90px 2rem;
 `;
 
 const SectionHeading = styled.div`
