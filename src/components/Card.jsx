@@ -1,4 +1,5 @@
-import { styled } from 'styled-components';
+import { styled, css } from 'styled-components';
+
 import { RightArrowSVG } from '.';
 
 export default function Card(props) {
@@ -13,7 +14,7 @@ export default function Card(props) {
       {children}
 
       {/* Subtitle */}
-      <CardSubtitle className='lui-subtitle'>{subtitle}</CardSubtitle>
+      <CardSubtitle className='lui-subtitle' space={`${space}`}>{subtitle}</CardSubtitle>
 
       {/* Space between category and title */}
       {space && <CardIcon className='icon' />}
@@ -63,6 +64,10 @@ const CardSubtitle = styled.div`
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  ${({ space }) => space !== 'true' && css`
+    color: var(--c-accent);
+    margin-bottom: 5px;
+  `}
 `;
 
 const CardTitle = styled.div`
