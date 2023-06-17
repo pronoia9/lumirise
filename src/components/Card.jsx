@@ -2,12 +2,12 @@ import { styled } from 'styled-components';
 
 import { RightArrowSVG } from '.';
 
-export default function Card({ description, link, section = 'more', children }) {
+export default function Card({ description, descriptionHeight, link, section = 'more', children }) {
   return (
     <CardContainer className='services-item'>
       {children}
 
-      <CardDesction className='lui-text'>{description}</CardDesction>
+      <CardDescription className='lui-text' descriptionHeight={descriptionHeight}>{description}</CardDescription>
 
       <CardLink href={link} className='lnk'>
         See {section} <RightArrowSVG />
@@ -31,8 +31,8 @@ const CardContainer = styled.div`
   }
 `;
 
-const CardDesction = styled.div`
-  min-height: 175px;
+const CardDescription = styled.div`
+  min-height: ${({ descriptionHeight }) => `${descriptionHeight}px`};
 `;
 
 const CardLink = styled.a`
