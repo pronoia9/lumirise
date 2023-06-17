@@ -9,7 +9,7 @@ const SectionWrapper = (Component, idName) =>
     const { title, subtitle, background } = sectionsData[idName];
 
     return (
-      <Section
+      <Container
         id={idName}
         className='lui-section lui-gradient-center'
         variants={{ hidden: {}, show: { transition: { staggerChildren: 0.5, delayChildren: 0.5 } } }}
@@ -19,7 +19,7 @@ const SectionWrapper = (Component, idName) =>
         gradient={props?.gradient}
         idname={idName}
       >
-        <Container className='container'>
+        <Wrapper className='container'>
           {/* Section Title */}
           {title && subtitle && (
             <SectionHeading className='lui-heading'>
@@ -31,20 +31,20 @@ const SectionWrapper = (Component, idName) =>
               </SectionSubtitle>
             </SectionHeading>
           )}
-          <Wrapper className='lui-started v-line v-line-left'>
-            <Component {...props} />
 
-            {/* Background Text */}
-            <BackgroundText className='lui-bgtitle'>{background}</BackgroundText>
-          </Wrapper>
-        </Container>
-      </Section>
+          {/* Content */}
+          <Component {...props} />
+
+          {/* Background Text */}
+          <BackgroundText className='lui-bgtitle'>{background}</BackgroundText>
+        </Wrapper>
+      </Container>
     );
   };
 
 export default SectionWrapper;
 
-const Section = styled(motion.section)`
+const Container = styled(motion.section)`
   position: relative;
   width: 100%;
   min-width: 100vw;
@@ -54,24 +54,18 @@ const Section = styled(motion.section)`
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
 `;
 
-const SectionHeading = styled.div`
-  position: relative;
-  max-width: 1300px;
-  margin-bottom: 60px;
-  text-align: center;
-`;
-
-const Container = styled.div`
+const Wrapper = styled.div`
   width: 100%;
+  max-width: 1300px;
   height: 100%;
   padding: 0 0.75rem;
   margin: 0 auto;
 `;
 
-const Wrapper = styled.div`
+const SectionHeading = styled.div`
   position: relative;
-  width: 100%;
-  max-width: 1300px;
+  margin-bottom: 60px;
+  text-align: center;
 `;
 
 const BackgroundText = styled.div`
