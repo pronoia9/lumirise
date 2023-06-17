@@ -9,6 +9,6 @@ import { Works } from './Works';
 import Footer from './Footer';
 import Preloader from './Preloader';
 import Socials from './Socials';
-import { SidebarButton, ThemeSVGs, SocialSVGs } from './SVGs';
+import { SidebarButton, ThemeSVGs, SocialSVGs, RightArrowSVG } from './SVGs';
 
-export { Contact, Experience, Hero, Navbar, Services, Sidebar, Skills, Works, Footer, Preloader, Socials, SidebarButton, ThemeSVGs, SocialSVGs };
+export { Contact, Experience, Hero, Navbar, Services, Sidebar, Skills, Works, Footer, Preloader, Socials, SidebarButton, ThemeSVGs, SocialSVGs, RightArrowSVG };
