@@ -271,8 +271,8 @@ export const projectsData = {
       tags: ['React', 'Vitejs', 'HTML', 'CSS', 'Javascript', 'Frontend', 'Styled Components', 'API', 'Axios', 'GSAP'],
       info: [],
     },
-    {id: UjX7wDmwGm'',
-
+    {
+      id: 'UjX7wDmwGm',
       title: 'Sprinkle Spectacular', 
       subtitle: '3D Modelling',
       description: `Witness the mesmerizing journey of a donut with sprinkles as it gracefully soars through the air. This animated masterpiece combines photorealism and a touch of whimsy, immersing you in a sweet and delightful adventure.`, 
