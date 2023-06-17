@@ -34,7 +34,7 @@ export default function Navbar({ theme, setTheme }) {
   return (
     <>
       <Overlay ref={overlayRef} open={isOpen} className='overlayref' />
-      
+
       <Container scrolly={parseInt(scrollY)} open={isOpen}>
         {/* Left Side - Logo */}
         <Logo open={isOpen} {...navbarMotion.logo(parseInt(scrollY) > 100)}>
@@ -60,16 +60,6 @@ export default function Navbar({ theme, setTheme }) {
   );
 }
 
-// const logoAnimation = keyframes`
-//   0%   { transform: scale3d(1, 1, 1); }
-//   30%  { transform: scale3d(1.25, 0.75, 1); }
-//   40%  { transform: scale3d(0.75, 1.25, 1); }
-//   50%  { transform: scale3d(1.15, 0.85, 1); }
-//   65%  { transform: scale3d(0.95, 1.05, 1); }
-//   75%  { transform: scale3d(1.05, 0.95, 1); }
-//   100% { transform: scale3d(1, 1, 1); }
-// `;
-
 const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -79,7 +69,6 @@ const Overlay = styled.div`
   background-color: ${({ open }) => open ? 'rgba(0, 0, 0, 0.5)' : 'none'};
   transition: all 0.5s ease-in;
   pointer-events: ${({ open }) => open ? 'auto' : 'none'};
-  /* display: ${({ open }) => !open && 'none'}; */
   z-index: 900;
 `;
 
