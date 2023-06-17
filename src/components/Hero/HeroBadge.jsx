@@ -1,8 +1,10 @@
+import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
+import { heroMotion } from '../../utils/motion';
 
-export default function HeroBadge({ total, plus, title, context }) {
+export default function HeroBadge({ total, plus, title, context, index }) {
   return (
-    <HeroBadgeItem>
+    <HeroBadgeItem {...heroMotion.badge(index === 0 ? -1 : 1)}>
       <HeroBadgeTotal className='num'>
         {total}
         <strong>{plus ? ' +' : ''}</strong>
@@ -14,7 +16,7 @@ export default function HeroBadge({ total, plus, title, context }) {
   );
 }
 
-const HeroBadgeItem = styled.li`
+const HeroBadgeItem = styled(motion.li)`
   width: 250px;
   height: 82px;
   margin: 0;

@@ -8,7 +8,7 @@ export default function HeroImage() {
     <Container className='slide scrolla-element-anim-1 scroll-animate animate__active animate__animated'>
       <HeroBadgeList>
         {heroData.badges.map((badge, index) => (
-          <HeroBadge key={`hero-badge-${index}`} {...badge} />
+          <HeroBadge key={`hero-badge-${index}`} {...badge} index={index} />
         ))}
       </HeroBadgeList>
 

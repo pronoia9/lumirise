@@ -121,3 +121,27 @@ export const sectionWrapperMotion = {
     show: { opacity: 1, y: 0, transition: { type: 'spring', bounce: 0.4, duration: 1, staggerChildren: 0.5, delayChildren: 0.5 } },
   },
 };
+
+export const heroMotion = {
+  badge: (seed = 1) => ({
+    initial: { x: 0, y: 0 },
+    animate: {
+      x: [0, -2 * seed, -2 * seed, 2 * seed, 2 * seed, 0],
+      y: [0, 2 * seed, -2 * seed, 2 * seed, -2 * seed, 0],
+      transition: { repeat: Infinity, duration: 10 },
+    },
+  }),
+};
+
+// initial={{ opacity: 0, scale: 0.5 }}
+//       animate={{ opacity: 1, scale: 1 }}
+//       transition={{
+//         duration: 0.3,
+//         ease: [0, 0.71, 0.2, 1.01],
+//         scale: {
+//           type: "spring",
+//           damping: 5,
+//           stiffness: 100,
+//           restDelta: 0.001
+//         }
+//       }}
