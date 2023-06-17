@@ -5,7 +5,7 @@ import { motion, useCycle } from 'framer-motion';
 
 import { ThemeSVGs, SidebarButton, Sidebar } from '..';
 import { sidebarData } from '../../utils/data';
-import { sidebarMotion } from '../../utils/motion';
+import { navbarMotion, sidebarMotion } from '../../utils/motion';
 import { toggleTheme } from '../../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
@@ -36,7 +36,7 @@ export default function Navbar({ theme, setTheme }) {
       <Overlay ref={overlayRef} open={isOpen} className='overlayref' />
       <Container scrolly={parseInt(scrollY)} open={isOpen}>
         {/* Left Side - Logo */}
-        <Logo open={isOpen} scrolly={parseInt(scrollY)}>
+        <Logo open={isOpen} {...navbarMotion.logo(parseInt(scrollY) > 100)}>
           <Link to='/'>
             <img src={sidebarData.logo} />
           </Link>
@@ -59,15 +59,15 @@ export default function Navbar({ theme, setTheme }) {
   );
 }
 
-const logoAnimation = keyframes`
-  0%   { transform: scale3d(1, 1, 1); }
-  30%  { transform: scale3d(1.25, 0.75, 1); }
-  40%  { transform: scale3d(0.75, 1.25, 1); }
-  50%  { transform: scale3d(1.15, 0.85, 1); }
-  65%  { transform: scale3d(0.95, 1.05, 1); }
-  75%  { transform: scale3d(1.05, 0.95, 1); }
-  100% { transform: scale3d(1, 1, 1); }
-`;
+// const logoAnimation = keyframes`
+//   0%   { transform: scale3d(1, 1, 1); }
+//   30%  { transform: scale3d(1.25, 0.75, 1); }
+//   40%  { transform: scale3d(0.75, 1.25, 1); }
+//   50%  { transform: scale3d(1.15, 0.85, 1); }
+//   65%  { transform: scale3d(0.95, 1.05, 1); }
+//   75%  { transform: scale3d(1.05, 0.95, 1); }
+//   100% { transform: scale3d(1, 1, 1); }
+// `;
 
 const Overlay = styled.div`
   position: fixed;
@@ -110,7 +110,7 @@ const Container = styled.header`
   `}
 `;
 
-const Logo = styled.div`
+const Logo = styled(motion.div)`
   max-width: 121px;
 
   a {
@@ -119,21 +119,12 @@ const Logo = styled.div`
     align-items: center;
     width: 100%;
     height: 50px;
-    transition: animation 0.3s cubic-bezier(0.3, 0, 0.3, 1);
-    &:hover { animation: ${logoAnimation} 0.9s both ease-in-out; }
   }
 
   img {
     max-width: 100%;
     height: auto;
     max-height: calc(100% + (1.85rem * 1));
-    transition: max-height ${({ scrolly }) => scrolly > 100 ? '1s' : '0.15s'} cubic-bezier(0.3, 0, 0.3, 1);
-  }
-  
-  @media (min-width: 1200px) {
-    img {
-      max-height: ${({ scrolly }) => scrolly > 100 && '100%'};
-    }
   }
 
   @media (max-width: 720px) {
