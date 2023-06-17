@@ -15,7 +15,9 @@ export default function HeroIntro() {
     const typed = new Typed(introRef.current, {
       strings: introductions,
       typeSpeed: 25,
+      backSpeed: 10,
       startDelay: 2500,
+      backDelay: 1000,
       loop: true,
       loopCount: Infinity,
       showCursor: false,
