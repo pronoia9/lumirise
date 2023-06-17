@@ -94,25 +94,34 @@ export const navbarMotion = {
 };
 
 export const socialsMotion = {
-  socials: {
+  socials: () => ({
     variants: {
-      open: { transition: { staggerChildren: 0.07, delayChildren: 0.33 } },
-      closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
-    },
-  },
-  socialItem: (sidebar) => {
-    const springTransition = { type: 'spring', stiffness: 400, damping: 10 };
-    return {
-      whileHover: 'hover',
-      whileTap: 'tap',
-      variants: {
-        hover: { scale: !sidebar ? 1.1 : 1, transition: springTransition },
-        tap: { scale: !sidebar ? 0.9 : 1, transition: springTransition },
-        open: { scale: 1, opacity: 1, transition: { scale: { stiffness: 1000, velocity: -100 } } },
-        closed: { scale: 0, opacity: 0, transition: { scale: { stiffness: 1000 } } },
+      open: {
+        transition: { staggerChildren: 0.07, delayChildren: 0.33 },
       },
-    };
-  },
+      closed: {
+        transition: { staggerChildren: 0.05, staggerDirection: -1 },
+      },
+    },
+  }),
+  socialItem: () => ({
+    variants: {
+      open: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+          scale: { stiffness: 1000, velocity: -100 },
+        },
+      },
+      closed: {
+        scale: 0,
+        opacity: 0,
+        transition: {
+          scale: { stiffness: 1000 },
+        },
+      },
+    },
+  }),
 };
 
 export const sectionWrapperMotion = {

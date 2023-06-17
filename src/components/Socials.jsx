@@ -6,19 +6,19 @@ import { SocialSVGs } from '.';
 import { socialsData } from '../utils/data';
 import { socialsMotion } from '../utils/motion';
 
-const SocialItem = ({ title, link, sidebar }) => (
-  <motion.p {...socialsMotion.socialItem(sidebar)}>
+const SocialItem = ({ title, link, props }) => (
+  <motion.p {...socialsMotion.socialItem()} {...props}>
     <Link to={link}>
       <SocialSVGs social={title} />
     </Link>
   </motion.p>
 );
 
-export default function Socials({ isOpen, sidebar }) {
+export default function Socials(props) {
   return (
-    <Container {...socialsMotion.socials}>
+    <Container {...socialsMotion.socials()}>
       {socialsData.map((s) => (
-        <SocialItem key={`social-${s.title}`} {...s} sidebar={sidebar} />
+        <SocialItem key={`social-${s.title}`} {...s} props={props} />
       ))}
     </Container>
   );

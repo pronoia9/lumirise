@@ -20,7 +20,9 @@ export default function HeroIntro() {
       {/* Description */}
       <DescriptionContainer className='description'>
         <p>{intro}</p>
-        <Socials />
+        <Socials
+          whileHover={{ scale: 1.1, transition: { stiffness: 1000, velocity: -100 } }}
+          whileTap={{ scale: 0.9, transition: { stiffness: 1000, velocity: -100 } }} />
       </DescriptionContainer>
 
       {/* Download Button */}
