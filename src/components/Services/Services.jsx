@@ -27,9 +27,23 @@ const ServicesCard = ({ title, category, description }) => (
 );
 
 const Services = () => {
+  const options = {
+    modules: [Pagination, A11y],
+    spaceBetween: 50,
+    slidesPerView: 3,
+    navigation: true,
+    pagination: { clickable: true },
+    scrollbar: { draggable: true },
+    breakpoints: {
+      320: { slidesPerView: 1, spaceBetween: 20 },
+      640: { slidesPerView: 2, spaceBetween: 30 },
+      1024: { slidesPerView: 3, spaceBetween: 40 },
+    },
+  };
+
   return (
     <Container>
-      <Swiper modules={[Pagination, A11y]} spaceBetween={50} slidesPerView={3} pagination={{ clickable: true }} scrollbar={{ draggable: true }}>
+      <Swiper {...options}>
         {servicesData.map((service, index) => (
           <SwiperSlide key={`service-${index}`}>
             <ServicesCard {...service} />
