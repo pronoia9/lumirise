@@ -41,6 +41,7 @@ const Container = styled.section`
   width: 100%;
   min-width: 100vw;
   min-height: 100vh;
+  padding-bottom: 180px;
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
 
   display: flex;
