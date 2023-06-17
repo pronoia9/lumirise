@@ -1,4 +1,4 @@
-import { hi, logo } from "../assets";
+import { hi, logo } from '../assets';
 
 export const sidebarData = {
   logo: logo,
@@ -30,12 +30,26 @@ export const sectionsData = {
 export const heroData = {
   name: 'Jay Ansin',
   occupation: 'Web Developer',
-  intro: 'With diverse frontend and backend skills, dedicated to crafting captivating user experiences and pursuing continuous learning.',
+  introductions: [
+    'Weaving pixels, lines, and a sprinkle of web magic to create jaw-dropping digital wonders.',
+    "Turning caffeine-fueled ideas into mind-bending web experiences that leave users asking, 'How did they do that?'",
+    "Bending the laws of web development like Neo bending spoons in 'The Matrix', but with more stylish CSS.",
+    'Crafting web experiences so delightful, they make unicorns jealous.',
+    "Mixing equal parts of coding finesse, design wizardry, and dad jokes for a web experience that's unforgettable and pun-tastic.",
+    'Bringing web development prowess and a sense of humor that can make even JavaScript smile (almost).',
+    'Building web applications with more flair than a magician pulling rabbits out of hats (although, ours are virtual rabbits).',
+    'Infusing web development with a touch of whimsy, a dash of quirkiness, and just a hint of irreverence.',
+    "Creating web experiences that are so addictive, users will keep refreshing the page hoping for more surprises (we don't recommend it, though).",
+    'Unleashing a web development superpower: the ability to turn coffee into code, errors into laughter, and ideas into pixel-perfect reality.',
+  ],
   backgroundTitle: 'Web Developer',
   resumeLink: 'https://www.dropbox.com/s/wkpywyn442sbbze/2021.04.16--03.32.57AM.pdf?dl=0',
   image: hi,
-  badges: [{ total: 3, plus: true, title: 'Years of', context: 'Experience' }, { total: 85, title: 'Completed', context: 'Projects' }]
-}
+  badges: [
+    { total: 3, plus: true, title: 'Years of', context: 'Experience' },
+    { total: 85, title: 'Completed', context: 'Projects' },
+  ],
+};
 
 export const servicesData = [
   {
@@ -66,7 +80,6 @@ export const servicesData = [
     description: 'Utilizing Blender to create intricate and visually stunning 3D models, bringing imagination to life with precision and artistry.',
   },
 ];
-
 
 export const skillsData = [
   {

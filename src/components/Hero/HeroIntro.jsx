@@ -1,4 +1,6 @@
-import { styled } from 'styled-components';
+import { useEffect, useRef } from 'react';
+import Typed from 'typed.js';
+import { keyframes, styled } from 'styled-components';
 
 import { Socials } from '..';
 import { heroData } from '../../utils/data';
@@ -6,7 +8,20 @@ import { Description, SubtitleWithAccent, SubtitleWithHandwriting, HeroTitle } f
 import { UnfilledButton } from '../../styles/ButtonStyles';
 
 export default function HeroIntro() {
-  const { name, occupation, intro } = heroData;
+  const { name, occupation, introductions } = heroData;
+  const introRef = useRef(), cursorRef = useRef();
+
+  useEffect(() => {
+    const typed = new Typed(introRef.current, {
+      strings: introductions,
+      typeSpeed: 25,
+      startDelay: 2500,
+      loop: true,
+      loopCount: Infinity,
+      showCursor: false,
+    });
+    return () => { typed.destroy(); };
+  }, []);
 
   return (
     <Container className='content scrolla-element-anim-1 scroll-animate animate__active animate__animated'>
@@ -19,7 +34,7 @@ export default function HeroIntro() {
 
       {/* Description */}
       <DescriptionContainer className='description'>
-        <p>{intro}</p>
+        <p><span ref={introRef}>{introductions[0]}</span><span ref={cursorRef}>|</span></p>
         <Socials />
       </DescriptionContainer>
 
@@ -31,6 +46,12 @@ export default function HeroIntro() {
     </Container>
   );
 }
+
+const blink = keyframes`
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+`;
 
 const Container = styled.div`
   padding-top: 40px;
@@ -69,14 +90,26 @@ const DescriptionContainer = styled(Description)`
   padding: 40px 0;
   max-width: 520px;
 
+  & > :first-child {
+    /* font-family: var(--f-code);
+    min-height: 91.78px; */
+    min-height: 61.188px;
+
+    span:last-child {
+      color: var(--c-accent);
+      font-weight: 900;
+      animation: ${blink} 1s steps(1, start) 1s infinite both;
+    }
+  }
+
   p {
     margin-top: 0;
     margin-bottom: 40px !important;
   }
 
-   @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1024px) {
     display: flex;
     flex-direction: column;
     align-items: center;
-   }
+  }
 `;
