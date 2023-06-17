@@ -1,7 +1,7 @@
 export const navbarMotion = {
   header: {
     initial: { background: 'none' },
-    animate: { background: 'var(--c-background)' }
+    animate: { background: 'var(--c-background)' },
   },
   logo: {
     whileHover: {
@@ -94,5 +94,15 @@ export const sidebarMotion = {
         scale: { stiffness: 1000 },
       },
     },
+  },
+};
+
+export const sectionWrapperMotion = {
+  initial: 'hidden',
+  whileInView: 'show',
+  viewport: { once: true, amount: 0.25 },
+  variants: {
+    hidden: { opacity: 0, y: 100 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring',  bounce: 0.4, duration: 1, staggerChildren: 0.5, delayChildren: 0.5 } }
   },
 };

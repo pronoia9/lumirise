@@ -3,23 +3,15 @@ import { motion } from 'framer-motion';
 
 import { SectionTitle, SectionSubtitle } from '../styles/TextStyles';
 import { sectionsData } from '../utils/data';
+import { sectionWrapperMotion } from '../utils/motion';
 
 const SectionWrapper = (Component, idName) =>
   function HOC(props) {
     const { title, subtitle, background } = sectionsData[idName];
 
     return (
-      <Container
-        id={idName}
-        className='lui-section lui-gradient-center'
-        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.5, delayChildren: 0.5 } } }}
-        initial='hidden'
-        whileInView='show'
-        viewport={{ once: true, amount: 0.25 }}
-        gradient={props?.gradient}
-        idname={idName}
-      >
-        <Wrapper className='container'>
+      <Container id={idName} className='lui-section lui-gradient-center' gradient={props?.gradient}>
+        <Wrapper key={`sectionwrapper-wrapper-${idName}`} className='container' {...sectionWrapperMotion}>
           {/* Section Title */}
           {title && subtitle && (
             <SectionHeading className='lui-heading'>
@@ -44,7 +36,7 @@ const SectionWrapper = (Component, idName) =>
 
 export default SectionWrapper;
 
-const Container = styled(motion.section)`
+const Container = styled.section`
   position: relative;
   width: 100%;
   min-width: 100vw;
@@ -54,7 +46,7 @@ const Container = styled(motion.section)`
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   width: 100%;
   max-width: 1300px;
   height: 100%;
