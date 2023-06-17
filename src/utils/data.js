@@ -296,5 +296,5 @@ export const projectsData = {
       info: [],
     },
     // { title: '', subtitle: '', description: '', links: { repo: '', live: '' }, image: '', year: '', date: new Date(''), categories: [], tags: [], info: [], },
-  ],
+  ].sort((a, b) => b.date - a.date),
 };
