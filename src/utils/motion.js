@@ -94,12 +94,12 @@ export const navbarMotion = {
 };
 
 export const socialsMotion = {
-  socials: () => ({
+  socials: {
     variants: {
       open: { transition: { staggerChildren: 0.07, delayChildren: 0.33 } },
       closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
     },
-  }),
+  },
 
   socialItem: {
     whileHover: { scale: 1.1 },
