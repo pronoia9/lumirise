@@ -7,7 +7,7 @@ import { socialsData } from '../utils/data';
 import { socialsMotion } from '../utils/motion';
 
 const SocialItem = ({ title, link, props }) => (
-  <motion.p {...socialsMotion.socialItem()} {...props}>
+  <motion.p {...socialsMotion.socialItem} {...props}>
     <Link to={link}>
       <SocialSVGs social={title} />
     </Link>
@@ -16,7 +16,7 @@ const SocialItem = ({ title, link, props }) => (
 
 export default function Socials(props) {
   return (
-    <Container {...socialsMotion.socials()}>
+    <Container {...socialsMotion.socials}>
       {socialsData.map((s) => (
         <SocialItem key={`social-${s.title}`} {...s} props={props} />
       ))}

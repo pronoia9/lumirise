@@ -96,32 +96,19 @@ export const navbarMotion = {
 export const socialsMotion = {
   socials: () => ({
     variants: {
-      open: {
-        transition: { staggerChildren: 0.07, delayChildren: 0.33 },
-      },
-      closed: {
-        transition: { staggerChildren: 0.05, staggerDirection: -1 },
-      },
+      open: { transition: { staggerChildren: 0.07, delayChildren: 0.33 } },
+      closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
     },
   }),
-  socialItem: () => ({
+
+  socialItem: {
+    whileHover: { scale: 1.1 },
+    whileTap: { scale: 0.95 },
     variants: {
-      open: {
-        scale: 1,
-        opacity: 1,
-        transition: {
-          scale: { stiffness: 1000, velocity: -100 },
-        },
-      },
-      closed: {
-        scale: 0,
-        opacity: 0,
-        transition: {
-          scale: { stiffness: 1000 },
-        },
-      },
+      open: { scale: 1, opacity: 1, transition: { scale: { stiffness: 1000, velocity: -100 } } },
+      closed: { scale: 0, opacity: 0, transition: { scale: { stiffness: 1000 } } },
     },
-  }),
+  },
 };
 
 export const sectionWrapperMotion = {
