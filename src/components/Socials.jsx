@@ -1,20 +1,24 @@
-import { Link } from "react-router-dom";
-import { styled } from "styled-components";
-import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
+import { styled } from 'styled-components';
+import { motion } from 'framer-motion';
 
-import { SocialSVGs } from ".";
-import { socialsData } from "../utils/data";
-import { socialsMotion } from "../utils/motion";
+import { SocialSVGs } from '.';
+import { socialsData } from '../utils/data';
+import { socialsMotion } from '../utils/motion';
 
-export default function Socials() {
+const SocialItem = ({ title, link, sidebar }) => (
+  <motion.p {...socialsMotion.socialItem(sidebar)}>
+    <Link to={link}>
+      <SocialSVGs social={title} />
+    </Link>
+  </motion.p>
+);
+
+export default function Socials({ isOpen, sidebar }) {
   return (
     <Container {...socialsMotion.socials}>
-      {socialsData.map(({ title, link }) => (
-        <motion.p key={`social-${title}`} {...socialsMotion.socialItem}>
-          <Link to={link}>
-            <SocialSVGs social={title} />
-          </Link>
-        </motion.p>
+      {socialsData.map((s) => (
+        <SocialItem key={`social-${s.title}`} {...s} sidebar={sidebar} />
       ))}
     </Container>
   );

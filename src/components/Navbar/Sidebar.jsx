@@ -24,7 +24,7 @@ export default function Sidebar({ isOpen }) {
         </Links>
 
         {/* Socials */}
-        <Socials />
+        <Socials sidebar={true} />
       </SidebarContainer>
 
       <SidebarBackground {...navbarMotion.sidebarBackground} />
