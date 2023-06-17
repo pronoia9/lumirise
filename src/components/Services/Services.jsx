@@ -96,9 +96,20 @@ const ServiceCardIcon = styled.div`
   color: var(--c-accent);
 `;
 
-const ServiceCardSubtitle = styled(Description)``;
+const ServiceCardSubtitle = styled.div`
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+`;
 
-const ServiceCardTitle = styled.div``;
+const ServiceCardTitle = styled.div`
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  margin-bottom: 15px;
+`;
 
 const ServiceCardDesction = styled.div`
   min-height: 175px;
