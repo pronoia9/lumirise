@@ -46,7 +46,8 @@ export default SectionWrapper;
 
 const Section = styled(motion.section)`
   position: relative;
-  min-width: 100%;
+  width: 100%;
+  min-width: 100vw;
   min-height: 100vh;
   /* padding-bottom: ${({ idname }) => (idname === 'hero' ? '180px' : '220px')}; */
   padding-bottom: 200px;
@@ -55,7 +56,6 @@ const Section = styled(motion.section)`
 
 const SectionHeading = styled.div`
   position: relative;
-  width: 100%;
   max-width: 1300px;
   margin-bottom: 60px;
   text-align: center;
@@ -64,13 +64,9 @@ const SectionHeading = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  min-height: 100vh;
   padding: 0 0.75rem;
-  display: flex;
-  align-items: center; /* ${({ idname }) => idname === 'hero' && 'center'}; */
-  justify-content: center;
-  flex-direction: column;
-  `;
+  margin: 0 auto;
+`;
 
 const Wrapper = styled.div`
   position: relative;
