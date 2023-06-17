@@ -241,7 +241,7 @@ export const projectsData = {
     {
       title: 'Westsum',
       subtitle: 'Developer, Design',
-      description: `Indulge in the lyrical brilliance of Kanye West with Westsum, a captivating website that showcases the wisdom and wit of the legendary artist. Inspired by the innovative concept of Jeffsum, Westsum takes the stage as a unique creation. Utilizing a REST API, it delivers a collection of random Kanye West quotes, inviting you to explore the profound thoughts and captivating words of this iconic figure.`,
+      description: `Indulge in the brilliance of Kanye West, showcasing the wisdom and wit of the legendary artist. Inspired by the innovative concept of Jeffsum, Westsum utilizes a REST API, and delivers a collection of random Kanye West quotes, inviting you to explore the profound thoughts and captivating words of this iconic figure.`,
       links: { repo: 'https://github.com/pronoia9/westsum', live: 'https://westsum.vercel.app' },
       image: westsum,
       year: 2023,
