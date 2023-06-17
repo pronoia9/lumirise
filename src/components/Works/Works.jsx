@@ -45,14 +45,14 @@ const Wrapper = styled.div`
 
 const Image = styled.div`
   width: 100%;
-  height: 250px;
+  height: 180px;
   border-radius: 18px;
   overflow: hidden;
   margin-bottom: 30px;
 
   img {
     width: 100%;
-    height: 250px;
+    height: 180px;
     border-radius: 18px;
     object-fit: cover;
     transform: scale(1);
