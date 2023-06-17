@@ -4,9 +4,9 @@ import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 import 'swiper/css';
 // import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// import 'swiper/css/pagination';
 // import 'swiper/css/scrollbar';
-import '../../../resources/Luique/style.css';
+// import '../../../resources/Luique/style.css';
 
 import { SectionWrapper } from '../../hoc';
 import { servicesData } from '../../utils/data';
@@ -31,7 +31,7 @@ const ServicesCard = ({ title, category, description }) => (
 
 const Services = () => {
   return (
-    <>
+    <Container>
       <Swiper
         modules={[Pagination, A11y]}
         spaceBetween={50}
@@ -48,13 +48,20 @@ const Services = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </Container>
   );
 };
 
 export default SectionWrapper(Services, 'services');
 
 const Container = styled.div`
+.swiper-slide {
+  height: auto;
+
+  & > div {
+    height: 100%;
+  }
+}
   .js-services {
     text-align: center;
   }
