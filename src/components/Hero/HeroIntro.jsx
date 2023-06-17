@@ -66,11 +66,12 @@ const Titles = styled.div`
 `;
 
 const DescriptionContainer = styled(Description)`
-  padding: 40px 0 40px 0;
+  padding: 40px 0;
   max-width: 520px;
 
   p {
     margin-top: 0;
+    margin-bottom: 40px !important;
   }
 
    @media screen and (max-width: 1024px) {
