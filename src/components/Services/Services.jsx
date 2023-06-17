@@ -7,7 +7,6 @@ import 'swiper/css/pagination';
 import { RightArrowSVG } from '..';
 import { SectionWrapper } from '../../hoc';
 import { servicesData } from '../../utils/data';
-import { Description } from '../../styles/TextStyles';
 
 const ServicesCard = ({ title, category, description }) => (
   <ServiceCardContainer className='services-item'>
