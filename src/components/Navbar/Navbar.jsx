@@ -127,11 +127,11 @@ const Logo = styled.div`
     max-width: 100%;
     height: auto;
     max-height: calc(100% + (1.85rem * 1));
+    transition: max-height ${({ scrolly }) => scrolly > 100 ? '1s' : '0.15s'} cubic-bezier(0.3, 0, 0.3, 1);
   }
-
+  
   @media (min-width: 1200px) {
     img {
-      transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
       max-height: ${({ scrolly }) => scrolly > 100 && '100%'};
     }
   }
