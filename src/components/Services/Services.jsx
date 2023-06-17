@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import { ServicesCard } from './';
+import { Card } from '..';
 import { SectionWrapper } from '../../hoc';
 import { servicesData } from '../../utils/data';
 
@@ -28,7 +28,7 @@ const Services = () => {
       <Swiper {...options}>
         {servicesData.map((service, index) => (
           <SwiperSlide key={`service-${index}`}>
-            <ServicesCard {...service} />
+            <Card {...service} descheight={175} section='Works' space={true} />
           </SwiperSlide>
         ))}
       </Swiper>

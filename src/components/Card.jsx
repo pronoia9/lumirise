@@ -1,18 +1,37 @@
 import { styled } from 'styled-components';
-
 import { RightArrowSVG } from '.';
 
-export default function Card({ description, descriptionHeight, link, section = 'more', children }) {
+export default function Card(props) {
+  const { title, subtitle, description, link } = props; // Common Data
+  const { space, section } = props; // Services Data
+  const { links, image, year, date, categories, tags, info } = props; // Works Data
+  const { descheight, children } = props; // Other
+
   return (
     <CardContainer className='services-item'>
+      {/* Image/Etc */}
       {children}
 
-      <CardDescription className='lui-text' descriptionHeight={descriptionHeight}>{description}</CardDescription>
+      {/* Subtitle */}
+      <CardSubtitle className='lui-subtitle'>{subtitle}</CardSubtitle>
 
+      {/* Space between category and title */}
+      {space && <CardIcon className='icon' />}
+
+      {/* Title */}
+      <CardTitle className='lui-title'>{title}</CardTitle>
+
+      {/* Description */}
+      <CardDescription className='lui-text' descheight={descheight}>
+        {description}
+      </CardDescription>
+
+      {/* Link */}
       <CardLink href={link} className='lnk'>
         See {section} <RightArrowSVG />
       </CardLink>
 
+      {/* Pattern */}
       <CardPattern className='image' />
     </CardContainer>
   );
@@ -31,8 +50,31 @@ const CardContainer = styled.div`
   }
 `;
 
+const CardIcon = styled.div`
+  margin-top: 15px;
+  font-size: 41px;
+  min-height: 50px;
+  line-height: 1;
+  color: var(--c-accent);
+`;
+
+const CardSubtitle = styled.div`
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+`;
+
+const CardTitle = styled.div`
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  margin-bottom: 15px;
+`;
+
 const CardDescription = styled.div`
-  min-height: ${({ descriptionHeight }) => `${descriptionHeight}px`};
+  min-height: ${({ descheight }) => `${descheight}px`};
 `;
 
 const CardLink = styled.a`
