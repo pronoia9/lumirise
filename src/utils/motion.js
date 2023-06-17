@@ -100,7 +100,7 @@ export const sidebarMotion = {
 export const sectionWrapperMotion = {
   initial: 'hidden',
   whileInView: 'show',
-  viewport: { once: true, amount: 0.25 },
+  viewport: { once: false, amount: 0.25 },
   variants: {
     hidden: { opacity: 0, y: 100 },
     show: { opacity: 1, y: 0, transition: { type: 'spring',  bounce: 0.4, duration: 1, staggerChildren: 0.5, delayChildren: 0.5 } }
