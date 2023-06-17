@@ -138,3 +138,16 @@ export const skillsData = [
     level: 60,
   },
 ];
+
+export const projectsData = {
+  filters: ['all', 'react', 'javascript', 'threejs', 'frontend', 'fullstack'],
+  projects: [
+    { title: '', subtitle: '', description: '', tags: [], links: { repo: '', live: '' }, image: '', },
+    { title: '', subtitle: '', description: '', tags: [], links: { repo: '', live: '' }, image: '', },
+    { title: '', subtitle: '', description: '', tags: [], links: { repo: '', live: '' }, image: '', },
+    { title: '', subtitle: '', description: '', tags: [], links: { repo: '', live: '' }, image: '', },
+    { title: '', subtitle: '', description: '', tags: [], links: { repo: '', live: '' }, image: '', },
+    { title: '', subtitle: '', description: '', tags: [], links: { repo: '', live: '' }, image: '', },
+    { title: '', subtitle: '', description: '', tags: [], links: { repo: '', live: '' }, image: '', },
+  ],
+}
