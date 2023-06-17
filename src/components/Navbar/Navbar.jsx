@@ -34,6 +34,7 @@ export default function Navbar({ theme, setTheme }) {
   return (
     <>
       <Overlay ref={overlayRef} open={isOpen} className='overlayref' />
+      
       <Container scrolly={parseInt(scrollY)} open={isOpen}>
         {/* Left Side - Logo */}
         <Logo open={isOpen} {...navbarMotion.logo(parseInt(scrollY) > 100)}>
