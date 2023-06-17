@@ -139,6 +139,8 @@ const ServiceCardPattern = styled.div`
   bottom: -24px;
   width: 141px;
   height: 141px;
+  background-image: url('images/pat-2.png');
+  filter: invert(${({ theme }) => theme.imageInvert});
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
