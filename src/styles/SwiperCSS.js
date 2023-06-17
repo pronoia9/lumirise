@@ -21,6 +21,8 @@ export const swiperCSS = css`
   .swiper-pagination {
     width: auto !important;
     left: 50% !important;
+    transform-origin: right !important;
+    transform: translate(-50%, 0) !important;
   }
 
   .swiper-container .swiper-pagination.swiper-pagination-bullets,
