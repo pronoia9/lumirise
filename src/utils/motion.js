@@ -104,6 +104,7 @@ export const socialsMotion = {
   socialItem: {
     whileHover: { scale: 1.1 },
     whileTap: { scale: 0.95 },
+    transition: { type: 'spring', stiffness: 400, damping: 10 },
     variants: {
       open: { scale: 1, opacity: 1, transition: { scale: { stiffness: 1000, velocity: -100 } } },
       closed: { scale: 0, opacity: 0, transition: { scale: { stiffness: 1000 } } },
