@@ -25,6 +25,10 @@ export const swiperCSS = css`
     transform: translate(-50%, 0) !important;
   }
 
+  .swiper-wrapper {
+    padding-bottom: 50px;
+  }
+
   .swiper-container .swiper-pagination.swiper-pagination-bullets,
   .swiper-container .swiper-container-horizontal > .swiper-pagination-bullets {
     position: relative;
