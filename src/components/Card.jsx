@@ -9,7 +9,7 @@ export default function Card(props) {
   const { descheight, children } = props; // Other
 
   return (
-    <CardContainer className={`${tags?.join(' ').toLocaleLowerCase() ?? ''}`}>
+    <CardContainer className={`${tags ? 'filter-item' : ''} ${tags?.join(' ').toLocaleLowerCase() ?? ''}`}>
       {/* Image/Etc */}
       {children}
 
@@ -45,6 +45,7 @@ const CardContainer = styled.div`
   background: var(--c-background3);
   border-radius: 18px;
   transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
+  margin: auto;
 
   &:first-child {
     margin-top: 0;
