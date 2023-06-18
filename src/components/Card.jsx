@@ -84,7 +84,9 @@ const CardDescription = styled.div`
 `;
 
 const CardLink = styled.a`
-  position: relative;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
   height: 1.375rem;
   display: inline-block;
   vertical-align: top;
