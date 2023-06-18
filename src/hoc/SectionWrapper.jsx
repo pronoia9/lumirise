@@ -54,8 +54,10 @@ const Wrapper = styled(motion.div)`
   padding: 90px 2rem;
 `;
 
-const InnerWrapper = styled.div`
-  z-index: 10;
+const SectionHeading = styled.div`
+  position: relative;
+  margin-bottom: 60px;
+  text-align: center;
 `;
 
 const BackgroundText = styled.div`
