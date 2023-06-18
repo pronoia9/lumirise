@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 
-import { Card } from '..';
+import { Card, Grid } from '..';
 import { UnfilledButton } from '../../styles/ButtonStyles';
 import { projectsData } from '../../utils/data';
 import { cardMotion } from '../../utils/motion';
@@ -65,7 +65,7 @@ const Works = () => {
       </FilterList>
 
       {/* WORKS */}
-      <Wrapper className='filter-container'>
+      <Grid className='filter-container'>
         {projects.map((project, index) => (
           <Card key={`projects-${filterKey}-${index}`} {...project} section='Works' motion={cardMotion}>
             <Image className='image'>
@@ -73,7 +73,7 @@ const Works = () => {
             </Image>
           </Card>
         ))}
-      </Wrapper>
+      </Grid>
 
       {/* BUTTON */}
       <UnfilledButton onClick={handleButtonClick}>
@@ -131,21 +131,6 @@ const FilterItem = styled.p`
   text-transform: uppercase;
   cursor: pointer;
   color: ${({ active }) => active === 'true' && 'var(--c-accent)'};
-`;
-
-const Wrapper = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 40px;
-
-  @media (max-width: 1020px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 767px) {
-    grid-template-columns: 1fr;
-  }
 `;
 
 const Image = styled.div`

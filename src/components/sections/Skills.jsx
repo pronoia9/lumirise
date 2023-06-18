@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
 
-import { SectionWrapper } from '../../hoc';
+import { Grid } from '..';
 import { skillsData } from '../../utils/data';
+import { SectionWrapper } from '../../hoc';
 
 const SkillCard = ({ title, description, level }) => {
   return (
@@ -16,29 +17,15 @@ const SkillCard = ({ title, description, level }) => {
 
 const Skills = () => {
   return (
-    <Container>
+    <Grid>
       {skillsData.map((skill, index) => (
         <SkillCard key={`skill-${index}`} {...skill} />
       ))}
-    </Container>
+    </Grid>
   );
 };
 
 export default SectionWrapper(Skills, 'skills');
-
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: 100%;
-
-  @media screen and (max-width: 767px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media screen and (max-width: 580px) {
-    grid-template-columns: 1fr;
-  }
-`;
 
 const SkillCardContainer = styled.div`
   position: relative;
