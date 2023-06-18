@@ -41,12 +41,12 @@ export default function Card(props) {
 
 const CardContainer = styled(motion.div)`
   position: relative;
-  overflow: hidden;
   padding: 30px 35px;
+  margin: auto;
   background: var(--c-background3);
   border-radius: 18px;
+  overflow: hidden;
   transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
-  margin: auto;
 
   &:first-child {
     margin-top: 0;
