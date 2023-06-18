@@ -43,7 +43,6 @@ const Container = styled.section`
   min-height: 100vh;
   padding-bottom: 180px;
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
-
   display: flex;
   align-items: ${({ idname }) => (idname === 'hero' ? 'center' : 'flex-start')};
   justify-content: center;
