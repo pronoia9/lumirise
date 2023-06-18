@@ -1,15 +1,16 @@
 import { styled, css } from 'styled-components';
 
 import { RightArrowSVG } from '.';
+import { motion } from 'framer-motion';
 
 export default function Card(props) {
   const { title, subtitle, description, link } = props; // Common Data
   const { space, section } = props; // Services Data
   const { links, image, year, date, categories, tags, info } = props; // Works Data
-  const { descheight, children } = props; // Other
+  const { descheight, children, motion } = props; // Other
 
   return (
-    <CardContainer className={`${tags ? 'filter-item' : ''} ${tags?.join(' ').toLocaleLowerCase() ?? ''}`}>
+    <CardContainer {...motion}>
       {/* Image/Etc */}
       {children}
 
@@ -38,7 +39,7 @@ export default function Card(props) {
   );
 }
 
-const CardContainer = styled.div`
+const CardContainer = styled(motion.div)`
   position: relative;
   overflow: hidden;
   padding: 30px 35px;
