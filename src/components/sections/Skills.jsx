@@ -17,7 +17,7 @@ const SkillCard = ({ title, description, level }) => {
 
 const Skills = () => {
   return (
-    <Grid>
+    <Grid size='m'>
       {skillsData.map((skill, index) => (
         <SkillCard key={`skill-${index}`} {...skill} />
       ))}
