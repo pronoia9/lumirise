@@ -61,19 +61,10 @@ export default SectionWrapper(Works, 'works');
 
 const Container = styled.div`
   width: 100%;
-  /* padding: 0 40px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  /* 
-  @media (max-width: 950px) {
-    padding: 0 75px;
-  }
-
-  @media (max-width: 767px) {
-    padding: 0 200px;
-  } */
 `;
 
 const FilterList = styled.div`
