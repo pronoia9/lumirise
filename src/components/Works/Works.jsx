@@ -109,24 +109,16 @@ const FilterItem = styled.p`
 
 const Wrapper = styled.div`
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-
-  > div {
-    flex: calc(33.333% - 40px);
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
 
   @media (max-width: 1025px) {
-    > div {
-      flex: 50%;
-    }
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 767px) {
-    > div {
-      flex: 100%;
-    }
+    grid-template-columns: 1fr;
   }
 `;
 
