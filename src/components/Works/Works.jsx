@@ -1,5 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import Isotope from 'isotope-layout';
+import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { Card } from '..';
@@ -14,22 +13,24 @@ const FilterListItem = ({ title, filter, setFilterKeys }) => (
 );
 
 const Works = () => {
-  const isotope = useRef(Isotope);
-  const [filterKey, setFilterKey] = useState('');
+  const [filterKey, setFilterKey] = useState('3d');
+  const [projects, setProjects] = useState(projectsData.projects);
 
-  // Initialize an Isotope object with configs
-  useLayoutEffect(() => {
-    isotope.current = new Isotope('.filter-container', { itemSelector: '.filter-item', layoutMode: 'fitRows' });
-    return () => isotope.current?.destroy();
-  }, []);
-
-  // Handle filter key change
-  const handleFilterKeyChange = (key) => { setFilterKey(key); };
-  useEffect(() => {
-    isotope.current && filterKey === ''
-      ? isotope.current?.arrange({ filter: '*' })
-      : isotope.current?.arrange({ filter: `.${`${filterKey}`.toLowerCase()}` });
+  useEffect(() => { 
+    setProjects(
+      projectsData.projects.filter(
+        (p) =>
+          `${p.categories.join(' ')}`.toLowerCase().includes(`${filterKey}`.toLowerCase()) ||
+          `${p.tags.join(' ')}`.toLowerCase().includes(`${filterKey}`.toLowerCase())
+      )
+    );
   }, [filterKey]);
+
+  useEffect(() => {
+    setTimeout(() => { setFilterKey('3d') }, 2500);
+    setTimeout(() => { setFilterKey('fullstack') }, 5000);
+    setTimeout(() => { setFilterKey('react') }, 7500);
+  }, []);
 
   return (
     <Container>
@@ -42,8 +43,11 @@ const Works = () => {
 
       {/* WORKS */}
       <Wrapper className='filter-container'>
-        {projectsData.projects.slice(0, 6).map((project, index) => (
-          <Card key={`project-${index}`} {...project} descheight={300} section='Works'>
+        {projects.slice(0, 6).map((project, index) => (
+          <Card key={`projects-${filterKey}-${index}`} {...project} descheight={285} section='Works' motion={{
+            initial: {  opacity: 0, scale: 0.85 },
+            animate: { opacity: 1, scale: 1,  transition: { duration: 0.1, ease: 'easeIn' } },
+          }}>
             <Image className='image'>
               <img src={project.image} />
             </Image>
@@ -110,19 +114,9 @@ const FilterItem = styled.p`
 
 const Wrapper = styled.div`
   width: 100%;
-  margin-top: -40px;
-  margin-left: 0;
-  margin-right: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  > div {
-    width: calc(33.333% - 40px);
-    min-height: 725px;
-    /* flex: 0 0 33.333%; */
-    margin: 0 20px 40px 20px;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
 `;
 
 const Image = styled.div`
