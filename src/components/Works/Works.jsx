@@ -66,23 +66,6 @@ const Container = styled.div`
   gap: 40px;
 `;
 
-const Wrapper = styled.div`
-  width: 100%;
-  margin-top: -40px;
-  margin-left: 0;
-  margin-right: 0;
-  display: flex;
-  flex-wrap: wrap;
-
-  > div {
-    width: 30%;
-    min-height: 650px;
-    padding: 40px 20px 0 20px;
-    flex: 0 0 33.333%;
-    margin-bottom: 40px;
-  }
-`;
-
 const FilterList = styled.div`
   position: relative;
   margin: 0 0 30px 0;
@@ -122,6 +105,23 @@ const FilterItem = styled.p`
   letter-spacing: 0.05rem;
   text-transform: uppercase;
   cursor: pointer;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  margin-top: -40px;
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  > div {
+    width: 30%;
+    min-height: 650px;
+    padding: 40px 20px 0 20px;
+    flex: 0 0 33.333%;
+    margin-bottom: 40px;
+  }
 `;
 
 const Image = styled.div`
