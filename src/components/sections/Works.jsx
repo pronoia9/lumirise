@@ -23,7 +23,6 @@ const Works = () => {
 
   // Handle filtering projects when filter key changes OR when the count is changed due to resizing or row change
   useEffect(() => {
-    console.log('a lot of changes oof');
     setProjects(
       [
         !filterKey
