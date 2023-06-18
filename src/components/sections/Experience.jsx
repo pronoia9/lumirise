@@ -10,11 +10,10 @@ const Experience = () => {
   return (
     <Container>
       <Grid columns={2} gap='25px'>
-        {/* <Flexbox columns={1}> */}
-        <ExperienceColumns column='Education' data={histroyData.education}>
+        <Flexbox>
+          <ExperienceColumns column='Education' data={histroyData.education} />
           <ExperienceColumns column='Activities' data={histroyData.activities} />
-        </ExperienceColumns>
-        {/* </Flexbox> */}
+        </Flexbox>
         <ExperienceColumns column='Courses' data={histroyData.courses} />
       </Grid>
     </Container>
@@ -26,8 +25,8 @@ const Container = styled.div``;
 
 const Flexbox = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 40px;
 `;
