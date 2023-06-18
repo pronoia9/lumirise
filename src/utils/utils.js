@@ -9,3 +9,5 @@ export const toggleTheme = (setTheme) => setTheme((prev) => prev === 'dark' ? 'l
 export const isDarkTheme = (theme) => theme === 'dark';
 
 export const systemThemeChangeHandler = (e, setTheme) => { setTheme(e.matches ? 'dark' : 'light'); };
+
+export const lowerCase = (t) => `${t}`.toLowerCase();
