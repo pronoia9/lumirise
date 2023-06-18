@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { Card } from '..';
@@ -19,6 +19,7 @@ const Works = () => {
   const [projects, setProjects] = useState(projectsData.projects);
   const [rows, setRows] = useState(2);
   const [count, setCount] = useState(setProjectsCount(rows));
+  const topRef = useRef();
 
   // Handle filtering projects when filter key changes OR when the count is changed due to resizing or row change
   useEffect(() => {
@@ -51,11 +52,12 @@ const Works = () => {
     else {
       setRows(2);
       setCount(rows);
+      topRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <Container>
+    <Container ref={topRef}>
       {/* FILTERS */}
       <FilterList className='filter-links'>
         {projectsData.filters.map((f, index) => (
