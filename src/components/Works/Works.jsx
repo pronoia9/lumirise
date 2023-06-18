@@ -5,7 +5,7 @@ import { Card } from '..';
 import { UnfilledButton } from '../../styles/ButtonStyles';
 import { projectsData } from '../../utils/data';
 import { cardMotion } from '../../utils/motion';
-import { lowerCase } from '../../utils/utils';
+import { lowerCase, setProjectsCount } from '../../utils/utils';
 import { SectionWrapper } from '../../hoc';
 
 const FilterListItem = ({ title, filter, filterKey, setFilterKey }) => (
@@ -17,18 +17,42 @@ const FilterListItem = ({ title, filter, filterKey, setFilterKey }) => (
 const Works = () => {
   const [filterKey, setFilterKey] = useState('');
   const [projects, setProjects] = useState(projectsData.projects);
-  const [rows, setRows] = useState(); // TODO: USE THIS TO SLICE THE ARRAY FOR #ROWS
+  const [rows, setRows] = useState(2);
+  const [count, setCount] = useState(setProjectsCount(rows));
 
-  // Handle filtering projects when filter key changes
+  // Handle filtering projects when filter key changes OR when the count is changed due to resizing or row change
   useEffect(() => {
+    console.log('a lot of changes oof');
     setProjects(
-      !filterKey
-        ? projectsData.projects.slice(0, 6)
-        : projectsData.projects
-            .filter((p) => lowerCase(p.categories.join('')).includes(filterKey) || lowerCase(p.tags.join('')).includes(filterKey))
-            .slice(0, 6)
+      [
+        !filterKey
+          ? projectsData.projects
+          : projectsData.projects.filter(
+              (p) => lowerCase(p.categories.join('')).includes(filterKey) || lowerCase(p.tags.join('')).includes(filterKey)
+            ),
+      ]
+        .flat()
+        .slice(0, count)
     );
-  }, [filterKey]);
+  }, [filterKey, count]);
+
+  // Set count when rows change
+  useEffect(() => { setCount(setProjectsCount(rows)); }, [rows]);
+
+  // Sets count when the window is resized
+  useEffect(() => {
+    const resize = () => { setCount(setProjectsCount(2)); };
+    window.addEventListener('resize', resize);
+    return () => { window.removeEventListener('resize', resize); };
+  }, []);
+
+  const handleButtonClick = () => {
+    if (projects.length < projectsData.projects.length) setRows((prev) => prev + 1);
+    else {
+      setRows(2);
+      setCount(rows);
+    }
+  };
 
   return (
     <Container>
@@ -51,8 +75,8 @@ const Works = () => {
       </Wrapper>
 
       {/* BUTTON */}
-      <UnfilledButton>
-        <p> View More</p>
+      <UnfilledButton onClick={handleButtonClick}>
+        <p> View {projects.length < projectsData.projects.length ? 'More' : 'Less'}</p>
       </UnfilledButton>
     </Container>
   );
@@ -114,7 +138,7 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
 
-  @media (max-width: 1025px) {
+  @media (max-width: 1020px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
