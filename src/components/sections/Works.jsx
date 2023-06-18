@@ -65,7 +65,7 @@ const Works = () => {
       </FilterList>
 
       {/* WORKS */}
-      <Grid className='filter-container' size='l'>
+      <Grid className='filter-container' size='l' gap='40px'>
         {projects.map((project, index) => (
           <Card key={`projects-${filterKey}-${index}`} {...project} section='Works' motion={cardMotion}>
             <Image className='image'>

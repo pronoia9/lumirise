@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-export default function Grid({ children, columns = 3, size, gap = 40 }) {
+export default function Grid({ children, columns = 3, size, gap }) {
   return (
     <Container columns={columns} size={size} gap={gap}>
       {children}
@@ -12,7 +12,7 @@ const Container = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(${({ columns }) => columns}, 1fr);
-  grid-gap: ${({ gap }) => `${gap}px`};
+  grid-gap: ${({ gap }) => gap};
 
   ${({ size }) =>
     size === 'l'
