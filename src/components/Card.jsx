@@ -7,7 +7,7 @@ export default function Card(props) {
   const { title, subtitle, description, link } = props; // Common Data
   const { space, section } = props; // Services Data
   const { links, image, year, date, categories, tags, info } = props; // Works Data
-  const { descheight, children, motion } = props; // Other
+  const { children, motion } = props; // Other
 
   return (
     <CardContainer {...motion}>
@@ -24,7 +24,7 @@ export default function Card(props) {
       <CardTitle className='lui-title'>{title}</CardTitle>
 
       {/* Description */}
-      <CardDescription className='lui-text' descheight={descheight}>
+      <CardDescription className='lui-text'>
         {description}
       </CardDescription>
 
@@ -42,7 +42,7 @@ export default function Card(props) {
 const CardContainer = styled(motion.div)`
   position: relative;
   padding: 30px 35px;
-  margin: auto;
+  margin: 0;
   background: var(--c-background3);
   border-radius: 18px;
   overflow: hidden;
@@ -81,7 +81,8 @@ const CardTitle = styled.div`
 `;
 
 const CardDescription = styled.div`
-  min-height: ${({ descheight }) => `${descheight}px`};
+  margin-bottom: 85px;
+  /* min-height: ${({ descheight }) => `${descheight}px`}; */
 `;
 
 const CardLink = styled.a`

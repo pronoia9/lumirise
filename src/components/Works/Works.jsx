@@ -42,7 +42,7 @@ const Works = () => {
       {/* WORKS */}
       <Wrapper className='filter-container'>
         {projects.map((project, index) => (
-          <Card key={`projects-${filterKey}-${index}`} {...project} descheight={285} section='Works' motion={cardMotion}>
+          <Card key={`projects-${filterKey}-${index}`} {...project} section='Works' motion={cardMotion}>
             <Image className='image'>
               <img src={project.image} />
             </Image>

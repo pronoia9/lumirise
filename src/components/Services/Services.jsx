@@ -28,7 +28,7 @@ const Services = () => {
       <Swiper {...options}>
         {servicesData.map((service, index) => (
           <SwiperSlide key={`service-${index}`}>
-            <Card {...service} descheight={175} section='Works' space={true} />
+            <Card {...service} section='Works' space={true} />
           </SwiperSlide>
         ))}
       </Swiper>
