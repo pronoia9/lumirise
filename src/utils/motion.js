@@ -115,7 +115,7 @@ export const socialsMotion = {
 export const sectionWrapperMotion = {
   initial: 'hidden',
   whileInView: 'show',
-  viewport: { once: false, amount: 0.25 },
+  viewport: { once: false, amount: 0.1 },
   variants: {
     hidden: { opacity: 0, y: window.scrollY !== 0 ? 100 : 0 },
     show: { opacity: 1, y: 0, transition: { type: 'spring', bounce: 0.4, duration: 1, staggerChildren: 0.5, delayChildren: 0.5 } },
