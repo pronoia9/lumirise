@@ -56,16 +56,19 @@ const GlobalStyles = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
   }
 
+  html {
+    background: var(--c-background);
+    transition: background 0.5s ease-in-out;
+  }
+
   body, #root {
     width: 100%;
     min-width: 100vw;
     height: 100%;
     min-height: 100vh;
     color: var(--c-font);
-    background: var(--c-background);
     overflow-x: hidden;
-    transition: background 0.5s ease-in-out, 
-                color 0.5s ease-in-out;
+    transition: color 0.5s ease-in-out;
   }
 
   *::-webkit-scrollbar {
