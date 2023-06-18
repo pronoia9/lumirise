@@ -50,6 +50,7 @@ const Container = styled.section`
 `;
 
 const Wrapper = styled(motion.div)`
+  width: 100%;
   max-width: 1300px;
   padding: 90px 2rem;
 `;
