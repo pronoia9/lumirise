@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
-import { heroMotion } from '../../utils/motion';
+
+import { heroMotion } from '../../../utils/motion';
 
 export default function HeroBadge({ total, plus, title, context, index }) {
   return (

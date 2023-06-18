@@ -2,10 +2,10 @@ import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import { keyframes, styled } from 'styled-components';
 
-import { Socials } from '..';
-import { heroData } from '../../utils/data';
-import { Description, SubtitleWithAccent, SubtitleWithHandwriting, HeroTitle } from '../../styles/TextStyles';
-import { UnfilledButton } from '../../styles/ButtonStyles';
+import { Socials } from '../..';
+import { UnfilledButton } from '../../../styles/ButtonStyles';
+import { Description, SubtitleWithAccent, SubtitleWithHandwriting, HeroTitle } from '../../../styles/TextStyles';
+import { heroData } from '../../../utils/data';
 
 export default function HeroIntro() {
   const { name, occupation, introductions } = heroData;

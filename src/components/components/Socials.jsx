@@ -3,8 +3,8 @@ import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { SocialSVGs } from '.';
-import { socialsData } from '../utils/data';
-import { socialsMotion } from '../utils/motion';
+import { socialsData } from '../../utils/data';
+import { socialsMotion } from '../../utils/motion';
 
 const SocialItem = ({ title, link, props }) => (
   <motion.p {...socialsMotion.socialItem} {...props}>

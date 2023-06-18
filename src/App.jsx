@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { ThemeProvider, styled } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
-import { Navbar, Footer } from './components';
-import { HomePage } from './pages';
+import { Navbar, Footer, HomePage } from './components';
 import GlobalStyles from './styles/GlobalStyles';
 import { getSystemTheme, getTheme, systemThemeChangeHandler } from './utils/utils';
 import { Route, Routes } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { HeroIntro, HeroImage } from './';
+import { HeroIntro, HeroImage } from './Hero/index';
 import { SectionWrapper } from '../../hoc';
 
 const Hero = () => {

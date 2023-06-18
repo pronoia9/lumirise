@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import HeroBadge from './HeroBadge';
-import { heroData } from '../../utils/data';
+import { heroData } from '../../../utils/data';
 
 export default function HeroImage() {
   return (
