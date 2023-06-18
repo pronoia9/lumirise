@@ -42,13 +42,7 @@ const Works = () => {
       {/* WORKS */}
       <Wrapper className='filter-container'>
         {projects.map((project, index) => (
-          <Card
-            key={`projects-${filterKey}-${index}`}
-            {...project}
-            descheight={285}
-            section='Works'
-            motion={cardMotion}
-          >
+          <Card key={`projects-${filterKey}-${index}`} {...project} descheight={285} section='Works' motion={cardMotion}>
             <Image className='image'>
               <img src={project.image} />
             </Image>
@@ -66,10 +60,20 @@ const Works = () => {
 export default SectionWrapper(Works, 'works');
 
 const Container = styled.div`
+  width: 100%;
+  /* padding: 0 40px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  /* 
+  @media (max-width: 950px) {
+    padding: 0 75px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0 200px;
+  } */
 `;
 
 const FilterList = styled.div`
@@ -114,9 +118,25 @@ const FilterItem = styled.p`
 
 const Wrapper = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 40px;
+
+  > div {
+    flex: calc(33.333% - 40px);
+  }
+
+  @media (max-width: 1025px) {
+    > div {
+      flex: 50%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    > div {
+      flex: 100%;
+    }
+  }
 `;
 
 const Image = styled.div`
