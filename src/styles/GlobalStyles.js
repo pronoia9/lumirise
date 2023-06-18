@@ -112,7 +112,6 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     margin: 0;
     margin-bottom: 15px;
-    color: #000;
     font-weight: 700;
     line-height: 1.3;
   }
