@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Isotope from 'isotope-layout';
 import { styled } from 'styled-components';
 
@@ -18,8 +18,8 @@ const Works = () => {
   const [filterKey, setFilterKey] = useState('');
 
   // Initialize an Isotope object with configs
-  useEffect(() => {
-    isotope.current = new Isotope('.filter-container', { itemSelector: '.filter-item', layoutMode: 'fitRows', });
+  useLayoutEffect(() => {
+    isotope.current = new Isotope('.filter-container', { itemSelector: '.filter-item', layoutMode: 'fitRows' });
     return () => isotope.current?.destroy();
   }, []);
 
@@ -34,16 +34,16 @@ const Works = () => {
   return (
     <Container>
       {/* FILTERS */}
-      <FilterList className='filter-links scrolla-element-anim-1 scroll-animate animate__active animate__animated' data-animate='active'>
+      <FilterList className='filter-links'>
         {projectsData.filters.map((f, index) => (
           <FilterListItem key={`filter-${index}`} {...f} setFilterKeys={setFilterKey} />
         ))}
       </FilterList>
 
       {/* WORKS */}
-      <Wrapper className='works-items works-masonry-items row filter-container'>
+      <Wrapper className='filter-container'>
         {projectsData.projects.slice(0, 6).map((project, index) => (
-          <Card key={`project-${index}`} {...project} descheight={275} section='Works'>
+          <Card key={`project-${index}`} {...project} descheight={300} section='Works'>
             <Image className='image'>
               <img src={project.image} />
             </Image>
@@ -52,9 +52,9 @@ const Works = () => {
       </Wrapper>
 
       {/* BUTTON */}
-      <Button>
+      <UnfilledButton>
         <p> View More</p>
-      </Button>
+      </UnfilledButton>
     </Container>
   );
 };
@@ -63,6 +63,7 @@ export default SectionWrapper(Works, 'works');
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 40px;
 `;
 
@@ -114,13 +115,13 @@ const Wrapper = styled.div`
   margin-right: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   > div {
-    width: 30%;
-    min-height: 650px;
-    padding: 40px 20px 0 20px;
-    flex: 0 0 33.333%;
-    margin-bottom: 40px;
+    width: calc(33.333% - 40px);
+    min-height: 725px;
+    /* flex: 0 0 33.333%; */
+    margin: 0 20px 40px 20px;
   }
 `;
 
@@ -145,8 +146,4 @@ const Image = styled.div`
       transform: scale(1.1);
     }
   }
-`;
-
-const Button = styled(UnfilledButton)`
-  align-self: center;
 `;
