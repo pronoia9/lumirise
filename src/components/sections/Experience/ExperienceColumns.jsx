@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import ExperienceItem from './ExperienceItem';
 
-export default function ExperienceColumns({ column, data, children }) {
+export default function ExperienceColumns({ column, data }) {
   const [openTabIndex, setOpenTabIndex] = useState(null);
 
   return (
@@ -15,7 +15,6 @@ export default function ExperienceColumns({ column, data, children }) {
           <ExperienceItem key={`${column}-${index}`} {...d} index={index} openTabIndex={openTabIndex} setOpenTabIndex={setOpenTabIndex} />
         ))}
       </div>
-      {children}
     </Container>
   );
 }
