@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { Card } from '..';
-import { SectionWrapper } from '../../hoc';
 import { UnfilledButton } from '../../styles/ButtonStyles';
 import { projectsData } from '../../utils/data';
+import { cardMotion } from '../../utils/motion';
 import { lowerCase } from '../../utils/utils';
+import { SectionWrapper } from '../../hoc';
 
 const FilterListItem = ({ title, filter, filterKey, setFilterKey }) => (
   <FilterItem onClick={() => setFilterKey(lowerCase(filter))} active={`${lowerCase(filter) === lowerCase(filterKey)}`}>
@@ -16,15 +17,16 @@ const FilterListItem = ({ title, filter, filterKey, setFilterKey }) => (
 const Works = () => {
   const [filterKey, setFilterKey] = useState('');
   const [projects, setProjects] = useState(projectsData.projects);
+  const [rows, setRows] = useState(); // TODO: USE THIS TO SLICE THE ARRAY FOR #ROWS
 
   // Handle filtering projects when filter key changes
   useEffect(() => {
     setProjects(
       !filterKey
-        ? projectsData.projects
-        : projectsData.projects.filter(
-            (p) => lowerCase(p.categories.join('')).includes(filterKey) || lowerCase(p.tags.join('')).includes(filterKey)
-          )
+        ? projectsData.projects.slice(0, 6)
+        : projectsData.projects
+            .filter((p) => lowerCase(p.categories.join('')).includes(filterKey) || lowerCase(p.tags.join('')).includes(filterKey))
+            .slice(0, 6)
     );
   }, [filterKey]);
 
@@ -39,16 +41,13 @@ const Works = () => {
 
       {/* WORKS */}
       <Wrapper className='filter-container'>
-        {projects.slice(0, 6).map((project, index) => (
+        {projects.map((project, index) => (
           <Card
             key={`projects-${filterKey}-${index}`}
             {...project}
             descheight={285}
             section='Works'
-            motion={{
-              initial: { opacity: 0, scale: 0.85 },
-              animate: { opacity: 1, scale: 1, transition: { duration: 0.1, ease: 'easeIn' } },
-            }}
+            motion={cardMotion}
           >
             <Image className='image'>
               <img src={project.image} />
@@ -75,7 +74,6 @@ const Container = styled.div`
 
 const FilterList = styled.div`
   position: relative;
-  margin: 0 0 30px 0;
   text-align: center;
   align-self: center;
 

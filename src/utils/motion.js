@@ -133,6 +133,11 @@ export const heroMotion = {
   }),
 };
 
+export const cardMotion = {
+  initial: { opacity: 0, scale: 0.85 },
+  animate: { opacity: 1, scale: 1, transition: { duration: 0.1, ease: 'easeIn' } },
+};
+
 // initial={{ opacity: 0, scale: 0.5 }}
 //       animate={{ opacity: 1, scale: 1 }}
 //       transition={{
