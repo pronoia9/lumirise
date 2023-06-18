@@ -46,8 +46,6 @@ const Container = styled.section`
   display: flex;
   align-items: ${({ idname }) => (idname === 'hero' ? 'center' : 'flex-start')};
   justify-content: center;
-  isolation: isolate;
-  z-index: -1;
 `;
 
 const Wrapper = styled(motion.div)`
@@ -56,10 +54,8 @@ const Wrapper = styled(motion.div)`
   padding: 90px 2rem;
 `;
 
-const SectionHeading = styled.div`
-  position: relative;
-  margin-bottom: 60px;
-  text-align: center;
+const InnerWrapper = styled.div`
+  z-index: 10;
 `;
 
 const BackgroundText = styled.div`
@@ -75,5 +71,5 @@ const BackgroundText = styled.div`
   text-align: center;
   white-space: nowrap;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 `;
