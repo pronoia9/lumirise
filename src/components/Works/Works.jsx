@@ -105,6 +105,7 @@ const FilterItem = styled.p`
   letter-spacing: 0.05rem;
   text-transform: uppercase;
   cursor: pointer;
+  color: ${({ active }) => active === 'true' && 'var(--c-accent)'};
 `;
 
 const Wrapper = styled.div`
