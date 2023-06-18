@@ -5,49 +5,51 @@ import { Card } from '..';
 import { SectionWrapper } from '../../hoc';
 import { UnfilledButton } from '../../styles/ButtonStyles';
 import { projectsData } from '../../utils/data';
+import { lowerCase } from '../../utils/utils';
 
-const FilterListItem = ({ title, filter, setFilterKeys }) => (
-  <FilterItem onClick={() => setFilterKeys('react')}>
+const FilterListItem = ({ title, filter, filterKey, setFilterKey }) => (
+  <FilterItem onClick={() => setFilterKey(lowerCase(filter))} active={`${lowerCase(filter) === lowerCase(filterKey)}`}>
     {title}
   </FilterItem>
 );
 
 const Works = () => {
-  const [filterKey, setFilterKey] = useState('3d');
+  const [filterKey, setFilterKey] = useState('');
   const [projects, setProjects] = useState(projectsData.projects);
 
-  useEffect(() => { 
+  // Handle filtering projects when filter key changes
+  useEffect(() => {
     setProjects(
-      projectsData.projects.filter(
-        (p) =>
-          `${p.categories.join(' ')}`.toLowerCase().includes(`${filterKey}`.toLowerCase()) ||
-          `${p.tags.join(' ')}`.toLowerCase().includes(`${filterKey}`.toLowerCase())
-      )
+      !filterKey
+        ? projectsData.projects
+        : projectsData.projects.filter(
+            (p) => lowerCase(p.categories.join('')).includes(filterKey) || lowerCase(p.tags.join('')).includes(filterKey)
+          )
     );
   }, [filterKey]);
-
-  useEffect(() => {
-    setTimeout(() => { setFilterKey('3d') }, 2500);
-    setTimeout(() => { setFilterKey('fullstack') }, 5000);
-    setTimeout(() => { setFilterKey('react') }, 7500);
-  }, []);
 
   return (
     <Container>
       {/* FILTERS */}
       <FilterList className='filter-links'>
         {projectsData.filters.map((f, index) => (
-          <FilterListItem key={`filter-${index}`} {...f} setFilterKeys={setFilterKey} />
+          <FilterListItem key={`filter-${index}`} {...f} filterKey={filterKey} setFilterKey={setFilterKey} />
         ))}
       </FilterList>
 
       {/* WORKS */}
       <Wrapper className='filter-container'>
         {projects.slice(0, 6).map((project, index) => (
-          <Card key={`projects-${filterKey}-${index}`} {...project} descheight={285} section='Works' motion={{
-            initial: {  opacity: 0, scale: 0.85 },
-            animate: { opacity: 1, scale: 1,  transition: { duration: 0.1, ease: 'easeIn' } },
-          }}>
+          <Card
+            key={`projects-${filterKey}-${index}`}
+            {...project}
+            descheight={285}
+            section='Works'
+            motion={{
+              initial: { opacity: 0, scale: 0.85 },
+              animate: { opacity: 1, scale: 1, transition: { duration: 0.1, ease: 'easeIn' } },
+            }}
+          >
             <Image className='image'>
               <img src={project.image} />
             </Image>
@@ -84,7 +86,7 @@ const FilterList = styled.div`
     margin-left: 20px;
     display: inline-block;
     vertical-align: top;
-    
+
     &:before {
       content: '';
       position: absolute;
