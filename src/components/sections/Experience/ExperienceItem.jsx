@@ -1,15 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { css, styled } from 'styled-components';
 
 import { rem } from '../../../utils/utils';
 
 export default function ExperienceItem({ title, subtitle, dates, description, index, openTabIndex, setOpenTabIndex }) {
   const [open, setOpen] = useState(false);
-  const btnRef = useRef();
-
-  useEffect(() => {
-    console.log(btnRef);
-  }, []);
 
   // Toggle the open state for the item
   const handleClick = (e) => { setOpen((prev) => !prev); };
@@ -17,8 +12,8 @@ export default function ExperienceItem({ title, subtitle, dates, description, in
   useEffect(() => { setOpenTabIndex(open ? index : null); }, [open]);
 
   return (
-    <Container className='history-item lui-collapse-item scroll-animate opened animate__active' isopen={`${open}`}>
-      <h6 ref={btnRef} className='name lui-collapse-btn active' onClick={handleClick}>
+    <Container className='history-item lui-collapse-item scroll-animate opened animate__active' isopen={`${openTabIndex === index}`}>
+      <h6 className='name lui-collapse-btn active' onClick={handleClick}>
         {title}
       </h6>
       <Hidden className='history-content' isopen={`${openTabIndex === index}`}>
