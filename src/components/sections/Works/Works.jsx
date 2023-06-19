@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 
-import { Card, Grid } from '..';
-import { SectionWrapper } from '../../hoc';
-import { UnfilledButton } from '../../styles/ButtonStyles';
-import { projectsData } from '../../utils/data';
-import { cardMotion } from '../../utils/motion';
-import { lowerCase, setProjectsCount, rem } from '../../utils/utils';
+import { Card, Grid } from '../..';
+import { SectionWrapper } from '../../../hoc';
+import { UnfilledButton } from '../../../styles/ButtonStyles';
+import { projectsData } from '../../../utils/data';
+import { cardMotion } from '../../../utils/motion';
+import { lowerCase, setProjectsCount, rem } from '../../../utils/utils';
 
 const FilterListItem = ({ title, filter, filterKey, setFilterKey }) => (
   <FilterItem onClick={() => setFilterKey(lowerCase(filter))} active={`${lowerCase(filter) === lowerCase(filterKey)}`}>

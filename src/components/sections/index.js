@@ -1,8 +1,8 @@
-import Hero from './Hero.jsx';
-import Contact from './Contact';
-import Experience from './Experience.jsx';
-import Services from './Services';
-import Skills from './Skills';
-import Works from './Works';
+import { Contact } from './Contact';
+import { Experience } from './Experience';
+import { Hero } from './Hero';
+import { Services } from './Services';
+import { Skills } from './Skills';
+import { Works } from './Works';
 
-export { Hero, Contact, Experience, Services, Skills, Works };
+export { Contact, Experience, Hero, Services, Skills, Works };

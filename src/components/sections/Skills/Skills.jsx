@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-import { Grid } from '..';
-import { SectionWrapper } from '../../hoc';
-import { skillsData } from '../../utils/data';
-import { rem } from '../../utils/utils';
+import { Grid } from '../..';
+import { SectionWrapper } from '../../../hoc';
+import { skillsData } from '../../../utils/data';
+import { rem } from '../../../utils/utils';
 
 const SkillCard = ({ title, description, level }) => {
   return (

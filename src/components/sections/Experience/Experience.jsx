@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-import { Grid } from '../';
-import { ExperienceColumns } from './Experience/index';
-import { SectionWrapper } from '../../hoc';
-import { histroyData } from '../../utils/data';
+import { Grid } from '../..';
+import { ExperienceColumns } from './index';
+import { SectionWrapper } from '../../../hoc';
+import { histroyData } from '../../../utils/data';
 
 const Experience = () => {
   return (

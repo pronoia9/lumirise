@@ -4,9 +4,9 @@ import { styled } from 'styled-components';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import { Card } from '..';
-import { SectionWrapper } from '../../hoc';
-import { servicesData } from '../../utils/data';
+import { Card } from '../..';
+import { SectionWrapper } from '../../../hoc';
+import { servicesData } from '../../../utils/data';
 
 const Services = () => {
   const options = {
