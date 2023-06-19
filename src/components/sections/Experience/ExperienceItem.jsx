@@ -1,16 +1,22 @@
+import { useState } from 'react';
 import { css, styled } from 'styled-components';
 
 import { rem } from '../../../utils/utils';
 
 export default function ExperienceItem({ title, subtitle, dates, description, index, openTabIndex, setOpenTabIndex }) {
-  const handleClick = (e) => { setOpenTabIndex(index); };
+  const [open, setOpen] = useState(false);
+
+  const handleClick = (e) => {
+    setOpen((prev) => !prev);
+    setOpenTabIndex(index);
+  };
 
   return (
-    <Container className='history-item lui-collapse-item scroll-animate opened animate__active' isopen={`${openTabIndex === index}`}>
+    <Container className='history-item lui-collapse-item scroll-animate opened animate__active' isopen={`${open && openTabIndex === index}`}>
       <h6 className='name lui-collapse-btn active' onClick={handleClick}>
         {title}
       </h6>
-      <Hidden className='history-content' isopen={`${openTabIndex === index}`}>
+      <Hidden className='history-content' isopen={`${open && openTabIndex === index}`}>
         <div>
           <Subtitle className='subname'>{subtitle}</Subtitle>
           <Dates className='date lui-subtitle' type={typeof dates[1]}>
