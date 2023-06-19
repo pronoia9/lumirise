@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import { resetCSS } from './ResetCSS';
 import { swiperCSS } from './SwiperCSS';
+import { rem } from '../utils/utils';
 
 const GlobalStyles = createGlobalStyle`
   ${resetCSS}
@@ -48,7 +49,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     height: auto !important;
-    font-size: 16px;
+    font-size: ${rem(16)};
     font-family: var(--f-primary), sans-serif;
     font-weight: 400;
     line-height: 1.7;
@@ -111,59 +112,57 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     margin: 0;
-    margin-bottom: 15px;
+    margin-bottom: ${rem(15)};
     font-weight: 700;
     line-height: 1.3;
   }
   h1 {
-    font-size: 44px;
+    font-size: ${rem(44)};
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.05rem;
   }
   h2 {
-    font-size: 41px;
+    font-size: ${rem(41)};
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.05rem;
   }
-  h3 { font-size: 38px; }
-  h4 { font-size: 32px; }
-  h5 { font-size: 24px; }
-  h6 { font-size: 21px; }
+  h3 { font-size: ${rem(38)}; }
+  h4 { font-size: ${rem(32)}; }
+  h5 { font-size: ${rem(24)}; }
+  h6 { font-size: ${rem(21)}; }
   p {
     padding: 0;
-    margin: 30px 0;
+    margin: ${rem(30)} 0;
   }
   strong { font-weight: 700; }
 
   input[type="text"], input[type="email"], input[type="search"], input[type="password"], input[type="tel"], input[type="address"], input[type="number"], textarea {
     position: relative;
-    padding: 0 30px;
+    padding: 0 ${rem(30)};
     display: block;
     width: 100%;
-    height: 60px;
-    font-size: 16px;
-    color: #000;
+    height: ${rem(60)};
+    font-size: ${rem(16)};
+    /* color: var(--c-font); */
     resize: none;
     outline: 0;
     font-weight: 400;
-    background: #fff;
-    border: 2px solid #000;
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
+    background: var(--c-background3);
+    border: ${rem(2)} solid var(--c-lineBorder);
+    border-radius: ${rem(30)};
     transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
-    -webkit-transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
   }
   textarea {
-    height: 140px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    height: ${rem(140)};
+    padding-top: ${rem(20)};
+    padding-bottom: ${rem(20)};
     resize: none;
   }
   label,
   legend {
     display: block;
-    padding-bottom: 20px;
-    font-size: 20px;
+    padding-bottom: ${rem(20)};
+    font-size: ${rem(20)};
   }
   fieldset {
     border-width: 0;
@@ -173,35 +172,35 @@ const GlobalStyles = createGlobalStyle`
     display: inline;
   }
   label.error {
-    padding-top: 5px;
-    font-size: 14px;
+    padding-top: ${rem(5)};
+    font-size: ${rem(14)};
     color: red;
     display: none;
   }
 
   ul {
     list-style: disc;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-left: 0px;
+    margin-top: ${rem(30)};
+    margin-bottom: ${rem(30)};
+    padding-left: 0;
     list-style-position: inside;
   }
   ol {
     list-style: decimal;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-left: 0px;
+    margin-top: ${rem(30)};
+    margin-bottom: ${rem(30)};
+    padding-left: 0;
     list-style-position: inside;
   }
   ul ul, ol ol, ul ol, ol ul {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 15px;
+    margin-top: ${rem(15)};
+    margin-bottom: ${rem(15)};
+    margin-left: ${rem(15)};
   }
 
   code {
-    padding: 0 4px;
-    font-size: 14px;
+    padding: 0 ${rem(4)};
+    font-size: ${rem(14)};
     font-style: italic;
     text-decoration: none;
     display: inline-block;
@@ -212,12 +211,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   pre {
-    margin: 30px 0;
+    margin: ${rem(30)} 0;
     padding: 0;
     max-width: 100%;
     overflow: auto;
     white-space: pre;
-    font-size: 14px;
+    font-size: ${rem(14)};
   }
 
   mark, ins {
@@ -225,14 +224,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   dt {
-    margin-bottom: 5px;
+    margin-bottom: ${rem(5)};
     font-weight: 700;
   }
 
   dd {
     margin-top: 0;
-    margin-bottom: 30px;
-    margin-left: 30px;
+    margin-bottom: ${rem(30)};
+    margin-left: ${rem(30)};
   }
 `;
 
