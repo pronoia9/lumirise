@@ -1,15 +1,9 @@
-import { useEffect, useState } from 'react';
 import { css, styled } from 'styled-components';
 
 import { rem } from '../../../utils/utils';
 
 export default function ExperienceItem({ title, subtitle, dates, description, index, openTabIndex, setOpenTabIndex }) {
-  const [open, setOpen] = useState(false);
-
-  // Toggle the open state for the item
-  const handleClick = (e) => { setOpen((prev) => !prev); };
-  // Update which tab is open using index to close the others
-  useEffect(() => { setOpenTabIndex(open ? index : null); }, [open]);
+  const handleClick = (e) => { setOpenTabIndex(index); };
 
   return (
     <Container className='history-item lui-collapse-item scroll-animate opened animate__active' isopen={`${openTabIndex === index}`}>
@@ -102,7 +96,7 @@ const Subtitle = styled.div`
 `;
 
 const Dates = styled.div`
-  font-size: ${rem(13)};
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.05rem;
   line-height: ${rem(46)};
