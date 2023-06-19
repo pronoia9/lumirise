@@ -9,9 +9,9 @@ import { rem } from '../../../utils/utils';
 
 const Contact = () => {
   const [formData, setformData] = useState(contactData.defaultForm);
-  console.log();
+
   const handleChange = (e) => {
-    console.log(e);
+    setformData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
@@ -22,13 +22,17 @@ const Contact = () => {
         {/* FORM */}
         <FormContainer>
           <div>
-            {Object.keys(contactData.defaultForm).slice(0, 2).map((field) => (
+            {Object.keys(contactData.defaultForm)
+              .slice(0, 2)
+              .map((field) => (
+                <Input key={`form-${field}`} field={field} value={formData[field]} handlechange={handleChange} />
+              ))}
+          </div>
+          {Object.keys(contactData.defaultForm)
+            .slice(2)
+            .map((field) => (
               <Input key={`form-${field}`} field={field} value={formData[field]} handlechange={handleChange} />
             ))}
-          </div>
-          {Object.keys(contactData.defaultForm).slice(2).map((field) => (
-            <Input key={`form-${field}`} field={field} value={formData[field]} handlechange={handleChange} />
-          ))}
         </FormContainer>
       </Grid>
     </Container>
