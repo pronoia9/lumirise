@@ -371,7 +371,7 @@ export const histroyData = {
     {
       title: 'Become A 3D Illustrator',
       subtitle: 'by Polygon Runway',
-      dates: [new Date('May 3, 2023')],
+      dates: [new Date('May 3, 2023'), 'Ongoing'],
       description: `Became a skilled 3D modeler through an immersive Blender course. Mastered controls, geometry modeling, lighting, and rendering. Explored advanced tools, texture painting, and ambient lighting for captivating effects. Created diverse projects, from low-poly to isometric rooms. Proficient in realistic material rendering and smooth modeling techniques. Ready to bring innovative concepts to life.`,
     },
     {
