@@ -10,11 +10,11 @@ import { rem } from '../../../utils/utils';
 
 const Contact = () => {
   const [formData, setFormData] = useState(contactData.defaultForm);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState({ type: '', message: '' });
 
   const reset = () => {
     setFormData(contactData.defaultForm);
-    setMessage('');
+    setMessage({ type: '', message: '' });
   }
 
   const handleFormChange = (e) => {
@@ -41,8 +41,8 @@ const Contact = () => {
           ))}
 
           {/* Button */}
-          <ButtonContainer error={`${message.length}`}>
-            <p>{message || '* Required Fields'}</p>
+          <ButtonContainer alert={`${message.type === 'error'}`} message={`${message.message.length > 0}`}>
+            <p>{message.message || '* Required Fields'}</p>
             <div onClick={handleClick}>
               <UnfilledButton>
                 <p>Send Message</p>
@@ -61,4 +61,8 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: ${rem(30)};
+
+  & > p {
+    color: ${({ alert, message }) => (message === 'true' && (alert === 'true' ? 'red' : 'var(--c-accent)'))};
+  }
 `;
