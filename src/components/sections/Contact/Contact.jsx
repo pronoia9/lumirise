@@ -45,7 +45,7 @@ const Contact = () => {
 
         <Form ref={formRef} onSubmit={handleSubmit}>
           {/* Inputs */}
-          <Grid columns={2} gap={rem(30)}>
+          <Grid columns={2} gap={rem(30)} size='m'>
             {Object.keys(contactData.defaultForm).slice(0, 2).map((field) => (
               <Input key={`form-${field}`} field={field} formData={formData} handlechange={handleFormChange} />
             ))}
