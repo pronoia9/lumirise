@@ -115,7 +115,8 @@ const Dates = styled.div`
 `;
 
 const Description = styled.div`
-  padding: ${rem(15)} 0 ${rem(30)} 0;
+  padding: 0.1rem 0;
   clear: both;
   margin: 0;
+  opacity: 0.9;
 `;
