@@ -143,7 +143,8 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     height: ${rem(60)};
     font-size: ${rem(16)};
-    /* color: var(--c-font); */
+    font-family: var(--f-primary);
+    color: var(--c-font);
     resize: none;
     outline: 0;
     font-weight: 400;
