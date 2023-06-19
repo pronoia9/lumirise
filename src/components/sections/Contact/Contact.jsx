@@ -1,10 +1,54 @@
+import { useState } from 'react';
 import { styled } from 'styled-components';
-import { motion } from 'framer-motion';
 
+import { Grid } from '../..';
 import { SectionWrapper } from '../../../hoc';
+import { contactData } from '../../../utils/data';
+import Input from './Input';
+import { rem } from '../../../utils/utils';
 
 const Contact = () => {
-  return <div>Contact</div>;
+  const [formData, setformData] = useState(contactData.defaultForm);
+  console.log();
+  const handleChange = (e) => {
+    console.log(e);
+  };
+
+  return (
+    <Container>
+      <Grid columns={2}>
+        {/* LEFt */}
+
+        {/* FORM */}
+        <FormContainer>
+          <div>
+            {Object.keys(contactData.defaultForm).slice(0, 2).map((field) => (
+              <Input key={`form-${field}`} field={field} value={formData[field]} handlechange={handleChange} />
+            ))}
+          </div>
+          {Object.keys(contactData.defaultForm).slice(2).map((field) => (
+            <Input key={`form-${field}`} field={field} value={formData[field]} handlechange={handleChange} />
+          ))}
+        </FormContainer>
+      </Grid>
+    </Container>
+  );
 };
 
 export default SectionWrapper(Contact, 'contact');
+
+const Container = styled.div``;
+
+const FormContainer = styled.div`
+  &,
+  & > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: ${rem(30)};
+  }
+
+  & > div:first-child {
+    flex-direction: row;
+  }
+`;
