@@ -6,6 +6,7 @@ import { Socials } from '../..';
 import { UnfilledButton } from '../../../styles/ButtonStyles';
 import { Description, SubtitleWithAccent, SubtitleWithHandwriting, HeroTitle } from '../../../styles/TextStyles';
 import { heroData } from '../../../utils/data';
+import { rem } from '../../../utils/utils';
 
 export default function HeroIntro() {
   const { name, occupation, introductions } = heroData;
@@ -56,46 +57,46 @@ const blink = keyframes`
 `;
 
 const Container = styled.div`
-  padding-top: 40px;
+  padding-top: ${rem('40px')};
   position: relative;
 
-  @media screen and (min-width: 1700px) {
-    padding-top: 20px;
+  @media screen and (min-width: ${rem('1700px')}) {
+    padding-top: ${rem('20px')};
   }
 
-  @media screen and (max-width: 1024px) {
-    padding-top: 140px;
+  @media screen and (max-width: ${rem('1024px')}) {
+    padding-top: ${rem('140px')};
     text-align: center;
   }
 
-  @media screen and (max-width: 767px) {
-		padding-top: 120px;
+  @media screen and (max-width: ${rem('767px')}) {
+		padding-top: ${rem('120px')};
   }
 `;
 
 const Titles = styled.div`
-  max-width: 640px;
+  max-width: ${rem('640px')};
   /* z-index: 3; */
 
-  @media screen and (max-width: 1024px) {
-    margin-bottom: 760px;
+  @media screen and (max-width: ${rem('1024px')}) {
+    margin-bottom: ${rem('760px')};
     max-width: 100%;
   }
 
-  @media screen and (max-width: 767px) {
-    margin-bottom: 420px;
-    min-height: 160px;
+  @media screen and (max-width: ${rem('767px')}) {
+    margin-bottom: ${rem('420px')};
+    min-height: ${rem('160px')};
   }
 `;
 
 const DescriptionContainer = styled(Description)`
-  padding: 40px 0;
-  max-width: 520px;
+  padding: ${rem('40px')} 0;
+  max-width: ${rem('520px')};
 
   & > :first-child {
     /* font-family: var(--f-code);
     min-height: 91.78px; */
-    min-height: 61.188px;
+    min-height: ${rem('61.188px')};
 
     span:last-child {
       color: var(--c-accent);
@@ -106,7 +107,7 @@ const DescriptionContainer = styled(Description)`
 
   p {
     margin-top: 0;
-    margin-bottom: 40px !important;
+    margin-bottom: ${rem('40px')} !important;
   }
 
   @media screen and (max-width: 1024px) {

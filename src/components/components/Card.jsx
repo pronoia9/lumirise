@@ -78,18 +78,18 @@ const CardTitle = styled.div`
   font-weight: 700;
   line-height: 1.3;
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: ${rem('15px')};
 `;
 
 const CardDescription = styled.div`
-  margin-bottom: 85px;
+  margin-bottom: ${rem('85px')};
   /* min-height: ${({ descheight }) => `${descheight}px`}; */
 `;
 
 const CardLink = styled.a`
   position: absolute;
-  left: 30px;
-  bottom: 30px;
+  left: ${rem('30px')};
+  bottom: ${rem('30px')};
   height: 1.375rem;
   display: inline-block;
   vertical-align: top;
@@ -103,7 +103,7 @@ const CardLink = styled.a`
   svg {
     position: relative;
     left: 0;
-    top: 1px;
+    top: ${rem('1px')};
     width: 1rem;
     height: auto;
     margin-left: 1.25rem;
@@ -119,10 +119,10 @@ const CardLink = styled.a`
 
 const CardPattern = styled.div`
   position: absolute;
-  right: -24px;
-  bottom: -24px;
-  width: 141px;
-  height: 141px;
+  right:  ${rem('-24px')};
+  bottom:  ${rem('-24px')};
+  width:  ${rem('141px')};
+  height:  ${rem('141px')};
   background-image: url('images/pat-2.png');
   filter: invert(${({ theme }) => theme.dotsInvert ?? 0});
   background-position: center center;

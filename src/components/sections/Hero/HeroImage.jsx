@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 import HeroBadge from './HeroBadge';
 import { heroData } from '../../../utils/data';
+import { rem } from '../../../utils/utils';
 
 export default function HeroImage() {
   return (
@@ -22,41 +23,40 @@ export default function HeroImage() {
 }
 
 const Container = styled.div`
-  margin-top: -390px;
+  margin-top: ${rem('-390px')};
   position: absolute;
   top: 50%;
-  right: -20px;
-  /* right: -180px; */
-  width: 680px;
-  height: 800px;
+  right: ${rem('-20px')}; /* right: -180px; */
+  width: ${rem('680px')};
+  height: ${rem('800px')};
   z-index: 2;
   isolation: isolate;
 
-  @media screen and (min-width: 1700px) {
-    margin-top: -400px;
-    right: -50px;
+  @media screen and (min-width: ${rem('1700px')}) {
+    margin-top: ${rem('-400px')};
+    right: ${rem('-50px')};
   }
 
-  @media screen and (max-width: 1024px) {
-    margin-left: -340px;
+  @media screen and (max-width: ${rem('1024px')}) {
+    margin-left: ${rem('-340px')};
     bottom: auto;
-    top: 740px;
+    top: ${rem('740px')};
     right: auto;
     left: 50%;
     transform: scale(0.9);
     transform-origin: top center;
   }
 
-  @media screen and (max-width: 767px) {
-    top: 680px;
+  @media screen and (max-width: ${rem('767px')}) {
+    top: ${rem('680px')};
     transform: scale(0.5);
   }
 `;
 
 const HeroBadgeList = styled.ul`
   position: absolute;
-  top: 420px;
-  left: -125px;
+  top: ${rem('420px')};
+  left: ${rem('-125px')};
   margin: 0;
   padding: 0;
   list-style: none;
@@ -70,8 +70,7 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 380px;
-  -webkit-border-radius: 380px;
+  border-radius: ${rem('380px')};
   z-index: 10;
 `;
 
@@ -79,24 +78,20 @@ const Circle = styled.span`
   position: absolute;
   left: 0;
   bottom: 0;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  width: 680px;
-  height: 680px;
-  z-index: 2;
+  width: ${rem('680px')};
+  height: ${rem('680px')};
   background: var(--c-accent);
   border-radius: 100%;
-  -webkit-border-radius: 100%;
+  z-index: 2;
 `;
 
 const Pattern1 = styled.span`
   position: absolute;
-  top: 75px;
-  right: 40px;
+  top: ${rem('75px')};
+  right: ${rem('40px')};
   left: auto;
-  width: 226px;
-  height: 226px;
+  width: ${rem('226px')};
+  height: ${rem('226px')};
   background-image: url('images/pat-1.png');
   background-repeat: no-repeat;
   background-position: center center;
@@ -107,12 +102,12 @@ const Pattern1 = styled.span`
 
 const Pattern2 = styled(Pattern1)`
   background-image: url('images/pat-2.png');
-  bottom: 50px;
+  bottom: ${rem('50px')};
   right: auto;
   top: auto;
-  left: -110px;
-  width: 141px;
-  height: 141px;
+  left: ${rem('-110px')};
+  width: ${rem('141px')};
+  height: ${rem('141px')};
 `;
 
 const Pattern3 = styled(Pattern2)`

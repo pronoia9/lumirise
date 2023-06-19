@@ -1,5 +1,7 @@
 import { css, styled } from 'styled-components';
 
+import { rem } from '../../utils/utils';
+
 export default function Grid({ children, columns = 3, size, gap }) {
   return (
     <Container columns={columns} size={size} gap={gap}>
@@ -17,30 +19,30 @@ const Container = styled.div`
   ${({ size }) =>
     size === 'l'
       ? css`
-          @media (max-width: 1100px) {
+          @media (max-width: ${rem('1100px')}) {
             grid-template-columns: repeat(${({ columns }) => parseInt(columns) - 1}, 1fr);
           }
 
-          @media (max-width: 767px) {
+          @media (max-width: ${rem('767px')}) {
             grid-template-columns: 1fr;
           }
         `
       : size === 'm'
       ? css`
-          @media screen and (max-width: 900px) {
+          @media screen and (max-width: ${rem('900px')}) {
             grid-template-columns: repeat(${({ columns }) => parseInt(columns) - 1}, 1fr);
           }
 
-          @media screen and (max-width: 580px) {
+          @media screen and (max-width: ${rem('580px')}) {
             grid-template-columns: 1fr;
           }
         `
       : css`
-          @media (max-width: 1024px) {
+          @media (max-width: ${rem('1024px')}) {
             grid-template-columns: repeat(${({ columns }) => parseInt(columns) - 1}, 1fr);
           }
 
-          @media (max-width: 767px) {
+          @media (max-width: ${rem('767px')}) {
             grid-template-columns: 1fr;
           }
         `}

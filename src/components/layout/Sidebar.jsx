@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Socials } from '../';
 import { sidebarData } from '../../utils/data';
 import { navbarMotion } from '../../utils/motion';
+import { rem } from '../../utils/utils';
 
 export default function Sidebar({ isOpen }) {
   return (
@@ -37,7 +38,7 @@ const SidebarMenu = styled(motion.nav)`
   top: 0;
   right: 0;
   width: 100%;
-  max-width: 512px;
+  max-width: ${rem('512px')};
   height: 100%;
   display: flex;
   overflow: hidden;
@@ -58,7 +59,7 @@ const SidebarContainer = styled(motion.div)`
 const SidebarLine = styled(motion.div)`
   position: absolute;
   left: 20%;
-  width: 2px;
+  width: ${rem('2px')};
   height: 100%;
   background: var(--c-lineBorder);
   pointer-events: none;
@@ -86,10 +87,10 @@ const SidebarLine = styled(motion.div)`
 
 const SidebarDots = styled(motion.div)`
   position: absolute;
-  top: -185px;
-  left: -170px;
-  width: 226px;
-  height: 226px;
+  top: ${rem('-185px')};
+  left: ${rem('-170px')};
+  width: ${rem('226px')};
+  height: ${rem('226px')};
   background-image: url('images/pat-1.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -113,7 +114,7 @@ const Links = styled(motion.ul)`
       font-size: 1.4rem;
       line-height: 1;
       color: var(--c-font);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.05rem;
       text-transform: uppercase;
       text-decoration: none;
 

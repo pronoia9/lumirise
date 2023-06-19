@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { Card, Grid } from '..';
+import { SectionWrapper } from '../../hoc';
 import { UnfilledButton } from '../../styles/ButtonStyles';
 import { projectsData } from '../../utils/data';
 import { cardMotion } from '../../utils/motion';
-import { lowerCase, setProjectsCount } from '../../utils/utils';
-import { SectionWrapper } from '../../hoc';
+import { lowerCase, setProjectsCount, rem } from '../../utils/utils';
 
 const FilterListItem = ({ title, filter, filterKey, setFilterKey }) => (
   <FilterItem onClick={() => setFilterKey(lowerCase(filter))} active={`${lowerCase(filter) === lowerCase(filterKey)}`}>
@@ -89,7 +89,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: ${rem('40px')};
 `;
 
 const FilterList = styled.div`
@@ -99,9 +99,9 @@ const FilterList = styled.div`
 
   p {
     position: relative;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-bottom: ${rem('20px')};
+    margin-right: ${rem('20px')};
+    margin-left: ${rem('20px')};
     display: inline-block;
     vertical-align: top;
 
@@ -109,17 +109,17 @@ const FilterList = styled.div`
       content: '';
       position: absolute;
       left: 0;
-      bottom: -10px;
+      bottom: ${rem('-10px')};
       width: 0;
       max-width: 60%;
-      height: 2px;
-      margin-top: -2px;
+      height: ${rem('2px')};
+      margin-top: ${rem('-2px')};
       background: var(--c-accent);
       transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
     }
 
     &:hover:before {
-      width: 40px;
+      width: ${rem('40px')};
     }
   }
 `;
@@ -135,15 +135,15 @@ const FilterItem = styled.p`
 
 const Image = styled.div`
   width: 100%;
-  height: 180px;
-  border-radius: 18px;
+  height: ${rem('180px')};
+  border-radius: ${rem('18px')};
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: ${rem('30px')};
 
   img {
     width: 100%;
-    height: 180px;
-    border-radius: 18px;
+    height: ${rem('180px')};
+    border-radius: ${rem('18px')};
     object-fit: cover;
     transform: scale(1);
     transition: transform 0.6s cubic-bezier(0.3, 0, 0.3, 1);

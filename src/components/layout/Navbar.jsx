@@ -6,7 +6,7 @@ import { motion, useCycle } from 'framer-motion';
 import { ThemeSVGs, SidebarButton, Sidebar } from '..';
 import { sidebarData } from '../../utils/data';
 import { navbarMotion } from '../../utils/motion';
-import { toggleTheme } from '../../utils/utils';
+import { toggleTheme, rem } from '../../utils/utils';
 
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
@@ -67,9 +67,9 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${({ open }) => open ? 'rgba(0, 0, 0, 0.5)' : 'none'};
-  transition: all 0.5s ease-in;
   pointer-events: ${({ open }) => open ? 'auto' : 'none'};
   z-index: 900;
+  transition: all 0.5s ease-in;
 `;
 
 const Container = styled.header`
@@ -95,20 +95,20 @@ const Container = styled.header`
   
   ${({ scrolly, open }) => (!open && scrolly > 100) && css`
     background: var(--c-navbarBackground);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(${rem('5px')});
     transition: all 1s ease-in-out;
   `}
 `;
 
 const Logo = styled(motion.div)`
-  max-width: 121px;
+  max-width: ${rem('121px')};
 
   a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 50px;
+    height: ${rem('50px')};
   }
 
   img {
@@ -117,13 +117,13 @@ const Logo = styled(motion.div)`
     max-height: calc(100% + (1.85rem * 1));
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: ${rem('720px')}) {
     visibility: ${({ open }) => open && 'hidden'};
   }
 `;
 
 const Icons = styled.div`
-  height: 30px;
+  height: ${rem('30px')};
   display: flex;
-  gap: 40px;
+  gap: ${rem('40px')};
 `;

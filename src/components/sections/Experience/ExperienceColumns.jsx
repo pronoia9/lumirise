@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { styled } from 'styled-components';
-import { motion } from 'framer-motion';
 
 import ExperienceItem from './ExperienceItem';
+import { rem } from '../../../utils/utils';
 
 export default function ExperienceColumns({ column, data }) {
   const [openTabIndex, setOpenTabIndex] = useState(null);
@@ -22,10 +22,10 @@ export default function ExperienceColumns({ column, data }) {
 const Container = styled.div`
   h5 {
     margin: 0;
-    padding: 0 0 30px 0;
+    padding: 0 0 ${rem('30px')} 0;
     line-height: 1;
     text-align: center;
-    border-bottom: 2px solid var(--c-lineBorder);
+    border-bottom: ${rem('2px')} solid var(--c-lineBorder);
   }
 
   div {

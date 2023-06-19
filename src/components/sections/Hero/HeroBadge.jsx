@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 
 import { heroMotion } from '../../../utils/motion';
+import { rem } from '../../../utils/utils';
 
 export default function HeroBadge({ total, plus, title, context, index }) {
   return (
@@ -18,20 +19,20 @@ export default function HeroBadge({ total, plus, title, context, index }) {
 }
 
 const HeroBadgeItem = styled(motion.li)`
-  width: 250px;
-  height: 82px;
+  width: ${rem('250px')};
+  height: ${rem('82p')}x;
   margin: 0;
-  padding: 0 20px;
+  padding: 0 ${rem('20px')};
   display: flex;
   align-items: center;
   color: var(--c-font);
-  border: 2px solid var(--c-lineBorder);
+  border: ${rem('2px')} solid var(--c-lineBorder);
   background-color: var(--c-lineBackground);
-  box-shadow: 5px 5px var(--c-lineShadow);
-  border-radius: 82px;
+  box-shadow: ${rem('5px')} ${rem('5px')} var(--c-lineShadow);
+  border-radius: ${rem('82px')};
 
-  &:nth-child(1) { margin: 160px 0 0 100px; }
-  &:nth-child(2) { margin: -30px 0 0 520px; }
+  &:nth-child(1) { margin: ${rem('160px')} 0 0 ${rem('100px')}; }
+  &:nth-child(2) { margin: ${rem('-30px')} 0 0 ${rem('520px')}; }
 `;
 
 const HeroBadgeTotal = styled.span`
@@ -45,7 +46,7 @@ const HeroBadgeTotal = styled.span`
 
   strong {
     position: relative;
-    top: -4px;
+    top: ${rem('-4px')};
     color: var(--c-accent);
   }
 `;

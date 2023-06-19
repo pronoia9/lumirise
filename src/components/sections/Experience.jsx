@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-import { motion } from 'framer-motion';
 
 import { Grid } from '../';
 import { ExperienceColumns } from './Experience/index';
@@ -28,5 +27,5 @@ const Flexbox = styled.div`
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 2.5rem;
 `;
