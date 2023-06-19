@@ -47,8 +47,8 @@ const Container = styled.div`
     cursor: pointer;
 
     &:after {
-      content: 'o';
-      content: ${({ isopen }) => (isopen === 'true' ? '-' : '+')};
+      content: '+';
+      transform: ${({ isopen }) => isopen === 'true' && 'rotate(45deg)'};
       position: absolute;
       bottom: ${rem('-24px')};
       right: ${rem('-24px')};
@@ -63,7 +63,7 @@ const Container = styled.div`
       text-align: center;
       line-height: ${rem('40px')};
       z-index: 1;
-      transition: all 1.2s cubic-bezier(0.3, 0, 0.3, 1);
+      transition: all 1.2s cubic-bezier(0.3, 0, 0.3, 1), transform 0.25s ease-in;
     }
 
     &:hover:after {
