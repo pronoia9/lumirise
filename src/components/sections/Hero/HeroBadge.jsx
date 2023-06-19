@@ -20,7 +20,7 @@ export default function HeroBadge({ total, plus, title, context, index }) {
 
 const HeroBadgeItem = styled(motion.li)`
   width: ${rem(250)};
-  height: ${rem(82)}x;
+  height: ${rem(82)};
   margin: 0;
   padding: 0 ${rem(20)};
   display: flex;
