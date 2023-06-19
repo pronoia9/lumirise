@@ -63,7 +63,7 @@ const Container = styled.div`
       border: ${rem(2)} solid var(--c-lineBorder);
       box-shadow: ${rem(5)} ${rem(5)} var(--c-lineShadow);
       font-weight: ${({ isopen }) => isopen === 'true' ? 600 : 400};
-      font-size: ${rem(30)};
+      font-size: ${rem(24)};
       line-height: ${rem(40)};
       text-align: center;
       letter-spacing: -1px;
