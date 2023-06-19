@@ -6,9 +6,9 @@ export default function Input({ field, value, handlechange }) {
     <Label>
       Your {field} <span>*</span>
       {field !== 'message' ? (
-        <input type={field !== 'email' ? 'text' : 'email'} name={field} value={value} onChange={(e) => handlechange} />
+        <input type={field !== 'email' ? 'text' : 'email'} name={field} value={value} onChange={(e) => handlechange(e)} />
       ) : (
-        <textarea name={field} value={value} onChange={(e) => handlechange} />
+        <textarea name={field} value={value} onChange={(e) => handlechange(e)} />
       )}
     </Label>
   );
