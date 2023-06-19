@@ -2,76 +2,71 @@ import { styled } from 'styled-components';
 
 import { ContactSVGs } from '../../components/SVGs';
 import { contactData } from '../../../utils/data';
+import { rem } from '../../../utils/utils';
+
+const ContactInfoItem = ({ title, description }) => (
+  <Item class='numbers-item scrolla-element-anim-1 scroll-animate animate__active animate__animated' data-animate='active'>
+    <Icon class='icon'><ContactSVGs type={title} /></Icon>
+    <Title class='title'>{title}</Title>
+    <div class='lui-text'>{description}</div>
+  </Item>
+);
 
 export default function ContactInfo() {
   return (
-    <Container>
-      <div className='numbers-items'>
-        {contactData.info.map((val, index) => (
-          <div class='numbers-item scrolla-element-anim-1 scroll-animate animate__active animate__animated' data-animate='active'>
-            <div class='icon'>
-              {/* <i aria-hidden='true' class='far fa-map' /> */}
-              <ContactSVGs type={val.title} />
-            </div>
-            <div class='title'>{val.title}</div>
-            <div class='lui-text'>{val.description}</div>
-          </div>
-        ))}
-      </div>
-    </Container>
+    <div>
+      {contactData.info.map((val, index) => (
+        <ContactInfoItem key={`contact-info-item-${index}`} {...val} />
+      ))}
+    </div>
   );
-};
+}
 
-const Container = styled.div`
-  .numbers-items {
-    position: relative;
-    z-index: 2;
-  }
+const Item = styled.div`
+  position: relative;
+  padding-left: ${rem(130)};
+  margin-bottom: ${rem(40)};
+`;
 
-  .numbers-item {
-    position: relative;
-    padding-left: 130px;
-    margin-bottom: 40px;
-  }
+const Icon = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: ${rem(56)};
+  height: ${rem(56)};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--c-lineBackground);
+  border: 2px solid var(--c-lineBorder);
+  border-radius: 50%;
+  box-shadow: ${rem(5)} ${rem(5)} 0 0 var(--c-lineShadow);
 
-  .numbers-item .icon {
-    border: 2px solid var(--c-lineBorder);
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    background-color: var(--c-lineBackground);
-    box-shadow: 5px 5px 0px 0px var(--c-lineShadow);
-    width: 56px;
-    height: 56px;
-    text-align: center;
-    line-height: 52px;
-    font-size: 20px;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  .numbers-item .icon:after {
+  &:after {
     content: '';
     position: absolute;
     left: 100%;
     top: 50%;
-    width: 40px;
-    height: 2px;
-    margin-top: -1px;
+    width: ${rem(40)};
+    height: ${rem(2)};
+    margin-top: ${rem(-1)};
     background: var(--c-lineBorder);
   }
 
-  .numbers-item .title {
-    padding: 10px 0;
-    font-family: var(--f-secondary);
-    font-size: 30px;
-    line-height: 1;
-    font-weight: 700;
-  }
-
   svg {
-    width: 20px;
+    width: auto;
+    max-width: ${rem(20)};
+    height: auto;
+    max-height: ${rem(20)};
     height: auto;
     fill: var(--c-font);
   }
+`;
+
+const Title = styled.div`
+  padding: ${rem(10)} 0;
+  font-family: var(--f-secondary);
+  font-size: ${rem(30)};
+  font-weight: 700;
+  line-height: 1;
 `;
