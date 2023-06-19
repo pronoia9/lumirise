@@ -26,7 +26,9 @@ const SectionWrapper = (Component, idName) =>
           )}
 
           {/* Content */}
-          <Component {...props} />
+          <ContentWrapper>
+            <Component {...props} />
+          </ContentWrapper>
 
           {/* Background Text */}
           <BackgroundText className='lui-bgtitle'>{background}</BackgroundText>
@@ -67,6 +69,11 @@ const SectionHeading = styled.div`
   text-align: center;
 `;
 
+const ContentWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+`;
+
 const BackgroundText = styled.div`
   position: relative;
   top: ${rem(-50)};
@@ -86,14 +93,14 @@ const BackgroundText = styled.div`
 const BackgroundLine = styled.div`
   position: absolute;
   top: 10rem;
-  right: ${({ position }) => position === 'right' ? '-5rem' : 'auto'};
+  right: ${({ position }) => (position === 'right' ? '-5rem' : 'auto')};
   bottom: 5rem;
-  left: ${({ position }) => position === 'left' ? '-5rem' : 'auto'};
+  left: ${({ position }) => (position === 'left' ? '-5rem' : 'auto')};
   width: 0.125rem;
   background: var(--c-lineBorder);
   pointer-events: none;
-  isolation: isolate;
   z-index: 0;
+  isolation: isolate;
 
   &:before,
   &:after {
@@ -113,9 +120,9 @@ const BackgroundLine = styled.div`
 
   span {
     position: absolute;
-    right: ${({ position }) => position === 'right' ? '-10.5rem' : 'auto'};
-    bottom: ${({ position }) => position === 'right' ? rem(-168) : rem(-188)};
-    left: ${({ position }) => position === 'left' ? '-10.5rem' : 'auto'};
+    right: ${({ position }) => (position === 'right' ? '-10.5rem' : 'auto')};
+    bottom: ${({ position }) => (position === 'right' ? rem(-168) : rem(-188))};
+    left: ${({ position }) => (position === 'left' ? '-10.5rem' : 'auto')};
     width: 14.125rem;
     height: 14.125rem;
     display: block;
