@@ -1,10 +1,15 @@
-import { useEffect, useState } from 'react';
-import { styled } from 'styled-components';
+import { useEffect, useRef, useState } from 'react';
+import { css, styled } from 'styled-components';
 
 import { rem } from '../../../utils/utils';
 
 export default function ExperienceItem({ title, subtitle, dates, description, index, openTabIndex, setOpenTabIndex }) {
   const [open, setOpen] = useState(false);
+  const btnRef = useRef();
+
+  useEffect(() => {
+    console.log(btnRef);
+  }, []);
 
   // Toggle the open state for the item
   const handleClick = (e) => { setOpen((prev) => !prev); };
@@ -13,7 +18,7 @@ export default function ExperienceItem({ title, subtitle, dates, description, in
 
   return (
     <Container className='history-item lui-collapse-item scroll-animate opened animate__active' isopen={`${open}`}>
-      <h6 className='name lui-collapse-btn active' onClick={handleClick}>
+      <h6 ref={btnRef} className='name lui-collapse-btn active' onClick={handleClick}>
         {title}
       </h6>
       <Hidden className='history-content' isopen={`${openTabIndex === index}`}>
@@ -46,9 +51,9 @@ const Container = styled.div`
     padding: ${rem(30)};
     cursor: pointer;
 
+    ${({ isopen }) => isopen === 'true' ? css` &:after { content: '--'; }` : css` &:after { content: '+'; }`}
+
     &:after {
-      content: '+';
-      transform: ${({ isopen }) => isopen === 'true' && 'rotate(45deg)'};
       position: absolute;
       bottom: ${rem(-24)};
       right: ${rem(-24)};
@@ -58,12 +63,13 @@ const Container = styled.div`
       border-radius: 50%;
       border: ${rem(2)} solid var(--c-lineBorder);
       box-shadow: ${rem(5)} ${rem(5)} var(--c-lineShadow);
-      font-weight: 400;
+      font-weight: ${({ isopen }) => isopen === 'true' ? 600 : 400};
       font-size: ${rem(30)};
-      text-align: center;
       line-height: ${rem(40)};
+      text-align: center;
+      letter-spacing: -1px;
       z-index: 1;
-      transition: all 1.2s cubic-bezier(0.3, 0, 0.3, 1), transform 0.25s ease-in;
+      transition: all 1.2s cubic-bezier(0.3, 0, 0.3, 1), font-weight 0s;
     }
 
     &:hover:after {
