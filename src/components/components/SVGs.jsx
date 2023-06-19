@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { lowerCase } from '../../utils/utils';
 
 const Path = (props) => <motion.path fill='transparent' strokeWidth='3' strokeLinecap='round' {...props} />;
 
@@ -30,7 +31,7 @@ export const ThemeSVGs = ({ theme, handleClick }) => {
       </svg>
     ),
   };
-  return svgs[theme] ? <motion.div onClick={handleClick}>{svgs[theme]}</motion.div> : <></>;
+  return svgs[theme] ? <motion.div onClick={handleClick}>{svgs[lowerCase(theme)]}</motion.div> : <></>;
 };
 
 export const SocialSVGs = ({ social }) => {
@@ -56,7 +57,7 @@ export const SocialSVGs = ({ social }) => {
       </svg>
     ),
   };
-  return svgs[`${social}`.toLowerCase()] ?? <></>;
+  return svgs[lowerCase(social)] ?? <></>;
 };
 
 export const RightArrowSVG = () => (
@@ -88,5 +89,5 @@ export const ContactSVGs = ({ type }) => {
       </svg>
     ),
   };
-  return svgs[type] ?? <></>;
+  return svgs[lowerCase(type)] ?? <></>;
 };
