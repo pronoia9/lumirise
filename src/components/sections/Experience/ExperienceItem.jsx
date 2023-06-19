@@ -19,9 +19,13 @@ export default function ExperienceItem({ title, subtitle, dates, description, in
       <Hidden className='history-content' isopen={`${openTabIndex === index}`}>
         <div>
           <Subtitle className='subname'>{subtitle}</Subtitle>
-          <Dates className='date lui-subtitle'>
+          <Dates className='date lui-subtitle' type={typeof dates[1]}>
             {dates[0].getFullYear()}
-            {dates[1] && ` - ${dates[1].getFullYear()}`}
+            {dates[1] &&
+              <>
+                {' - '}
+                <span>{typeof dates[1] === 'string' ? dates[1] : dates[1]?.getFullYear()}</span>
+              </>}
           </Dates>
           <Description className='text'>
             <p>{description}</p>
@@ -98,8 +102,16 @@ const Subtitle = styled.div`
 `;
 
 const Dates = styled.div`
-  float: right;
+  font-size: ${rem(13)};
+  font-weight: 700;
+  letter-spacing: 0.05rem;
   line-height: ${rem(46)};
+  text-transform: uppercase;
+  float: right;
+
+  span {
+    color: ${({ type }) => type === 'string' && 'var(--c-accent)'};
+  }
 `;
 
 const Description = styled.div`
