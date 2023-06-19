@@ -16,8 +16,8 @@ export default function ExperienceItem({ title, subtitle, dates, description, in
       <h6 className='name lui-collapse-btn active' onClick={handleClick}>
         {title}
       </h6>
-      {openTabIndex === index && (
-        <Hidden className='history-content'>
+      <Hidden className='history-content' isopen={`${openTabIndex === index}`}>
+        <div>
           <Subtitle className='subname'>{subtitle}</Subtitle>
           <Dates className='date lui-subtitle'>
             {dates[0].getFullYear()}
@@ -26,8 +26,8 @@ export default function ExperienceItem({ title, subtitle, dates, description, in
           <Description className='text'>
             <p>{description}</p>
           </Description>
-        </Hidden>
-      )}
+        </div>
+      </Hidden>
     </Container>
   );
 }
@@ -78,6 +78,13 @@ const Hidden = styled.div`
   padding: 0 ${rem(50)} 0 ${rem(30)};
   overflow: hidden;
   transition: all 1s ease 0s;
+  /* Height Transition */
+  display: grid;
+  grid-template-rows: ${({ isopen }) => isopen === 'true' ? '1fr' : '0fr'};
+  transition: grid-template-rows 0.5s ease-in;
+  & > div {
+    overflow: hidden;
+  }
 `;
 
 const Subtitle = styled.div`
