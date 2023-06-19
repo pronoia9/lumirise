@@ -102,7 +102,7 @@ const Pattern1 = styled.span`
   background-position: center center;
   background-size: contain;
   opacity: 0.6;
-  filter: invert(${({ theme }) => theme.imageInvert});
+  filter: invert(${({ theme }) => theme.imageInvert ?? 0});
 `;
 
 const Pattern2 = styled(Pattern1)`

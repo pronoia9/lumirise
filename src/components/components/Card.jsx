@@ -123,7 +123,7 @@ const CardPattern = styled.div`
   width: 141px;
   height: 141px;
   background-image: url('images/pat-2.png');
-  filter: invert(${({ theme }) => theme.imageInvert});
+  filter: invert(${({ theme }) => theme.imageInvert ?? 0});
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;

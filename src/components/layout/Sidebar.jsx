@@ -93,7 +93,7 @@ const SidebarDots = styled(motion.div)`
   background-image: url('images/pat-1.png');
   background-repeat: no-repeat;
   background-size: contain;
-  filter: invert(${({ theme }) => theme.imageInvert});
+  filter: invert(${({ theme }) => theme.imageInvert ?? 0});
   opacity: 0.6;
   z-index: -1;
 `;
