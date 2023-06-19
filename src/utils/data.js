@@ -502,9 +502,12 @@ export const histroyData = {
   ].sort((a, b) => b?.dates[0] - a?.dates[0]),
 };
 
-export const contactData = [
-  { title: 'Address', description: `42 Hilarity Lane, Whimsyville, Quirkshire, Chuckleville, 12345` },
-  { title: 'Full-Time / Part-Time', description: `Available Right Now` },
-  { title: 'Email', description: `email@gmail.com` },
-  { title: 'Phone', description: `+1 234 567 890` },
-];
+export const contactData = {
+  defaultForm: { name: '', email: '', subject: '', message: '' },
+  info: [
+    { title: 'Address', description: `42 Hilarity Lane, Whimsyville, Quirkshire, Chuckleville, 12345` },
+    { title: 'Full-Time / Part-Time', description: `Available Right Now` },
+    { title: 'Email', description: `email@gmail.com` },
+    { title: 'Phone', description: `+1 234 567 890` },
+  ],
+};
