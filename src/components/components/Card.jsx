@@ -16,26 +16,26 @@ export default function Card(props) {
       {children}
 
       {/* Subtitle */}
-      <CardSubtitle className='lui-subtitle' space={`${space}`}>{subtitle}</CardSubtitle>
+      <CardSubtitle space={`${space}`}>{subtitle}</CardSubtitle>
 
       {/* Space between category and title */}
-      {space && <CardIcon className='icon' />}
+      {space && <CardIcon />}
 
       {/* Title */}
-      <CardTitle className='lui-title'>{title}</CardTitle>
+      <CardTitle>{title}</CardTitle>
 
       {/* Description */}
-      <CardDescription className='lui-text'>
+      <CardDescription>
         {description}
       </CardDescription>
 
       {/* Link */}
-      <CardLink href={link} className='lnk'>
+      <CardLink href={link}>
         See {section} <RightArrowSVG />
       </CardLink>
 
       {/* Pattern */}
-      <CardPattern className='image' />
+      <CardPattern />
     </CardContainer>
   );
 }

@@ -7,7 +7,7 @@ import { rem } from '../../../utils/utils';
 export default function WorksCard({ filterKey, project, index }) {
   return (
     <Card key={`projects-${filterKey}-${index}`} {...project} section='Works' motion={cardMotion}>
-      <Image className='image'>
+      <Image>
         <img src={project.image} />
       </Image>
     </Card>

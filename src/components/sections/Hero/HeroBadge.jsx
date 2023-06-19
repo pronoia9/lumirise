@@ -7,11 +7,11 @@ import { rem } from '../../../utils/utils';
 export default function HeroBadge({ total, plus, title, context, index }) {
   return (
     <HeroBadgeItem {...heroMotion.badge(index === 0 ? -1 : 1)}>
-      <HeroBadgeTotal className='num'>
+      <HeroBadgeTotal>
         {total}
         <strong>{plus ? ' +' : ''}</strong>
       </HeroBadgeTotal>
-      <HeroBadgeContext className='value'>
+      <HeroBadgeContext>
         {title} <strong>{context}</strong>
       </HeroBadgeContext>
     </HeroBadgeItem>

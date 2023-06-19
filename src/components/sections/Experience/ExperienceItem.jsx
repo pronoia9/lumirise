@@ -12,14 +12,14 @@ export default function ExperienceItem({ title, subtitle, dates, description, in
   };
 
   return (
-    <Container className='history-item lui-collapse-item scroll-animate opened animate__active' isopen={`${open && openTabIndex === index}`}>
-      <h6 className='name lui-collapse-btn active' onClick={handleClick}>
+    <Container isopen={`${open && openTabIndex === index}`}>
+      <h6  onClick={handleClick}>
         {title}
       </h6>
-      <Hidden className='history-content' isopen={`${open && openTabIndex === index}`}>
+      <Hidden isopen={`${open && openTabIndex === index}`}>
         <div>
-          <Subtitle className='subname'>{subtitle}</Subtitle>
-          <Dates className='date lui-subtitle' type={typeof dates[1]}>
+          <Subtitle>{subtitle}</Subtitle>
+          <Dates type={typeof dates[1]}>
             {dates[0].getFullYear()}
             {dates[1] &&
               <>
@@ -27,7 +27,7 @@ export default function ExperienceItem({ title, subtitle, dates, description, in
                 <span>{typeof dates[1] === 'string' ? dates[1] : dates[1]?.getFullYear()}</span>
               </>}
           </Dates>
-          <Description className='text'>
+          <Description>
             <p>{description}</p>
           </Description>
         </div>

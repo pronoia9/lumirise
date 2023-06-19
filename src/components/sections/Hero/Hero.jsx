@@ -5,7 +5,7 @@ import { SectionWrapper } from '../../../hoc';
 
 const Hero = () => {
   return (
-    <Content className='section hero-started'>
+    <Content>
       <HeroIntro />
       <HeroImage />
     </Content>

@@ -33,7 +33,7 @@ export default function Navbar({ theme, setTheme }) {
 
   return (
     <>
-      <Overlay ref={overlayRef} open={isOpen} className='overlayref' />
+      <Overlay ref={overlayRef} open={isOpen} />
 
       <Container scrolly={parseInt(scrollY)} open={isOpen}>
         {/* Left Side - Logo */}

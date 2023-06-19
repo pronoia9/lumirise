@@ -52,7 +52,7 @@ const Works = () => {
     <Container ref={topRef}>
       <WorksFilters filterKey={filterKey} setFilterKey={setFilterKey} />
 
-      <Grid className='filter-container' size='l' gap='40px'>
+      <Grid size='l' gap='40px'>
         {projects.slice(0, count).map((project, index) => (
           <WorksCard key={`projects-${filterKey}-${index}`} filterKey={filterKey} project={project} index={index} />
         ))}

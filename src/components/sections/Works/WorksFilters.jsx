@@ -11,7 +11,7 @@ const WorksFiltersItem = ({ title, filter, filterKey, setFilterKey }) => (
 
 export default function WorksFilters({ filterKey, setFilterKey }) {
   return (
-    <FilterList className='filter-links'>
+    <FilterList>
       {projectsData.filters.map((f, index) => (
         <WorksFiltersItem key={`filter-${index}`} {...f} filterKey={filterKey} setFilterKey={setFilterKey} />
       ))}

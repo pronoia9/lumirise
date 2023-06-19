@@ -6,7 +6,7 @@ import { rem } from '../../../utils/utils';
 
 export default function HeroImage() {
   return (
-    <Container className='slide scrolla-element-anim-1 scroll-animate animate__active animate__animated'>
+    <Container>
       <HeroBadgeList>
         {heroData.badges.map((badge, index) => (
           <HeroBadge key={`hero-badge-${index}`} {...badge} index={index} />
@@ -14,10 +14,10 @@ export default function HeroImage() {
       </HeroBadgeList>
 
       <Image src={heroData.image} />
-      <Circle className='circle circle-1' />
-      <Pattern1 className='circle img-1' />
-      <Pattern2 className='circle img-2' />
-      <Pattern3 className='circle img-3' />
+      <Circle />
+      <Pattern1 />
+      <Pattern2 />
+      <Pattern3 />
     </Container>
   );
 }

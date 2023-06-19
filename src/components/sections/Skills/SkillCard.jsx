@@ -4,15 +4,15 @@ import { rem } from '../../../utils/utils';
 
 export default function SkillCard({ title, description, level }) {
   return (
-    <SkillCardContainer className='skills-item scrolla-element-anim-1 scroll-animate animate__active animate__animated'>
+    <SkillCardContainer>
       <SkillTitle>{title}</SkillTitle>
       <SkillDescription>{description}</SkillDescription>
-      <SkillLevel className='dots' level={level}>
+      <SkillLevel level={level}>
         <div>
           <span />
         </div>
       </SkillLevel>
-      <SkillPercentage className='value'>
+      <SkillPercentage>
         {level} <span>%</span>
       </SkillPercentage>
     </SkillCardContainer>

@@ -11,11 +11,11 @@ const SectionWrapper = (Component, idName) =>
     const { title, subtitle, background } = sectionsData[idName];
 
     return (
-      <Container id={idName} className='lui-section lui-gradient-center' gradient={props?.gradient} idname={idName}>
-        <Wrapper key={`sectionwrapper-wrapper-${idName}`} className='container' {...sectionWrapperMotion}>
+      <Container id={idName} gradient={props?.gradient} idname={idName}>
+        <Wrapper key={`sectionwrapper-wrapper-${idName}`} {...sectionWrapperMotion}>
           {/* Section Title */}
           {title && subtitle && (
-            <SectionHeading className='lui-heading'>
+            <SectionHeading>
               <SectionTitle>{title}</SectionTitle>
               <SectionSubtitle>
                 <span>
@@ -31,7 +31,7 @@ const SectionWrapper = (Component, idName) =>
           </ContentWrapper>
 
           {/* Background Text */}
-          <BackgroundText className='lui-bgtitle'>{background}</BackgroundText>
+          <BackgroundText>{background}</BackgroundText>
 
           {/* Backgrond Line */}
           <BackgroundLine position={props?.gradient === 1 ? 'left' : 'right'}>

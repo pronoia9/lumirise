@@ -9,8 +9,8 @@ export default function ExperienceColumns({ column, data }) {
 
   return (
     <Container>
-      <h5 className='history-title'>{column}</h5>
-      <div className='history-items'>
+      <h5>{column}</h5>
+      <div>
         {data.map((d, index) => (
           <ExperienceItem key={`${column}-${index}`} {...d} index={index} openTabIndex={openTabIndex} setOpenTabIndex={setOpenTabIndex} />
         ))}

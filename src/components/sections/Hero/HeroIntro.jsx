@@ -27,24 +27,24 @@ export default function HeroIntro() {
   }, []);
 
   return (
-    <Container className='content scrolla-element-anim-1 scroll-animate animate__active animate__animated'>
+    <Container>
       {/* Title */}
-      <Titles className='titles'>
+      <Titles>
         <SubtitleWithAccent><p>Hello, <span>my name is</span></p></SubtitleWithAccent>
         <HeroTitle><span>{name.split(' ')[0]}</span> {name.split(' ')[1]}</HeroTitle>
         <SubtitleWithHandwriting>I am a <span>{occupation}</span></SubtitleWithHandwriting>
       </Titles>
 
       {/* Description */}
-      <DescriptionContainer className='description'>
+      <DescriptionContainer>
         <p><span ref={introRef}>{introductions[0]}</span><span ref={cursorRef}>|</span></p>
         <Socials />
       </DescriptionContainer>
 
       {/* Download Button */}
-      <UnfilledButton className='bts'>
-        <a href={heroData.resumeLink} target='_blank' className='btn'><span>Download CV</span></a>
-        <a href='#skills' className='btn-link'>My Skills</a>
+      <UnfilledButton>
+        <a href={heroData.resumeLink} target='_blank'><span>Download CV</span></a>
+        <a href='#skills'>My Skills</a>
       </UnfilledButton>
     </Container>
   );
