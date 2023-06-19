@@ -1,7 +1,8 @@
 import { styled, css } from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { RightArrowSVG } from '.';
-import { motion } from 'framer-motion';
+import { rem } from '../../utils/utils';
 
 export default function Card(props) {
   const { title, subtitle, description, link } = props; // Common Data
@@ -41,10 +42,10 @@ export default function Card(props) {
 
 const CardContainer = styled(motion.div)`
   position: relative;
-  padding: 30px 35px;
+  padding: ${rem('30px')} ${rem('35px')};
   margin: 0;
   background: var(--c-background3);
-  border-radius: 18px;
+  border-radius: ${rem('18px')};
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
 
@@ -54,9 +55,9 @@ const CardContainer = styled(motion.div)`
 `;
 
 const CardIcon = styled.div`
-  margin-top: 15px;
-  font-size: 41px;
-  min-height: 50px;
+  margin-top: ${rem('15px')};
+  font-size: ${rem('41px')};
+  min-height: ${rem('50px')};
   line-height: 1;
   color: var(--c-accent);
 `;
@@ -65,10 +66,10 @@ const CardSubtitle = styled.div`
   font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.05rem;
   ${({ space }) => space !== 'true' && css`
     color: var(--c-accent);
-    margin-bottom: 5px;
+    margin-bottom: ${rem('5px')};
   `}
 `;
 
@@ -123,7 +124,7 @@ const CardPattern = styled.div`
   width: 141px;
   height: 141px;
   background-image: url('images/pat-2.png');
-  filter: invert(${({ theme }) => theme.imageInvert ?? 0});
+  filter: invert(${({ theme }) => theme.dotsInvert ?? 0});
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;

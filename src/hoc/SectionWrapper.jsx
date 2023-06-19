@@ -103,8 +103,8 @@ const BackgroundLine = styled.div`
     width: 1.875rem;
     height: 1.875rem;
     background: var(--c-lineBackground);
-    border: 2px solid var(--c-lineBorder);
-    border-radius: 30px;
+    border: ${rem('2px')} solid var(--c-lineBorder);
+    border-radius: ${rem('30px')};
     box-shadow: 0.3125rem 0.3125rem var(--c-lineShadow);
     z-index: 1;
   }
@@ -122,7 +122,7 @@ const BackgroundLine = styled.div`
     background-image: url('images/pat-1.png');
     background-repeat: no-repeat;
     background-size: contain;
-    filter: invert(${({ theme }) => theme.imageInvert ?? 0});
+    filter: invert(${({ theme }) => theme.dotsInvert ?? 0});
     opacity: 0.6;
   }
 `;
