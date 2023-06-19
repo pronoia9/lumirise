@@ -13,3 +13,5 @@ export const systemThemeChangeHandler = (e, setTheme) => { setTheme(e.matches ? 
 export const lowerCase = (t) => `${t}`.toLowerCase();
 
 export const setProjectsCount = (rows = 2) => (window.innerWidth > 1020 ? 3 : window.innerWidth > 767 ? 2 : 1) * rows;
+
+export const rem = (val) => `${parseInt(val) / 16}rem`;
