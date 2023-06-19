@@ -19,20 +19,20 @@ export default function HeroBadge({ total, plus, title, context, index }) {
 }
 
 const HeroBadgeItem = styled(motion.li)`
-  width: ${rem('250px')};
-  height: ${rem('82p')}x;
+  width: ${rem(250)};
+  height: ${rem(82)}x;
   margin: 0;
-  padding: 0 ${rem('20px')};
+  padding: 0 ${rem(20)};
   display: flex;
   align-items: center;
   color: var(--c-font);
-  border: ${rem('2px')} solid var(--c-lineBorder);
+  border: ${rem(2)} solid var(--c-lineBorder);
   background-color: var(--c-lineBackground);
-  box-shadow: ${rem('5px')} ${rem('5px')} var(--c-lineShadow);
-  border-radius: ${rem('82px')};
+  box-shadow: ${rem(5)} ${rem(5)} var(--c-lineShadow);
+  border-radius: ${rem(82)};
 
-  &:nth-child(1) { margin: ${rem('160px')} 0 0 ${rem('100px')}; }
-  &:nth-child(2) { margin: ${rem('-30px')} 0 0 ${rem('520px')}; }
+  &:nth-child(1) { margin: ${rem(160)} 0 0 ${rem(100)}; }
+  &:nth-child(2) { margin: ${rem(-30)} 0 0 ${rem(520)}; }
 `;
 
 const HeroBadgeTotal = styled.span`
@@ -46,7 +46,7 @@ const HeroBadgeTotal = styled.span`
 
   strong {
     position: relative;
-    top: ${rem('-4px')};
+    top: ${rem(-4)};
     color: var(--c-accent);
   }
 `;

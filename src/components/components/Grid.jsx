@@ -19,30 +19,30 @@ const Container = styled.div`
   ${({ size }) =>
     size === 'l'
       ? css`
-          @media (max-width: ${rem('1100px')}) {
+          @media (max-width: ${rem(1100)}) {
             grid-template-columns: repeat(${({ columns }) => parseInt(columns) - 1}, 1fr);
           }
 
-          @media (max-width: ${rem('767px')}) {
+          @media (max-width: ${rem(767)}) {
             grid-template-columns: 1fr;
           }
         `
       : size === 'm'
       ? css`
-          @media screen and (max-width: ${rem('900px')}) {
+          @media screen and (max-width: ${rem(900)}) {
             grid-template-columns: repeat(${({ columns }) => parseInt(columns) - 1}, 1fr);
           }
 
-          @media screen and (max-width: ${rem('580px')}) {
+          @media screen and (max-width: ${rem(580)}) {
             grid-template-columns: 1fr;
           }
         `
       : css`
-          @media (max-width: ${rem('1024px')}) {
+          @media (max-width: ${rem(1024)}) {
             grid-template-columns: repeat(${({ columns }) => parseInt(columns) - 1}, 1fr);
           }
 
-          @media (max-width: ${rem('767px')}) {
+          @media (max-width: ${rem(767)}) {
             grid-template-columns: 1fr;
           }
         `}

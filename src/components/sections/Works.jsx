@@ -89,7 +89,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: ${rem('40px')};
+  gap: ${rem(40)};
 `;
 
 const FilterList = styled.div`
@@ -99,9 +99,9 @@ const FilterList = styled.div`
 
   p {
     position: relative;
-    margin-bottom: ${rem('20px')};
-    margin-right: ${rem('20px')};
-    margin-left: ${rem('20px')};
+    margin-bottom: ${rem(20)};
+    margin-right: ${rem(20)};
+    margin-left: ${rem(20)};
     display: inline-block;
     vertical-align: top;
 
@@ -109,17 +109,17 @@ const FilterList = styled.div`
       content: '';
       position: absolute;
       left: 0;
-      bottom: ${rem('-10px')};
+      bottom: ${rem(-10)};
       width: 0;
       max-width: 60%;
-      height: ${rem('2px')};
-      margin-top: ${rem('-2px')};
+      height: ${rem(2)};
+      margin-top: ${rem(-2)};
       background: var(--c-accent);
       transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
     }
 
     &:hover:before {
-      width: ${rem('40px')};
+      width: ${rem(40)};
     }
   }
 `;
@@ -135,15 +135,15 @@ const FilterItem = styled.p`
 
 const Image = styled.div`
   width: 100%;
-  height: ${rem('180px')};
-  border-radius: ${rem('18px')};
+  height: ${rem(180)};
+  border-radius: ${rem(18)};
   overflow: hidden;
-  margin-bottom: ${rem('30px')};
+  margin-bottom: ${rem(30)};
 
   img {
     width: 100%;
-    height: ${rem('180px')};
-    border-radius: ${rem('18px')};
+    height: ${rem(180)};
+    border-radius: ${rem(18)};
     object-fit: cover;
     transform: scale(1);
     transition: transform 0.6s cubic-bezier(0.3, 0, 0.3, 1);

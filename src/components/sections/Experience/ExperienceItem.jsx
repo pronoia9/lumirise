@@ -34,34 +34,34 @@ export default function ExperienceItem({ title, subtitle, dates, description, in
 
 const Container = styled.div`
   position: relative;
-  border-bottom: ${rem('2px')} solid var(--c-lineBorder);
-  border-right: ${rem('2px')} solid var(--c-lineBorder);
+  border-bottom: ${rem(2)} solid var(--c-lineBorder);
+  border-right: ${rem(2)} solid var(--c-lineBorder);
 
   &:first-child {
-    border-right: ${rem('2px')} solid transparent;
+    border-right: ${rem(2)} solid transparent;
   }
 
   h6 {
     margin: 0;
-    padding: ${rem('30px')};
+    padding: ${rem(30)};
     cursor: pointer;
 
     &:after {
       content: '+';
       transform: ${({ isopen }) => isopen === 'true' && 'rotate(45deg)'};
       position: absolute;
-      bottom: ${rem('-24px')};
-      right: ${rem('-24px')};
-      width: ${rem('48px')};
-      height: ${rem('48px')};
+      bottom: ${rem(-24)};
+      right: ${rem(-24)};
+      width: ${rem(48)};
+      height: ${rem(48)};
       background: var(--c-lineBackground);
       border-radius: 50%;
-      border: ${rem('2px')} solid var(--c-lineBorder);
-      box-shadow: ${rem('5px')} ${rem('5px')} var(--c-lineShadow);
+      border: ${rem(2)} solid var(--c-lineBorder);
+      box-shadow: ${rem(5)} ${rem(5)} var(--c-lineShadow);
       font-weight: 400;
-      font-size: ${rem('30px')};
+      font-size: ${rem(30)};
       text-align: center;
-      line-height: ${rem('40px')};
+      line-height: ${rem(40)};
       z-index: 1;
       transition: all 1.2s cubic-bezier(0.3, 0, 0.3, 1), transform 0.25s ease-in;
     }
@@ -74,8 +74,8 @@ const Container = styled.div`
 
 const Hidden = styled.div`
   position: relative;
-  max-height: ${rem('1000px')};
-  padding: 0 ${rem('50px')} 0 ${rem('30px')};
+  max-height: ${rem(1000)};
+  padding: 0 ${rem(50)} 0 ${rem(30)};
   overflow: hidden;
   transition: all 1s ease 0s;
 `;
@@ -84,18 +84,18 @@ const Subtitle = styled.div`
   float: left;
   width: 70%;
   font-family: var(--f-secondary);
-  font-size: ${rem('28px')};
-  line-height: ${rem('40px')};
+  font-size: ${rem(28)};
+  line-height: ${rem(40)};
   font-weight: 700;
 `;
 
 const Dates = styled.div`
   float: right;
-  line-height: ${rem('46px')};
+  line-height: ${rem(46)};
 `;
 
 const Description = styled.div`
-  padding: ${rem('15px')} 0 ${rem('30px')} 0;
+  padding: ${rem(15)} 0 ${rem(30)} 0;
   clear: both;
   margin: 0;
 `;

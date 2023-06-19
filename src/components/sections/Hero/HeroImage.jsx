@@ -23,40 +23,40 @@ export default function HeroImage() {
 }
 
 const Container = styled.div`
-  margin-top: ${rem('-390px')};
+  margin-top: ${rem(-390)};
   position: absolute;
   top: 50%;
-  right: ${rem('-20px')}; /* right: -180px; */
-  width: ${rem('680px')};
-  height: ${rem('800px')};
+  right: ${rem(-20)}; /* right: -180px; */
+  width: ${rem(680)};
+  height: ${rem(800)};
   z-index: 2;
   isolation: isolate;
 
-  @media screen and (min-width: ${rem('1700px')}) {
-    margin-top: ${rem('-400px')};
-    right: ${rem('-50px')};
+  @media screen and (min-width: ${rem(1700)}) {
+    margin-top: ${rem(-400)};
+    right: ${rem(-50)};
   }
 
-  @media screen and (max-width: ${rem('1024px')}) {
-    margin-left: ${rem('-340px')};
+  @media screen and (max-width: ${rem(1024)}) {
+    margin-left: ${rem(-340)};
     bottom: auto;
-    top: ${rem('740px')};
+    top: ${rem(740)};
     right: auto;
     left: 50%;
     transform: scale(0.9);
     transform-origin: top center;
   }
 
-  @media screen and (max-width: ${rem('767px')}) {
-    top: ${rem('680px')};
+  @media screen and (max-width: ${rem(767)}) {
+    top: ${rem(680)};
     transform: scale(0.5);
   }
 `;
 
 const HeroBadgeList = styled.ul`
   position: absolute;
-  top: ${rem('420px')};
-  left: ${rem('-125px')};
+  top: ${rem(420)};
+  left: ${rem(-125)};
   margin: 0;
   padding: 0;
   list-style: none;
@@ -70,7 +70,7 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: ${rem('380px')};
+  border-radius: ${rem(380)};
   z-index: 10;
 `;
 
@@ -78,8 +78,8 @@ const Circle = styled.span`
   position: absolute;
   left: 0;
   bottom: 0;
-  width: ${rem('680px')};
-  height: ${rem('680px')};
+  width: ${rem(680)};
+  height: ${rem(680)};
   background: var(--c-accent);
   border-radius: 100%;
   z-index: 2;
@@ -87,11 +87,11 @@ const Circle = styled.span`
 
 const Pattern1 = styled.span`
   position: absolute;
-  top: ${rem('75px')};
-  right: ${rem('40px')};
+  top: ${rem(75)};
+  right: ${rem(40)};
   left: auto;
-  width: ${rem('226px')};
-  height: ${rem('226px')};
+  width: ${rem(226)};
+  height: ${rem(226)};
   background-image: url('images/pat-1.png');
   background-repeat: no-repeat;
   background-position: center center;
@@ -102,12 +102,12 @@ const Pattern1 = styled.span`
 
 const Pattern2 = styled(Pattern1)`
   background-image: url('images/pat-2.png');
-  bottom: ${rem('50px')};
+  bottom: ${rem(50)};
   right: auto;
   top: auto;
-  left: ${rem('-110px')};
-  width: ${rem('141px')};
-  height: ${rem('141px')};
+  left: ${rem(-110)};
+  width: ${rem(141)};
+  height: ${rem(141)};
 `;
 
 const Pattern3 = styled(Pattern2)`

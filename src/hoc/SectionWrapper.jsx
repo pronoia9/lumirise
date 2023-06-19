@@ -47,7 +47,7 @@ const Container = styled.section`
   width: 100%;
   min-width: 100vw;
   min-height: 100vh;
-  padding-bottom: ${rem('180px')};
+  padding-bottom: ${rem(180)};
   background: ${({ gradient }) => `var(--c-gradient${gradient})`};
   display: flex;
   align-items: ${({ idname }) => (idname === 'hero' ? 'center' : 'flex-start')};
@@ -57,26 +57,26 @@ const Container = styled.section`
 const Wrapper = styled(motion.div)`
   position: relative;
   width: 100%;
-  max-width: ${rem('1300px')};
-  padding: ${rem('90px')} 2rem;
+  max-width: ${rem(1300)};
+  padding: ${rem(90)} 2rem;
 `;
 
 const SectionHeading = styled.div`
   position: relative;
-  margin-bottom: ${rem('60px')};
+  margin-bottom: ${rem(60)};
   text-align: center;
 `;
 
 const BackgroundText = styled.div`
   position: relative;
-  top: ${rem('-50px')};
+  top: ${rem(-50)};
   left: -50%;
   width: 200%;
   font-size: 22rem;
   font-family: var(--f-secondary);
   color: ${({ theme }) => theme.backgroundTitle};
   font-weight: bold;
-  line-height: ${rem('1px')};
+  line-height: ${rem(1)};
   text-align: center;
   white-space: nowrap;
   pointer-events: none;
@@ -103,8 +103,8 @@ const BackgroundLine = styled.div`
     width: 1.875rem;
     height: 1.875rem;
     background: var(--c-lineBackground);
-    border: ${rem('2px')} solid var(--c-lineBorder);
-    border-radius: ${rem('30px')};
+    border: ${rem(2)} solid var(--c-lineBorder);
+    border-radius: ${rem(30)};
     box-shadow: 0.3125rem 0.3125rem var(--c-lineShadow);
     z-index: 1;
   }
@@ -114,7 +114,7 @@ const BackgroundLine = styled.div`
   span {
     position: absolute;
     right: ${({ position }) => position === 'right' ? '-10.5rem' : 'auto'};
-    bottom: ${({ position }) => position === 'right' ? rem('-168px') : rem('-188px')};
+    bottom: ${({ position }) => position === 'right' ? rem(-168) : rem(-188)};
     left: ${({ position }) => position === 'left' ? '-10.5rem' : 'auto'};
     width: 14.125rem;
     height: 14.125rem;

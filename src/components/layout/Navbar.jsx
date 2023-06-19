@@ -95,20 +95,20 @@ const Container = styled.header`
   
   ${({ scrolly, open }) => (!open && scrolly > 100) && css`
     background: var(--c-navbarBackground);
-    backdrop-filter: blur(${rem('5px')});
+    backdrop-filter: blur(${rem(5)});
     transition: all 1s ease-in-out;
   `}
 `;
 
 const Logo = styled(motion.div)`
-  max-width: ${rem('121px')};
+  max-width: ${rem(121)};
 
   a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: ${rem('50px')};
+    height: ${rem(50)};
   }
 
   img {
@@ -117,13 +117,13 @@ const Logo = styled(motion.div)`
     max-height: calc(100% + (1.85rem * 1));
   }
 
-  @media (max-width: ${rem('720px')}) {
+  @media (max-width: ${rem(720)}) {
     visibility: ${({ open }) => open && 'hidden'};
   }
 `;
 
 const Icons = styled.div`
-  height: ${rem('30px')};
+  height: ${rem(30)};
   display: flex;
-  gap: ${rem('40px')};
+  gap: ${rem(40)};
 `;

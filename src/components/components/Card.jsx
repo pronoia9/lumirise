@@ -42,10 +42,10 @@ export default function Card(props) {
 
 const CardContainer = styled(motion.div)`
   position: relative;
-  padding: ${rem('30px')} ${rem('35px')};
+  padding: ${rem(30)} ${rem(35)};
   margin: 0;
   background: var(--c-background3);
-  border-radius: ${rem('18px')};
+  border-radius: ${rem(18)};
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
 
@@ -55,9 +55,9 @@ const CardContainer = styled(motion.div)`
 `;
 
 const CardIcon = styled.div`
-  margin-top: ${rem('15px')};
-  font-size: ${rem('41px')};
-  min-height: ${rem('50px')};
+  margin-top: ${rem(15)};
+  font-size: ${rem(41)};
+  min-height: ${rem(50)};
   line-height: 1;
   color: var(--c-accent);
 `;
@@ -69,7 +69,7 @@ const CardSubtitle = styled.div`
   letter-spacing: 0.05rem;
   ${({ space }) => space !== 'true' && css`
     color: var(--c-accent);
-    margin-bottom: ${rem('5px')};
+    margin-bottom: ${rem(5)};
   `}
 `;
 
@@ -78,18 +78,18 @@ const CardTitle = styled.div`
   font-weight: 700;
   line-height: 1.3;
   margin: 0;
-  margin-bottom: ${rem('15px')};
+  margin-bottom: ${rem(15)};
 `;
 
 const CardDescription = styled.div`
-  margin-bottom: ${rem('85px')};
+  margin-bottom: ${rem(85)};
   /* min-height: ${({ descheight }) => `${descheight}px`}; */
 `;
 
 const CardLink = styled.a`
   position: absolute;
-  left: ${rem('30px')};
-  bottom: ${rem('30px')};
+  left: ${rem(30)};
+  bottom: ${rem(30)};
   height: 1.375rem;
   display: inline-block;
   vertical-align: top;
@@ -103,7 +103,7 @@ const CardLink = styled.a`
   svg {
     position: relative;
     left: 0;
-    top: ${rem('1px')};
+    top: ${rem(1)};
     width: 1rem;
     height: auto;
     margin-left: 1.25rem;
@@ -119,10 +119,10 @@ const CardLink = styled.a`
 
 const CardPattern = styled.div`
   position: absolute;
-  right:  ${rem('-24px')};
-  bottom:  ${rem('-24px')};
-  width:  ${rem('141px')};
-  height:  ${rem('141px')};
+  right:  ${rem(-24)};
+  bottom:  ${rem(-24)};
+  width:  ${rem(141)};
+  height:  ${rem(141)};
   background-image: url('images/pat-2.png');
   filter: invert(${({ theme }) => theme.dotsInvert ?? 0});
   background-position: center center;

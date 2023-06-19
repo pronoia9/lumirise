@@ -57,46 +57,46 @@ const blink = keyframes`
 `;
 
 const Container = styled.div`
-  padding-top: ${rem('40px')};
+  padding-top: ${rem(40)};
   position: relative;
 
-  @media screen and (min-width: ${rem('1700px')}) {
-    padding-top: ${rem('20px')};
+  @media screen and (min-width: ${rem(1700)}) {
+    padding-top: ${rem(20)};
   }
 
-  @media screen and (max-width: ${rem('1024px')}) {
-    padding-top: ${rem('140px')};
+  @media screen and (max-width: ${rem(1024)}) {
+    padding-top: ${rem(140)};
     text-align: center;
   }
 
-  @media screen and (max-width: ${rem('767px')}) {
-		padding-top: ${rem('120px')};
+  @media screen and (max-width: ${rem(767)}) {
+		padding-top: ${rem(120)};
   }
 `;
 
 const Titles = styled.div`
-  max-width: ${rem('640px')};
+  max-width: ${rem(640)};
   /* z-index: 3; */
 
-  @media screen and (max-width: ${rem('1024px')}) {
-    margin-bottom: ${rem('760px')};
+  @media screen and (max-width: ${rem(1024)}) {
+    margin-bottom: ${rem(760)};
     max-width: 100%;
   }
 
-  @media screen and (max-width: ${rem('767px')}) {
-    margin-bottom: ${rem('420px')};
-    min-height: ${rem('160px')};
+  @media screen and (max-width: ${rem(767)}) {
+    margin-bottom: ${rem(420)};
+    min-height: ${rem(160)};
   }
 `;
 
 const DescriptionContainer = styled(Description)`
-  padding: ${rem('40px')} 0;
-  max-width: ${rem('520px')};
+  padding: ${rem(40)} 0;
+  max-width: ${rem(520)};
 
   & > :first-child {
     /* font-family: var(--f-code);
     min-height: 91.78px; */
-    min-height: ${rem('61.188px')};
+    min-height: ${rem(61.188)};
 
     span:last-child {
       color: var(--c-accent);
@@ -107,7 +107,7 @@ const DescriptionContainer = styled(Description)`
 
   p {
     margin-top: 0;
-    margin-bottom: ${rem('40px')} !important;
+    margin-bottom: ${rem(40)} !important;
   }
 
   @media screen and (max-width: 1024px) {

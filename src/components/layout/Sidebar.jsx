@@ -38,7 +38,7 @@ const SidebarMenu = styled(motion.nav)`
   top: 0;
   right: 0;
   width: 100%;
-  max-width: ${rem('512px')};
+  max-width: ${rem(512)};
   height: 100%;
   display: flex;
   overflow: hidden;
@@ -59,7 +59,7 @@ const SidebarContainer = styled(motion.div)`
 const SidebarLine = styled(motion.div)`
   position: absolute;
   left: 20%;
-  width: ${rem('2px')};
+  width: ${rem(2)};
   height: 100%;
   background: var(--c-lineBorder);
   pointer-events: none;
@@ -87,10 +87,10 @@ const SidebarLine = styled(motion.div)`
 
 const SidebarDots = styled(motion.div)`
   position: absolute;
-  top: ${rem('-185px')};
-  left: ${rem('-170px')};
-  width: ${rem('226px')};
-  height: ${rem('226px')};
+  top: ${rem(-185)};
+  left: ${rem(-170)};
+  width: ${rem(226)};
+  height: ${rem(226)};
   background-image: url('images/pat-1.png');
   background-repeat: no-repeat;
   background-size: contain;
