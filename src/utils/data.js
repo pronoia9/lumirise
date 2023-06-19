@@ -505,9 +505,9 @@ export const histroyData = {
 export const contactData = {
   defaultForm: { name: '', email: '', subject: '', message: '' },
   info: [
-    { title: 'Address', description: `42 Hilarity Lane, Whimsyville, Quirkshire, Chuckleville, 12345` },
-    { title: 'Full-Time / Part-Time', description: `Available Right Now` },
-    { title: 'Email', description: `email@gmail.com` },
-    { title: 'Phone', description: `+1 234 567 890` },
+    { svg: 'address', title: 'Address', description: `42 Hilarity Lane, Whimsyville, Quirkshire, Chuckleville, 12345` },
+    { svg: 'contact', title: 'Full-Time / Part-Time', description: `Available Right Now` },
+    { svg: 'email', title: 'Email', description: `email@gmail.com` },
+    { svg: 'phone', title: 'Phone', description: `+1 234 567 890` },
   ],
 };

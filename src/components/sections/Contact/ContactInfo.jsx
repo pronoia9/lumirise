@@ -4,9 +4,9 @@ import { ContactSVGs } from '../../components/SVGs';
 import { contactData } from '../../../utils/data';
 import { rem } from '../../../utils/utils';
 
-const ContactInfoItem = ({ title, description }) => (
+const ContactInfoItem = ({ svg, title, description }) => (
   <Item>
-    <Icon><ContactSVGs type={title} /></Icon>
+    <Icon><ContactSVGs type={svg} /></Icon>
     <Title>{title}</Title>
     <Description>{description}</Description>
   </Item>
