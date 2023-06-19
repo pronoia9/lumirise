@@ -1,18 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 
-import { Card, Grid } from '../..';
+import { Grid } from '../..';
+import { WorksButton, WorksCard, WorksFilters } from './';
 import { SectionWrapper } from '../../../hoc';
-import { UnfilledButton } from '../../../styles/ButtonStyles';
 import { projectsData } from '../../../utils/data';
-import { cardMotion } from '../../../utils/motion';
 import { lowerCase, setProjectsCount, rem } from '../../../utils/utils';
-
-const FilterListItem = ({ title, filter, filterKey, setFilterKey }) => (
-  <FilterItem onClick={() => setFilterKey(lowerCase(filter))} active={`${lowerCase(filter) === lowerCase(filterKey)}`}>
-    {title}
-  </FilterItem>
-);
 
 const Works = () => {
   const [filterKey, setFilterKey] = useState('');
@@ -21,20 +14,19 @@ const Works = () => {
   const [count, setCount] = useState(setProjectsCount(rows));
   const topRef = useRef();
 
+  // Checks whether or not all the projects are shown with the filter
+  const showingAllProjects = () => !(projects.slice(0, count).length < projects.length);
+
   // Handle filtering projects when filter key changes OR when the count is changed due to resizing or row change
   useEffect(() => {
     setProjects(
-      [
-        !filterKey
-          ? projectsData.projects
-          : projectsData.projects.filter(
-              (p) => lowerCase(p.categories.join('')).includes(filterKey) || lowerCase(p.tags.join('')).includes(filterKey)
-            ),
-      ]
-        .flat()
-        .slice(0, count)
+      [!filterKey
+        ? projectsData.projects
+        : projectsData.projects.filter(
+            (p) => lowerCase(p.categories.join('')).includes(filterKey) || lowerCase(p.tags.join('')).includes(filterKey)),
+      ].flat()
     );
-  }, [filterKey, count]);
+  }, [filterKey]);
 
   // Set count when rows change
   useEffect(() => { setCount(setProjectsCount(rows)); }, [rows]);
@@ -43,11 +35,12 @@ const Works = () => {
   useEffect(() => {
     const resize = () => { setCount(setProjectsCount(2)); };
     window.addEventListener('resize', resize);
-    return () => { window.removeEventListener('resize', resize); };
+    return () => { window.removeEventListener('resize', resize);
+    };
   }, []);
 
   const handleButtonClick = () => {
-    if (projects.length < projectsData.projects.length) setRows((prev) => prev + 1);
+    if (!showingAllProjects()) setRows((prev) => prev + 1);
     else {
       setRows(2);
       setCount(rows);
@@ -57,28 +50,15 @@ const Works = () => {
 
   return (
     <Container ref={topRef}>
-      {/* FILTERS */}
-      <FilterList className='filter-links'>
-        {projectsData.filters.map((f, index) => (
-          <FilterListItem key={`filter-${index}`} {...f} filterKey={filterKey} setFilterKey={setFilterKey} />
-        ))}
-      </FilterList>
+      <WorksFilters filterKey={filterKey} setFilterKey={setFilterKey} />
 
-      {/* WORKS */}
       <Grid className='filter-container' size='l' gap='40px'>
-        {projects.map((project, index) => (
-          <Card key={`projects-${filterKey}-${index}`} {...project} section='Works' motion={cardMotion}>
-            <Image className='image'>
-              <img src={project.image} />
-            </Image>
-          </Card>
+        {projects.slice(0, count).map((project, index) => (
+          <WorksCard key={`projects-${filterKey}-${index}`} filterKey={filterKey} project={project} index={index} />
         ))}
       </Grid>
 
-      {/* BUTTON */}
-      <UnfilledButton onClick={handleButtonClick}>
-        <p> View {projects.length < projectsData.projects.length ? 'More' : 'Less'}</p>
-      </UnfilledButton>
+      <WorksButton showingAllProjects={showingAllProjects} handleButtonClick={handleButtonClick} />
     </Container>
   );
 };
@@ -90,68 +70,4 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${rem(40)};
-`;
-
-const FilterList = styled.div`
-  position: relative;
-  text-align: center;
-  align-self: center;
-
-  p {
-    position: relative;
-    margin-bottom: ${rem(20)};
-    margin-right: ${rem(20)};
-    margin-left: ${rem(20)};
-    display: inline-block;
-    vertical-align: top;
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: ${rem(-10)};
-      width: 0;
-      max-width: 60%;
-      height: ${rem(2)};
-      margin-top: ${rem(-2)};
-      background: var(--c-accent);
-      transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
-    }
-
-    &:hover:before {
-      width: ${rem(40)};
-    }
-  }
-`;
-
-const FilterItem = styled.p`
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.05rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  color: ${({ active }) => active === 'true' && 'var(--c-accent)'};
-`;
-
-const Image = styled.div`
-  width: 100%;
-  height: ${rem(180)};
-  border-radius: ${rem(18)};
-  overflow: hidden;
-  margin-bottom: ${rem(30)};
-
-  img {
-    width: 100%;
-    height: ${rem(180)};
-    border-radius: ${rem(18)};
-    object-fit: cover;
-    transform: scale(1);
-    transition: transform 0.6s cubic-bezier(0.3, 0, 0.3, 1);
-  }
-
-  &:hover {
-    img {
-      transform: scale(1.1);
-    }
-  }
 `;
