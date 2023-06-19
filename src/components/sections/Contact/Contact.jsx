@@ -9,10 +9,16 @@ import { contactData } from '../../../utils/data';
 import { rem } from '../../../utils/utils';
 
 const Contact = () => {
-  const [formData, setformData] = useState(contactData.defaultForm);
+  const [formData, setFormData] = useState(contactData.defaultForm);
+  const [message, setMessage] = useState('');
+
+  const reset = () => {
+    setFormData(contactData.defaultForm);
+    setMessage('');
+  }
 
   const handleFormChange = (e) => {
-    setformData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleClick = () => {}
@@ -35,8 +41,8 @@ const Contact = () => {
           ))}
 
           {/* Button */}
-          <ButtonContainer>
-            <p>* Required Fields</p>
+          <ButtonContainer error={`${message.length}`}>
+            <p>{message || '* Required Fields'}</p>
             <div onClick={handleClick}>
               <UnfilledButton>
                 <p>Send Message</p>
