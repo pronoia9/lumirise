@@ -19,7 +19,7 @@ const SectionWrapper = (Component, idName) =>
               <SectionTitle>{title}</SectionTitle>
               <SectionSubtitle>
                 <span>
-                  {subtitle.split(' ')[0]} <span>{subtitle.split(' ')[1]}</span>
+                  {subtitle.split(' ')[0]} <span>{subtitle.split(' ').slice(1).join(' ')}</span>
                 </span>
               </SectionSubtitle>
             </SectionHeading>
