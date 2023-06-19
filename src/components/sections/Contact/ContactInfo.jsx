@@ -8,7 +8,7 @@ const ContactInfoItem = ({ title, description }) => (
   <Item class='numbers-item scrolla-element-anim-1 scroll-animate animate__active animate__animated' data-animate='active'>
     <Icon class='icon'><ContactSVGs type={title} /></Icon>
     <Title class='title'>{title}</Title>
-    <div class='lui-text'>{description}</div>
+    <Description class='lui-text'>{description}</Description>
   </Item>
 );
 
@@ -69,4 +69,8 @@ const Title = styled.div`
   font-size: ${rem(30)};
   font-weight: 700;
   line-height: 1;
+`;
+
+const Description = styled.div`
+  opacity: 0.75;
 `;
