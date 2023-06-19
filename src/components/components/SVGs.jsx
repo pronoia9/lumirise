@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const Path = (props) => <motion.path fill='transparent' strokeWidth='3' strokeLinecap='round' {...props} />;
 
-export const SidebarButton = ({ variants }) => (
+export const SidebarButton = ({ variants = {} }) => (
   <svg width='23' height='23' viewBox='0 0 23 23'>
     <Path {...variants[0]} />
     <Path d='M 2 9.423 L 20 9.423' {...variants[1]} />
