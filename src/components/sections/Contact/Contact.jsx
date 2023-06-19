@@ -39,33 +39,31 @@ const Contact = () => {
   }
 
   return (
-    <div>
-      <Grid columns={2}>
-        <ContactInfo />
+    <Grid columns={2}>
+      <ContactInfo />
 
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          {/* Inputs */}
-          <Grid columns={2} gap={rem(30)} size='m'>
-            {Object.keys(contactData.defaultForm).slice(0, 2).map((field) => (
-              <Input key={`form-${field}`} field={field} formData={formData} handlechange={handleFormChange} />
-            ))}
-          </Grid>
-          {Object.keys(contactData.defaultForm).slice(2).map((field) => (
-            <Input key={`form-${field}`} field={field} value={formData[field]} handlechange={handleFormChange} />
+      <Form ref={formRef} onSubmit={handleSubmit}>
+        {/* Inputs */}
+        <Grid columns={2} gap={rem(30)} size='m'>
+          {Object.keys(contactData.defaultForm).slice(0, 2).map((field) => (
+            <Input key={`form-${field}`} field={field} formData={formData} handlechange={handleFormChange} />
           ))}
+        </Grid>
+        {Object.keys(contactData.defaultForm).slice(2).map((field) => (
+          <Input key={`form-${field}`} field={field} value={formData[field]} handlechange={handleFormChange} />
+        ))}
 
-          {/* Button */}
-          <ButtonContainer alert={`${message.type === 'error'}`} message={`${message.message.length > 0}`}>
-            <p>{message.message || '* Required Fields'}</p>
-            <button type='submit'>
-              <UnfilledButton>
-                <p>Send Message</p>
-              </UnfilledButton>
-            </button>
-          </ButtonContainer>
-        </Form>
-      </Grid>
-    </div>
+        {/* Button */}
+        <ButtonContainer alert={`${message.type === 'error'}`} message={`${message.message.length > 0}`}>
+          <p>{message.message || '* Required Fields'}</p>
+          <button type='submit'>
+            <UnfilledButton>
+              <p>Send Message</p>
+            </UnfilledButton>
+          </button>
+        </ButtonContainer>
+      </Form>
+    </Grid>
   );
 };
 export default SectionWrapper(Contact, 'contact');
