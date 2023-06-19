@@ -5,10 +5,10 @@ import { contactData } from '../../../utils/data';
 import { rem } from '../../../utils/utils';
 
 const ContactInfoItem = ({ title, description }) => (
-  <Item class='numbers-item scrolla-element-anim-1 scroll-animate animate__active animate__animated' data-animate='active'>
-    <Icon class='icon'><ContactSVGs type={title} /></Icon>
-    <Title class='title'>{title}</Title>
-    <Description class='lui-text'>{description}</Description>
+  <Item>
+    <Icon><ContactSVGs type={title} /></Icon>
+    <Title>{title}</Title>
+    <Description>{description}</Description>
   </Item>
 );
 
