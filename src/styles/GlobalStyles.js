@@ -86,9 +86,10 @@ const GlobalStyles = createGlobalStyle`
     transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
     -webkit-transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
     
-    &:link, &:active { color: var(--c-accent); }
-    /* &:visited { color: var(--c-accent); } */
-    &:hover { text-decoration: underline; }
+    /* &:link { color: var(--c-accent); } */
+    /* &:active { color: var(--c-font); } */
+    /* &:visited { color: var(--c-font); } */
+    /* &:hover { text-decoration: underline; color: var(--c-accent); } */
     
     img { border: none; }
   }
