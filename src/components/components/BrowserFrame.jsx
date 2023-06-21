@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { BrowserSVGs } from '..';
-import { dataStore } from '../../utils/dataStore';
+import { dataStore } from '../../store/dataStore';
 import { useEffect, useRef } from 'react';
 
 const SvgContainer = ({ type }) => (<SvgContainerContainer><BrowserSVGs type={type} /></SvgContainerContainer>);
