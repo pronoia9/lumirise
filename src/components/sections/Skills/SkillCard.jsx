@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 import { rem } from '../../../utils/utils';
 
-export default function SkillCard({ title, description, level }) {
+export default function SkillCard({ title, description, level, percentage }) {
   return (
     <SkillCardContainer>
       <SkillTitle>{title}</SkillTitle>
@@ -12,9 +12,13 @@ export default function SkillCard({ title, description, level }) {
           <span />
         </div>
       </SkillLevel>
-      <SkillPercentage>
-        {level} <span>%</span>
-      </SkillPercentage>
+      {percentage && (
+        <>
+          <SkillPercentage>
+            {level} <span>%</span>
+          </SkillPercentage>
+        </>
+      )}
     </SkillCardContainer>
   );
 }
