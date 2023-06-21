@@ -3,17 +3,15 @@ import { styled } from 'styled-components';
 import { RightArrowSVG } from '../../components/SVGs';
 import { CardLink } from '../../../styles/TextStyles.js';
 import { rem } from '../../../utils/utils';
-import { useState } from 'react';
 
 export default function WorksListItem({ project, filterKey, index }) {
-  const [hover, setHover] = useState(false);
   const { id, title, subtitle, description, link, links, image, video, year, date, categories, tags, info } = project;
   console.log(project);
 
   return (
     <Container>
       <ImageContainer className='image'>
-        <ImageWrapper className='img' hover={`${hover}`} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+        <ImageWrapper className='img'>
           <a href='/works/id'>
             <img decoding='async' src={image} alt='Zorro' />
             <span className='overlay'></span>
@@ -91,13 +89,13 @@ const ImageWrapper = styled.div`
   height: 100%;
   overflow: hidden;
   /* cursor: zoom-in; */
+  transition: transform 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 
   img {
     width: auto;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.33s ease-in;
-    transform: ${({ hover }) => hover === 'true' && 'scale(1.1)'};
+    transition: transform 0.6s cubic-bezier(0.3, 0, 0.3, 1);
   }
 
   &:before {
@@ -107,9 +105,15 @@ const ImageWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${({ hover }) => (hover === 'true' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0)')};
+    background: none;
     z-index: 1;
-    transition: background-color 0.33s ease-in;
+    transition: background-color 0.6s cubic-bezier(0.3, 0, 0.3, 1);
+  }
+
+  &:hover {
+    transform: scale(0.95);
+    img { transform: scale(1.1); }
+    &:before { background-color: rgba(0, 0, 0, 0.5); }
   }
 `;
 
