@@ -37,12 +37,13 @@ export default function BrowserFrame({ link = '', handleClick }) {
 const Container = styled.div`
   position: fixed;
   width: 100%;
+  min-width: 100vw;
   height: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 99999;
+  z-index: 9999;
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
@@ -50,9 +51,8 @@ const Frame = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 3px var(--c-lineShadow);
   overflow: scroll;
-  width: 100%;
-  min-width: 75%;
-  max-width: 85%;
+  width: 95%;
+  max-width: 1200px;
   height: 100%;
   min-height: 75vh;
   max-height: 85vh;
