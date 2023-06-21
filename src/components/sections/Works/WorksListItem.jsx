@@ -59,7 +59,21 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: ${rem(100)};
+
+  @media (max-width: ${rem(800)}) {
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--c-background3);
+    border-radius: 25px;
+    gap: 0;
+    
+    div {
+      border-radius: 25px 25px 0 0;
+      width: 100%;
+    }
+  }
 `;
 
 const Image = styled.div`
@@ -99,6 +113,10 @@ const Info = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: ${rem(800)}) {
+    padding: ${rem(30)};
+  }
 `;
 
 const Subtitle = styled.span`
