@@ -1,11 +1,14 @@
 import { styled } from 'styled-components';
 
 import { BrowserSVGs } from '..';
+import { dataStore } from '../../utils/dataStore';
 
 const SvgContainer = ({ type }) => (<SvgContainerContainer><BrowserSVGs type={type} /></SvgContainerContainer>);
 
-export default function BrowserFrame({ link = '', handleClick }) {
-  return (
+export default function BrowserFrame({ handleClick }) {
+  const frameLink = dataStore((state) => state.frameLink);
+
+  return frameLink ? (
     <Container>
       <Frame className='browser-controls'>
         <Controls className='browser-controls'>
@@ -21,16 +24,18 @@ export default function BrowserFrame({ link = '', handleClick }) {
           </PageControls>
 
           <UrlBar className='url-bar white-container'>
-            <div>{link}</div>
+            <div>{frameLink}</div>
             <SvgContainer type='refresh' onClick={() => handleClick('refresh')} />
           </UrlBar>
 
           <SvgContainer type='fullscreen' onClick={() => handleClick('fullscreen')} />
         </Controls>
 
-        <iframe src={link} title='Puny Math' />
+        <iframe src={frameLink} title='Puny Math' />
       </Frame>
     </Container>
+  ) : (
+    <></>
   );
 }
 
