@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 
-import { Grid } from '../..';
-import { WorksButton, WorksCard, WorksFilters } from './';
+import { WorksFilters, WorksGrid, WorksList, WorksButton } from './';
 import { SectionWrapper } from '../../../hoc';
 import { projectsData } from '../../../utils/data';
 import { lowerCase, setProjectsCount, rem } from '../../../utils/utils';
 
-const Works = () => {
+const Works = ({ type = 'grid' }) => {
   const [filterKey, setFilterKey] = useState('');
   const [projects, setProjects] = useState(projectsData.projects);
   const [rows, setRows] = useState(2);
@@ -52,11 +51,8 @@ const Works = () => {
     <Container ref={topRef}>
       <WorksFilters filterKey={filterKey} setFilterKey={setFilterKey} />
 
-      <Grid size='l' gap='40px'>
-        {projects.slice(0, count).map((project, index) => (
-          <WorksCard key={`projects-${filterKey}-${index}`} filterKey={filterKey} project={project} index={index} />
-        ))}
-      </Grid>
+      {type === 'grid' && <WorksGrid projects={projects} count={count} filterKey={filterKey} />}
+      {type === 'list' && <WorksList projects={projects} count={count} filterKey={filterKey} />}
 
       <WorksButton showingAllProjects={showingAllProjects} handleButtonClick={handleButtonClick} />
     </Container>
