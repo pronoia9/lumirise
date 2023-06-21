@@ -1,6 +1,8 @@
 import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
+import { rem } from '../utils/utils';
+
 export const Subtitle = styled(motion.div)`
   font-size: 1rem;
   font-weight: 700;
@@ -114,5 +116,36 @@ export const SectionSubtitle = styled.div`
   }
 
   @media screen and (max-width: 767px) {
+  }
+`;
+
+export const CardLink = styled.a`
+  position: absolute;
+  left: ${rem(30)};
+  bottom: ${rem(30)};
+  height: 1.375rem;
+  display: inline-block;
+  vertical-align: top;
+  color: var(--c-font);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.375rem;
+  text-decoration: none;
+  transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
+
+  svg {
+    position: relative;
+    left: 0;
+    top: ${rem(1)};
+    width: 1rem;
+    height: auto;
+    margin-left: 1.25rem;
+    font-weight: 900;
+    fill: var(--c-accent);
+    transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
+  }
+
+  &:hover svg {
+    margin-left: 0.9rem;
   }
 `;
