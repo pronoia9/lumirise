@@ -5,15 +5,16 @@ import { motion, useCycle } from 'framer-motion';
 
 import { ThemeSVGs, SidebarButton, Sidebar } from '..';
 import { dataStore } from '../../store/dataStore';
-import { navbarMotion, toggleTheme, rem } from '../../utils';
+import { navbarMotion, rem } from '../../utils';
 
-export default function Navbar({ theme, setTheme }) {
+export default function Navbar() {
   const data = dataStore((state) => state.sidebar);
+  const { theme, toggleTheme } = dataStore((state) => ({ theme: state.theme, toggleTheme: state.toggleTheme }));
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [scrollY, setScrollY] = useState(window.scrollY);
   const overlayRef = useRef();
 
-  const handleThemeClick = () => { toggleTheme(setTheme); };
+  const handleThemeClick = () => { toggleTheme(); };
 
   const handleMenuClick = () => { toggleOpen(); };
 

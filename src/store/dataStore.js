@@ -1,7 +1,13 @@
 import { create } from 'zustand';
 import { hi, logo, bananarama, dallelyse, donutdelights, niftynoggin, organizedbliss, punymath, stellarcountdown, teetailor, westsum, donut, donutVid, road, ancientRuins, cloudStation, } from '../assets';
+import { getSystemTheme } from '../utils';
 
 export const dataStore = create((set) => ({
+  // THEME
+  theme: getSystemTheme(),
+  setTheme: (theme) => set({ theme }),
+  toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
+
   // NAVBAR
   sidebar: {
     logo: logo,

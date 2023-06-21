@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { Navbar, Footer, HomePage, WorksPage, OopsPage, BrowserFrame } from './components';
-import GlobalStyles from './styles/GlobalStyles';
-import { getSystemTheme, getTheme, systemThemeChangeHandler } from './utils/utils';
-import { Route, Routes } from 'react-router-dom';
+import { dataStore } from './store/dataStore';
+import { GlobalStyles } from './styles';
+import { getTheme, systemThemeChangeHandler } from './utils';
 
 export default function App() {
-  const [theme, setTheme] = useState(getSystemTheme());
-
+  const { theme, setTheme } = dataStore((state) => ({ theme: state.theme, setTheme: state.setTheme }));
+  
   // EVENT LISTENER FOR SYSTEM THEME CHANGE
   useEffect(() => {
     const systemThemeWatcher = window.matchMedia('(prefers-color-scheme: dark)');
@@ -21,7 +22,7 @@ export default function App() {
   return (
     <ThemeProvider theme={getTheme(theme)}>
       <GlobalStyles />
-      <Navbar theme={theme} setTheme={setTheme} />
+      <Navbar />
       <BrowserFrame />
       <Routes>
         <Route path='/works' element={<WorksPage />} />
