@@ -3,15 +3,16 @@ import { styled } from 'styled-components';
 import { RightArrowSVG } from '../../components/SVGs';
 import { CardLink } from '../../../styles/TextStyles.js';
 import { rem } from '../../../utils/utils';
+import { dataStore } from '../../../utils/dataStore';
 
-export default function WorksListItem({ project, filterKey, index }) {
+export default function WorksListItem({ project, filterKey, index,  }) {
   const { id, title, subtitle, description, link, links, image, video, year, date, categories, tags, info } = project;
-  console.log(project);
+  const setFrameLink = dataStore((state) => state.setFrameLink)
 
   return (
     <Container>
       <ImageContainer className='image'>
-        <ImageWrapper className='img'>
+        <ImageWrapper className='img' onClick={() => setFrameLink(links?.live)}>
           <a href='/works/id'>
             <img decoding='async' src={image} alt='Zorro' />
             <span className='overlay'></span>
