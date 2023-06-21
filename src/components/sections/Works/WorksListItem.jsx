@@ -88,7 +88,7 @@ const ImageWrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  /* cursor: zoom-in; */
+  cursor: zoom-in;
   transition: transform 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 
   img {
