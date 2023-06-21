@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { Navbar, Footer, HomePage } from './components';
+import { Navbar, Footer, HomePage, WorksPage, OopsPage } from './components';
 import GlobalStyles from './styles/GlobalStyles';
 import { getSystemTheme, getTheme, systemThemeChangeHandler } from './utils/utils';
 import { Route, Routes } from 'react-router-dom';
@@ -23,7 +23,9 @@ export default function App() {
       <GlobalStyles />
       <Navbar theme={theme} setTheme={setTheme} />
       <Routes>
-        <Route path='/' element={<HomePage />} />
+        <Route path='/works' element={<WorksPage />} />
+        <Route exact path='/' element={<HomePage />} />
+        <Route path='/' element={<OopsPage />} />
       </Routes>
       <Footer />
     </ThemeProvider>
