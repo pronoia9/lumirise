@@ -5,7 +5,7 @@ import { Contact, Experience, Hero, Services, Skills, Works } from './sections'
 // Pages
 import { HomePage, WorksPage, OopsPage } from './pages';
 // Components
-import { Card, Grid, Preloader, Socials, SidebarButton, ThemeSVGs, SocialSVGs, RightArrowSVG, BrowserSVGs } from './components';
+import { BrowserFrame, Card, Grid, Preloader, Socials, SidebarButton, ThemeSVGs, SocialSVGs, RightArrowSVG, BrowserSVGs } from './components';
 
 export {
   // Layout
@@ -15,5 +15,5 @@ export {
   // Pages
   HomePage, WorksPage, OopsPage,
   // Components
-  Card, Grid, Preloader, Socials, SidebarButton, ThemeSVGs, SocialSVGs, RightArrowSVG, BrowserSVGs
+  BrowserFrame, Card, Grid, Preloader, Socials, SidebarButton, ThemeSVGs, SocialSVGs, RightArrowSVG, BrowserSVGs
 };
