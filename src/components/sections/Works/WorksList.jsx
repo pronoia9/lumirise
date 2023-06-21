@@ -1,6 +1,7 @@
-import { styled } from "styled-components";
-import WorksListItem from "./WorksListItem";
-import { rem } from "../../../utils/utils";
+import { styled } from 'styled-components';
+
+import { WorksListItem } from './';
+import { rem } from '../../../utils/utils';
 
 export default function WorksList({ projects, count, filterKey }) {
   return (
