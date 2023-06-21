@@ -82,7 +82,7 @@ const Container = styled.div`
 const ImageContainer = styled.div`
   position: relative;
   width: 55%;
-  align-self: stretch !important;
+  align-self: stretch;
   isolation: isolate;
 `;
 
@@ -96,6 +96,18 @@ const ImageWrapper = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
+  /* &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: ${({ hover }) => hover === 'true' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0)'};
+    z-index: 1;
+    transition: background-color 0.5s ease-in-out;
+  } */
 `;
 
 const Pattern = styled.div`
