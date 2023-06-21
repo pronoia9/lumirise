@@ -15,6 +15,8 @@ const darkTheme = {
 
   backgroundTitle: 'rgba(255, 255, 255, 0.02)',
   inputPlaceholder: 'rgba(255, 255, 255, 0.5)',
+
+  cursor: 'rgba(255, 255, 255, 0.75)',
 };
 
 const lightTheme = {
@@ -33,6 +35,8 @@ const lightTheme = {
 
   backgroundTitle: 'rgba(0, 0, 0, 0.02)',
   inputPlaceholder: 'rgba(0, 0, 0, 0.5)',
+
+  cursor: 'rgba(0, 0, 0, 0.75)',
 };
 
 export { darkTheme, lightTheme };

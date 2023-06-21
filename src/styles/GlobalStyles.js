@@ -28,6 +28,7 @@ const GlobalStyles = createGlobalStyle`
     --c-lineShadow: ${({ theme }) => theme.lineShadow};
     --c-dotsInvert: ${({ theme }) => theme.dotsInvert};
     --c-inputPlaceholder: ${({ theme }) => theme.inputPlaceholder};
+    --c-cursor: ${({ theme }) => theme.cursor};
     --f-primary: 'Jost';
     --f-secondary: 'Caveat';
     --f-tertiary: 'Caveat Brush';
