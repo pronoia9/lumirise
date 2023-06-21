@@ -3,26 +3,28 @@ import { styled } from 'styled-components';
 import { RightArrowSVG } from '../../components/SVGs';
 import { CardLink } from '../../../styles/TextStyles.js';
 import { rem } from '../../../utils/utils';
+import { useState } from 'react';
 
 export default function WorksListItem({ project, filterKey, index }) {
+  const [hover, setHover] = useState(false);
   const { id, title, subtitle, description, link, links, image, video, year, date, categories, tags, info } = project;
   console.log(project);
 
   return (
     <Container>
-      <Image className='image'>
-        <div className='img'>
+      <ImageContainer className='image'>
+        <ImageWrapper className='img' hover={`${hover}`} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
           <a href='/works/id'>
             <img decoding='async' src={image} alt='Zorro' />
             <span className='overlay'></span>
           </a>
-        </div>
+        </ImageWrapper>
 
         <Pattern className='bg-img' />
-      </Image>
+      </ImageContainer>
 
       {/* Info */}
-      <Info className='desc'>
+      <InfoContainer className='desc'>
         {/* Subtitle */}
         <Subtitle className='category'>{subtitle}</Subtitle>
 
@@ -49,7 +51,7 @@ export default function WorksListItem({ project, filterKey, index }) {
             </CardLink>
           )}
         </Links>
-      </Info>
+      </InfoContainer>
     </Container>
   );
 }
@@ -57,18 +59,19 @@ export default function WorksListItem({ project, filterKey, index }) {
 const Container = styled.div`
   position: relative;
   width: 100%;
+  min-height: 450px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
   gap: ${rem(100)};
 
   @media (max-width: ${rem(800)}) {
     flex-direction: column;
-    align-items: center;
     background-color: var(--c-background3);
     border-radius: 25px;
     gap: 0;
-    
+
     div {
       border-radius: 25px 25px 0 0;
       width: 100%;
@@ -76,20 +79,22 @@ const Container = styled.div`
   }
 `;
 
-const Image = styled.div`
+const ImageContainer = styled.div`
   position: relative;
-  width: 50%;
+  width: 55%;
+  align-self: stretch !important;
   isolation: isolate;
-  
-  & > div:first-child {
+`;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  img {
+    width: auto;
     height: 100%;
-    overflow: hidden;
-    
-    img {
-      width: auto;
-      height: 100%;
-      object-fit: cover;
-    }
+    object-fit: cover;
   }
 `;
 
@@ -99,17 +104,17 @@ const Pattern = styled.div`
   bottom: ${rem(4)};
   width: 141px;
   height: 141px;
-  background: url('/public/images/pat-2.png') center center / contain no-repeat;
+  background: url('/images/pat-2.png') center center / contain no-repeat;
   filter: invert(${({ theme }) => theme.dotsInvert ?? 0});
   opacity: 0.6;
   z-index: -1;
 `;
 
-const Info = styled.div`
+const InfoContainer = styled.div`
   position: relative;
-  width: 50%;
-  min-height: 450px;
-  padding: 0 8% 0 0;
+  width: 45%;
+  height: 100%;
+  padding: 5% 8% 5% 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
