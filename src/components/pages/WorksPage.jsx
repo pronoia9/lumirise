@@ -1,4 +1,4 @@
-import { Works } from "../sections";
+import { Works } from "..";
 
 export default function WorksPage() {
   return (

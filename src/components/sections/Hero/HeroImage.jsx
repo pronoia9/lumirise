@@ -1,19 +1,20 @@
 import { styled } from 'styled-components';
 
-import HeroBadge from './HeroBadge';
-import { heroData } from '../../../utils/data';
-import { rem } from '../../../utils/utils';
+import { HeroBadge } from '../..';
+import { dataStore } from '../../../store/dataStore';
+import { rem } from '../../../utils';
 
 export default function HeroImage() {
+  const data = dataStore((state) => state.hero);
   return (
     <Container>
       <HeroBadgeList>
-        {heroData.badges.map((badge, index) => (
+        {data.badges.map((badge, index) => (
           <HeroBadge key={`hero-badge-${index}`} {...badge} index={index} />
         ))}
       </HeroBadgeList>
 
-      <Image src={heroData.image} />
+      <Image src={data.image} />
       <Circle />
       <Pattern1 />
       <Pattern2 />

@@ -2,11 +2,11 @@ import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { Socials } from '../';
-import { sidebarData } from '../../utils/data';
-import { navbarMotion } from '../../utils/motion';
-import { rem } from '../../utils/utils';
+import { dataStore } from '../../store/dataStore';
+import { navbarMotion, rem } from '../../utils';
 
 export default function Sidebar({ isOpen }) {
+  const data = dataStore((state) => state.sidebar)
   return (
     <SidebarMenu {...navbarMotion.sidebarMenu(isOpen)} open={isOpen}>
       <SidebarContainer>
@@ -17,7 +17,7 @@ export default function Sidebar({ isOpen }) {
 
         {/* Links */}
         <Links {...navbarMotion.sidebarLinks}>
-          {sidebarData.links.map(({ title, link }) => (
+          {data.links.map(({ title, link }) => (
             <motion.li key={`link-${title}`} {...navbarMotion.sidebarLinkItem}>
               <a href={link}>{title}</a>
             </motion.li>

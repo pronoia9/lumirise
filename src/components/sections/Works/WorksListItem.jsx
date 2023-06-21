@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-import { RightArrowSVG } from '../../components/SVGs';
-import { CardLink } from '../../../styles/TextStyles.js';
-import { rem } from '../../../utils/utils';
+import { RightArrowSVG } from '../..';
 import { dataStore } from '../../../store/dataStore';
+import { CardLink } from '../../../styles';
+import { rem } from '../../../utils';
 
 export default function WorksListItem({ project, filterKey, index,  }) {
   const { id, title, subtitle, description, link, links, image, video, year, date, categories, tags, info } = project;

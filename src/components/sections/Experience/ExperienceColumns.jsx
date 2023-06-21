@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { styled } from 'styled-components';
 
-import ExperienceItem from './ExperienceItem';
-import { rem } from '../../../utils/utils';
+import { ExperienceItem } from '../..';
+import { rem } from '../../../utils';
 
 export default function ExperienceColumns({ column, data }) {
   const [openTabIndex, setOpenTabIndex] = useState(null);

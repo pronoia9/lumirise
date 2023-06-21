@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 
-import { WorksFilters, WorksGrid, WorksList, WorksButton } from './';
+import { WorksFilters, WorksGrid, WorksList, WorksButton } from '../..';
 import { SectionWrapper } from '../../../hoc';
-import { projectsData } from '../../../utils/data';
-import { lowerCase, setProjectsCount, rem } from '../../../utils/utils';
+import { lowerCase, setProjectsCount, rem } from '../../../utils';
+import { dataStore } from '../../../store/dataStore';
 
 const Works = ({ type = 'grid' }) => {
+  const data = dataStore((state) => state.works);
   const [filterKey, setFilterKey] = useState('');
-  const [projects, setProjects] = useState(projectsData.projects);
+  const [projects, setProjects] = useState(data.projects);
   const [rows, setRows] = useState(2);
   const [count, setCount] = useState(setProjectsCount(rows));
   const topRef = useRef();
@@ -20,8 +21,8 @@ const Works = ({ type = 'grid' }) => {
   useEffect(() => {
     setProjects(
       [!filterKey
-        ? projectsData.projects
-        : projectsData.projects.filter(
+        ? data.projects
+        : data.projects.filter(
             (p) => lowerCase(p.categories.join('')).includes(filterKey) || lowerCase(p.tags.join('')).includes(filterKey)),
       ].flat()
     );

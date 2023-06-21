@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { SocialSVGs } from '.';
-import { socialsData } from '../../utils/data';
-import { socialsMotion } from '../../utils/motion';
+import { SocialSVGs } from '..';
+import { dataStore } from '../../store/dataStore';
+import { socialsMotion } from '../../utils';
 
 const SocialItem = ({ title, link, props }) => (
   <motion.p {...socialsMotion.socialItem} {...props}>
@@ -15,9 +15,10 @@ const SocialItem = ({ title, link, props }) => (
 );
 
 export default function Socials(props) {
+  const data = dataStore((state) => state.socials);
   return (
     <Container {...socialsMotion.socials}>
-      {socialsData.map((s) => (
+      {data.map((s) => (
         <SocialItem key={`social-${s.title}`} {...s} props={props} />
       ))}
     </Container>

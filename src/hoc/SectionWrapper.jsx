@@ -2,13 +2,14 @@ import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { SectionTitle, SectionSubtitle } from '../styles/TextStyles';
-import { sectionsData } from '../utils/data';
 import { sectionWrapperMotion } from '../utils/motion';
 import { rem } from '../utils/utils';
+import { dataStore } from '../store/dataStore';
 
 const SectionWrapper = (Component, idName) =>
   function HOC(props) {
-    const { title, subtitle, background } = sectionsData[idName] ?? {};
+    const data = dataStore((state) => state.sections);
+    const { title, subtitle, background } = data[idName] ?? {};
 
     return (
       <Container id={idName} gradient={props?.gradient} idname={idName}>

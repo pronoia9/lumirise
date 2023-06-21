@@ -1,21 +1,24 @@
 import { styled } from 'styled-components';
 
-import { projectsData } from '../../../utils/data';
-import { lowerCase, rem } from '../../../utils/utils';
-
-const WorksFiltersItem = ({ title, filter, filterKey, setFilterKey }) => (
-  <FilterItem onClick={() => setFilterKey(lowerCase(filter))} active={`${lowerCase(filter) === lowerCase(filterKey)}`}>
-    {title}
-  </FilterItem>
-);
+import { dataStore } from '../../../store/dataStore';
+import { lowerCase, rem } from '../../../utils';
 
 export default function WorksFilters({ filterKey, setFilterKey }) {
+  const data = dataStore((state) => state.works);
   return (
     <FilterList>
-      {projectsData.filters.map((f, index) => (
+      {data.filters.map((f, index) => (
         <WorksFiltersItem key={`filter-${index}`} {...f} filterKey={filterKey} setFilterKey={setFilterKey} />
       ))}
     </FilterList>
+  );
+}
+
+function WorksFiltersItem({ title, filter, filterKey, setFilterKey }) {
+  return (
+    <FilterItem onClick={() => setFilterKey(lowerCase(filter))} active={`${lowerCase(filter) === lowerCase(filterKey)}`}>
+      {title}
+    </FilterItem>
   );
 }
 
@@ -44,7 +47,7 @@ const FilterItem = styled.p`
     position: absolute;
     left: 0;
     bottom: ${rem(-10)};
-    width: ${({ active }) => active === 'true' ? rem(40) : 0};
+    width: ${({ active }) => (active === 'true' ? rem(40) : 0)};
     max-width: 60%;
     height: ${rem(2)};
     margin-top: ${rem(-2)};

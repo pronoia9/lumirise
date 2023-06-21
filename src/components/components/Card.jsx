@@ -1,9 +1,9 @@
 import { styled, css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { RightArrowSVG } from '.';
-import { CardLink } from '../../styles/TextStyles';
-import { rem } from '../../utils/utils';
+import { RightArrowSVG } from '..';
+import { CardLink } from '../../styles';
+import { rem } from '../../utils';
 
 export default function Card(props) {
   const { title, subtitle, description, link } = props; // Common Data

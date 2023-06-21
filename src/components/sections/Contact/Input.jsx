@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
-import { rem } from '../../../utils/utils';
+
+import { rem } from '../../../utils';
 
 export default function Input({ field, value, handlechange }) {
   return (

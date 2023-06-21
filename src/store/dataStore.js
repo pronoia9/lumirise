@@ -153,7 +153,7 @@ export const dataStore = create((set) => ({
     },
   ],
 
-  projects: {
+  works: {
     filters: [
       { title: 'all', filter: '' },
       { title: 'react', filter: 'react' },
@@ -431,7 +431,7 @@ export const dataStore = create((set) => ({
     ].sort((a, b) => b.date - a.date),
   },
 
-  histroy: {
+  experience: {
     education: [
       {
         title: 'Seneca College',

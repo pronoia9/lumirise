@@ -1,19 +1,20 @@
 import { styled } from 'styled-components';
 
-import { Grid } from '../..';
-import { ExperienceColumns } from './index';
+import { Grid, ExperienceColumns } from '../..';
 import { SectionWrapper } from '../../../hoc';
-import { histroyData } from '../../../utils/data';
+import { dataStore } from '../../../store/dataStore';
 
 const Experience = () => {
+  const data = dataStore((state) => state.experience);
+
   return (
     <Container>
       <Grid columns={2} gap='25px'>
         <Flexbox>
-          <ExperienceColumns column='Education' data={histroyData.education} />
-          <ExperienceColumns column='Activities' data={histroyData.activities} />
+          <ExperienceColumns column='Education' data={data.education} />
+          <ExperienceColumns column='Activities' data={data.activities} />
         </Flexbox>
-        <ExperienceColumns column='Courses' data={histroyData.courses} />
+        <ExperienceColumns column='Courses' data={data.courses} />
       </Grid>
     </Container>
   );

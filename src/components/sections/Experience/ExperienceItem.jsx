@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { css, styled } from 'styled-components';
 
-import { rem } from '../../../utils/utils';
+import { rem } from '../../../utils';
 
 export default function ExperienceItem({ title, subtitle, dates, description, index, openTabIndex, setOpenTabIndex }) {
   const [open, setOpen] = useState(false);

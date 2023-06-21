@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { lowerCase } from '../../utils/utils';
+
+import { lowerCase } from '../../utils';
 
 const Path = (props) => <motion.path fill='transparent' strokeWidth='3' strokeLinecap='round' {...props} />;
 

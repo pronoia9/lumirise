@@ -1,5 +1,4 @@
-import { Grid } from '../..';
-import { WorksCard } from '.';
+import { Grid, WorksCard } from '../..';
 
 export default function WorksGrid({ projects, count, filterKey }) {
   return (

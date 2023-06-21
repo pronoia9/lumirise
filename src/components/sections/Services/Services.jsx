@@ -6,9 +6,10 @@ import 'swiper/css/pagination';
 
 import { Card } from '../..';
 import { SectionWrapper } from '../../../hoc';
-import { servicesData } from '../../../utils/data';
+import { dataStore } from '../../../store/dataStore';
 
 const Services = () => {
+  const data = dataStore((state) => state.services);
   const options = {
     modules: [Pagination, A11y],
     spaceBetween: 50,
@@ -26,7 +27,7 @@ const Services = () => {
   return (
     <Container>
       <Swiper {...options}>
-        {servicesData.map((service, index) => (
+        {data.map((service, index) => (
           <SwiperSlide key={`service-${index}`}>
             <Card {...service} section='Works' space={true} />
           </SwiperSlide>

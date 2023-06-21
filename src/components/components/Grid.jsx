@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { rem } from '../../utils/utils';
+import { rem } from '../../utils';
 
 export default function Grid({ children, columns = 3, size, gap }) {
   return (

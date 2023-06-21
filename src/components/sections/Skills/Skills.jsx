@@ -1,12 +1,12 @@
-import { Grid } from '../..';
-import { SkillCard } from '.';
+import { Grid, SkillCard } from '../..';
 import { SectionWrapper } from '../../../hoc';
-import { skillsData } from '../../../utils/data';
+import { dataStore } from '../../../store/dataStore';
 
 const Skills = () => {
+  const data = dataStore((state) => state.skills);
   return (
     <Grid size='m'>
-      {skillsData.map((skill, index) => (
+      {data.map((skill, index) => (
         <SkillCard key={`skill-${index}`} {...skill} />
       ))}
     </Grid>

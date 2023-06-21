@@ -1,24 +1,30 @@
 import { styled } from 'styled-components';
 
-import { ContactSVGs } from '../../components/SVGs';
-import { contactData } from '../../../utils/data';
-import { rem } from '../../../utils/utils';
-
-const ContactInfoItem = ({ svg, title, description }) => (
-  <Item>
-    <Icon><ContactSVGs type={svg} /></Icon>
-    <Title>{title}</Title>
-    <Description>{description}</Description>
-  </Item>
-);
+import { ContactSVGs } from '../..';
+import { dataStore } from '../../../store/dataStore';
+import { rem } from '../../../utils';
 
 export default function ContactInfo() {
+  const data = dataStore((state) => state.contact);
+
   return (
     <div>
-      {contactData.info.map((val, index) => (
+      {data.info.map((val, index) => (
         <ContactInfoItem key={`contact-info-item-${index}`} {...val} />
       ))}
     </div>
+  );
+}
+
+function ContactInfoItem({ svg, title, description }) {
+  return (
+    <Item>
+      <Icon>
+        <ContactSVGs type={svg} />
+      </Icon>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
+    </Item>
   );
 }
 

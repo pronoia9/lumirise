@@ -1,4 +1,4 @@
-import { UnfilledButton } from '../../../styles/ButtonStyles';
+import { UnfilledButton } from '../../../styles';
 
 export default function WorksButton({ showingAllProjects, handleButtonClick }) {
   return (

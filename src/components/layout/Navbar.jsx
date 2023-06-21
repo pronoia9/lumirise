@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { css, keyframes, styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { motion, useCycle } from 'framer-motion';
 
 import { ThemeSVGs, SidebarButton, Sidebar } from '..';
-import { sidebarData } from '../../utils/data';
-import { navbarMotion } from '../../utils/motion';
-import { toggleTheme, rem } from '../../utils/utils';
+import { dataStore } from '../../store/dataStore';
+import { navbarMotion, toggleTheme, rem } from '../../utils';
 
 export default function Navbar({ theme, setTheme }) {
+  const data = dataStore((state) => state.sidebar);
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [scrollY, setScrollY] = useState(window.scrollY);
   const overlayRef = useRef();
@@ -39,7 +39,7 @@ export default function Navbar({ theme, setTheme }) {
         {/* Left Side - Logo */}
         <Logo open={isOpen} {...navbarMotion.logo(parseInt(scrollY) > 100)}>
           <Link to='/'>
-            <img src={sidebarData.logo} />
+            <img src={data.logo} />
           </Link>
         </Logo>
 

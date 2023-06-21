@@ -1,8 +1,7 @@
 import { styled } from 'styled-components';
 
 import { Card } from '../..';
-import { cardMotion } from '../../../utils/motion';
-import { rem } from '../../../utils/utils';
+import { cardMotion, rem } from '../../../utils';
 
 export default function WorksCard({ filterKey, project, index }) {
   return (

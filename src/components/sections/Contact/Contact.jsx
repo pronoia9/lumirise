@@ -2,20 +2,20 @@ import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { styled } from 'styled-components';
 
-import { Grid } from '../..';
-import { ContactInfo, Input } from './';
+import { Grid, ContactInfo, Input } from '../..';
 import { SectionWrapper } from '../../../hoc';
-import { UnfilledButton } from '../../../styles/ButtonStyles';
-import { contactData } from '../../../utils/data';
-import { rem } from '../../../utils/utils';
+import { dataStore } from '../../../store/dataStore';
+import { UnfilledButton } from '../../../styles';
+import { rem } from '../../../utils';
 
 const Contact = () => {
-  const [formData, setFormData] = useState(contactData.defaultForm);
+  const data = dataStore((state) => state.contact)
+  const [formData, setFormData] = useState(data.defaultForm);
   const [message, setMessage] = useState({ type: '', message: '' });
   const formRef = useRef();
   
   const resetForm = () => {
-    setFormData(contactData.defaultForm);
+    setFormData(data.defaultForm);
     setMessage({ type: '', message: '' });
   }
   
@@ -45,11 +45,11 @@ const Contact = () => {
       <Form ref={formRef} onSubmit={handleSubmit}>
         {/* Inputs */}
         <Grid columns={2} gap={rem(30)} size='m'>
-          {Object.keys(contactData.defaultForm).slice(0, 2).map((field) => (
+          {Object.keys(data.defaultForm).slice(0, 2).map((field) => (
             <Input key={`form-${field}`} field={field} formData={formData} handlechange={handleFormChange} />
           ))}
         </Grid>
-        {Object.keys(contactData.defaultForm).slice(2).map((field) => (
+        {Object.keys(data.defaultForm).slice(2).map((field) => (
           <Input key={`form-${field}`} field={field} value={formData[field]} handlechange={handleFormChange} />
         ))}
 

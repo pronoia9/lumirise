@@ -3,13 +3,13 @@ import Typed from 'typed.js';
 import { keyframes, styled } from 'styled-components';
 
 import { Socials } from '../..';
-import { UnfilledButton } from '../../../styles/ButtonStyles';
-import { Description, SubtitleWithAccent, SubtitleWithHandwriting, HeroTitle } from '../../../styles/TextStyles';
-import { heroData } from '../../../utils/data';
-import { rem } from '../../../utils/utils';
+import { dataStore } from '../../../store/dataStore';
+import { UnfilledButton, Description, SubtitleWithAccent, SubtitleWithHandwriting, HeroTitle } from '../../../styles';
+import { rem } from '../../../utils';
 
 export default function HeroIntro() {
-  const { name, occupation, introductions } = heroData;
+  const data = dataStore((state) => state.hero);
+  const { name, occupation, introductions } = data;
   const introRef = useRef(), cursorRef = useRef();
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function HeroIntro() {
 
       {/* Download Button */}
       <UnfilledButton>
-        <a href={heroData.resumeLink} target='_blank'><span>Download CV</span></a>
+        <a href={data.resumeLink} target='_blank'><span>Download CV</span></a>
         <a href='#skills'>My Skills</a>
       </UnfilledButton>
     </Container>

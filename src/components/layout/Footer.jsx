@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
-import Socials from '../components/Socials';
-import { rem } from '../../utils/utils';
+
+import { Socials } from '..';
+import { rem } from '../../utils';
 
 export default function Footer() {
   return (
