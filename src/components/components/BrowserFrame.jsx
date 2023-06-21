@@ -2,14 +2,23 @@ import { styled } from 'styled-components';
 
 import { BrowserSVGs } from '..';
 import { dataStore } from '../../utils/dataStore';
+import { useEffect, useRef } from 'react';
 
 const SvgContainer = ({ type }) => (<SvgContainerContainer><BrowserSVGs type={type} /></SvgContainerContainer>);
 
 export default function BrowserFrame({ handleClick }) {
-  const frameLink = dataStore((state) => state.frameLink);
+  const { frameLink, setFrameLink } = dataStore((state) => ({ frameLink: state.frameLink, setFrameLink: state.setFrameLink }));
+  const overlayRef = useRef();
+
+  // Closes the frame/tab when clicking outside of it
+  useEffect(() => {
+    const clickElsewhere = (e) => { if (e.target === overlayRef.current) setFrameLink(null); }
+    window.addEventListener('mousedown', clickElsewhere);
+    return () => { window.removeEventListener('mousedown', clickElsewhere); };
+  }, []);
 
   return frameLink ? (
-    <Container>
+    <Container ref={overlayRef}>
       <Frame className='browser-controls'>
         <Controls className='browser-controls'>
           <WindowControls className='window-controls'>
