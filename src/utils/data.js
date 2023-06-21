@@ -42,6 +42,7 @@ export const sectionsData = {
   works: { title: 'Portfolio', subtitle: 'My Cases', background: 'Portfolio' },
   experience: { title: 'Resume', subtitle: 'My Story', background: 'History' },
   contact: { title: 'Contact Me', subtitle: `Let's Talk About Ideas`, background: 'Contact Me' },
+  'works-list': { title: 'Portfolio', subtitle: `My Projects`, background: 'Portfolio' },
 };
 
 export const heroData = {
