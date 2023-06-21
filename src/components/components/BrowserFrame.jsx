@@ -4,28 +4,28 @@ import { BrowserSVGs } from '..';
 
 const SvgContainer = ({ type }) => (<SvgContainerContainer><BrowserSVGs type={type} /></SvgContainerContainer>);
 
-export default function BrowserFrame({ link = '' }) {
+export default function BrowserFrame({ link = '', handleClick }) {
   return (
     <Container>
       <Frame className='browser-controls'>
         <Controls className='browser-controls'>
           <WindowControls className='window-controls'>
-            <span className='close' />
-            <span className='minimise' />
-            <span className='maximise' />
+            <span className='close' onClick={() => handleClick('close')} />
+            <span className='minimise' onClick={() => handleClick('minimise')} />
+            <span className='maximise' onClick={() => handleClick('maximise')} />
           </WindowControls>
 
           <PageControls className='page-controls'>
-            <SvgContainer type='back' />
-            <SvgContainer type='next' />
+            <SvgContainer type='back' onClick={() => handleClick('back')} />
+            <SvgContainer type='next' onClick={() => handleClick('next')} />
           </PageControls>
 
           <UrlBar className='url-bar white-container'>
             <div>{link}</div>
-            <SvgContainer type='refresh' />
+            <SvgContainer type='refresh' onClick={() => handleClick('refresh')} />
           </UrlBar>
 
-          <SvgContainer type='fullscreen' />
+          <SvgContainer type='fullscreen' onClick={() => handleClick('fullscreen')} />
         </Controls>
 
         <iframe src={link} title='Puny Math' />
