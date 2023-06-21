@@ -69,8 +69,12 @@ const Container = styled.div`
     text-align: center;
   }
 
-  @media screen and (max-width: ${rem(767)}) {
-		padding-top: ${rem(120)};
+  @media screen and (max-width: ${rem(770)}) {
+    padding-top: ${rem(50)};
+  }
+
+  @media screen and (max-width: ${rem(500)}) {
+    padding-top: ${rem(1)};
   }
 `;
 
@@ -83,9 +87,13 @@ const Titles = styled.div`
     max-width: 100%;
   }
 
-  @media screen and (max-width: ${rem(767)}) {
-    margin-bottom: ${rem(420)};
+  @media screen and (max-width: ${rem(770)}) {
+    margin-bottom: ${rem(375)};
     min-height: ${rem(160)};
+  }
+
+  @media screen and (max-width: ${rem(500)}) {
+    margin-bottom: ${rem(375)};
   }
 `;
 
@@ -96,7 +104,7 @@ const DescriptionContainer = styled(Description)`
   & > :first-child {
     /* font-family: var(--f-code);
     min-height: 91.78px; */
-    min-height: ${rem(91.782)};
+    min-height: ${rem(122.376)};
 
     span:last-child {
       color: var(--c-accent);

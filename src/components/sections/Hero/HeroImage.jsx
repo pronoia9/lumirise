@@ -48,9 +48,13 @@ const Container = styled.div`
     transform-origin: top center;
   }
 
-  @media screen and (max-width: ${rem(767)}) {
-    top: ${rem(680)};
+  @media screen and (max-width: ${rem(770)}) {
+    top: ${rem(640)};
     transform: scale(0.5);
+  }
+
+  @media screen and (max-width: ${rem(500)}) {
+    top: ${rem(550)};
   }
 `;
 
