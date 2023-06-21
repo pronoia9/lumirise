@@ -96,7 +96,7 @@ const DescriptionContainer = styled(Description)`
   & > :first-child {
     /* font-family: var(--f-code);
     min-height: 91.78px; */
-    min-height: ${rem(61.188)};
+    min-height: ${rem(91.782)};
 
     span:last-child {
       color: var(--c-accent);
