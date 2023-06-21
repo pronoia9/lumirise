@@ -8,7 +8,7 @@ import { rem } from '../utils/utils';
 
 const SectionWrapper = (Component, idName) =>
   function HOC(props) {
-    const { title, subtitle, background } = sectionsData[idName];
+    const { title, subtitle, background } = sectionsData[idName] ?? {};
 
     return (
       <Container id={idName} gradient={props?.gradient} idname={idName}>
