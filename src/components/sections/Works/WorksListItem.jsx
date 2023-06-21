@@ -5,50 +5,38 @@ import { dataStore } from '../../../store/dataStore';
 import { CardLink } from '../../../styles';
 import { rem } from '../../../utils';
 
-export default function WorksListItem({ project, filterKey, index,  }) {
+export default function WorksListItem({ project, filterKey, index }) {
   const { id, title, subtitle, description, link, links, image, video, year, date, categories, tags, info } = project;
   const setFrameLink = dataStore((state) => state.setFrameLink)
 
   return (
     <Container>
-      <ImageContainer className='image'>
-        <ImageWrapper className='img' onClick={() => setFrameLink(links?.live)}>
+      <ImageContainer>
+        <ImageWrapper onClick={() => setFrameLink(links?.live)} link={`${links?.live ? true : false}`}>
           <a href='/works/id'>
             <img decoding='async' src={image} alt='Zorro' />
-            <span className='overlay'></span>
+            <span />
           </a>
         </ImageWrapper>
 
-        <Pattern className='bg-img' />
+        <Pattern />
       </ImageContainer>
 
       {/* Info */}
-      <InfoContainer className='desc'>
+      <InfoContainer>
         {/* Subtitle */}
-        <Subtitle className='category'>{subtitle}</Subtitle>
+        <Subtitle>{subtitle}</Subtitle>
 
         {/* Title */}
-        <Title className='name'>
-          <a href='work-single.html'>{title}</a>
-        </Title>
+        <Title><a href='work-single.html'>{title}</a></Title>
 
         {/* Description */}
-        <Description className='text'>
-          <p>{description}</p>
-        </Description>
+        <Description><p>{description}</p></Description>
 
         {/* Links */}
         <Links>
-          {links?.repo && (
-            <CardLink href={links.repo}>
-              See source code <RightArrowSVG />
-            </CardLink>
-          )}
-          {links?.live && (
-            <CardLink href={links.live}>
-              See live site <RightArrowSVG />
-            </CardLink>
-          )}
+          {links?.repo && (<CardLink href={links.repo}>See source code <RightArrowSVG /></CardLink>)}
+          {links?.live && (<CardLink href={links.live}>See live site <RightArrowSVG /></CardLink>)}
         </Links>
       </InfoContainer>
     </Container>
@@ -89,7 +77,7 @@ const ImageWrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  cursor: zoom-in;
+  cursor: ${({ link }) => link === 'true' && 'zoom-in'};
   transition: transform 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 
   img {
@@ -114,7 +102,7 @@ const ImageWrapper = styled.div`
   &:hover {
     transform: scale(0.95);
     img { transform: scale(1.1); }
-    &:before { background-color: rgba(0, 0, 0, 0.5); }
+    &:before { background-color: ${({ link }) => link === 'true' && 'rgba(0, 0, 0, 0.5)'} }
   }
 `;
 
